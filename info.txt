@@ -1,0 +1,45 @@
+Node version: v0.10.22
+
+Cordova version: 4.0.0
+
+Config.xml file: 
+
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.younetco.mobifox" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>SEMobi</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true"/>
+    <preference name="BackgroundColor" value="0xffffff"/>
+    <preference name="HideKeyboardFormAccessoryBar" value="true"/>
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <preference name="KeyboardShrinksView" value="false" />
+</widget>
+
+
+Plugins: 
+
+cc.fovea.plugins.inapppurchase,com.phonegap.plugins.facebookconnect,com.phonegap.plugins.PushPlugin,com.phonegap.plugins.twitter,com.plugin.datepicker,com.smartmobilesoftware.inappbilling,nl.x-services.plugins.socialsharing,nl.x-services.plugins.toast,org.apache.cordova.battery-status,org.apache.cordova.camera,org.apache.cordova.console,org.apache.cordova.device,org.apache.cordova.dialogs,org.apache.cordova.file,org.apache.cordova.file-transfer,org.apache.cordova.geolocation,org.apache.cordova.globalization,org.apache.cordova.inappbrowser,org.apache.cordova.media,org.apache.cordova.media-capture,org.apache.cordova.network-information,org.apache.cordova.splashscreen,org.apache.cordova.statusbar,org.apache.cordova.vibration
+
+Android platform:
+
+Available Android targets:
+----------
+id: 1 or "android-19"
+     Name: Android 4.4.2
+     Type: Platform
+     API level: 19
+     Revision: 3
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : default/armeabi-v7a
+
+Error retrieving iOS platform information: Error: xcodebuild: Command failed with exit code ENOENT
+
