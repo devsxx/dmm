@@ -1,0 +1,38 @@
+<!-- forum/tpl/forum-thread-detail.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top btn-more hide" id="<%=item.getDataId('setting')%>" rel="delegate">
+		</div>
+	</div>
+	<div class="header-center">
+		<div id="page_title" class="title">
+			<%= _t('Loading...') %>
+		</div>
+	</div>
+</div>
+
+<div class="content content-background with-header swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list vertical-align forum-list-holder">
+				<div class="forum-poll-item" id="poll_item_holder"></div>
+				<div class="forum-post-list" id="post_list_holder"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer footer-pagination hide" id="footer">
+	<div class="clearfix menu-justify grid-2 fobos">
+        <div class="menu-item hide" id="footer_reply_btn">
+        	<a class="" href="#forum_thread/<%=item.getId()%>/reply"><%= _t('Reply') %></a>
+        </div>
+        <div class="menu-item">
+        	<div class="sibling" id="pagination_holder"></div>
+        </div>
+    </div>
+</div>

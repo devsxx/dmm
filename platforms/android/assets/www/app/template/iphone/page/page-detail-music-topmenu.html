@@ -1,0 +1,8 @@
+<div class="setting-list">
+    <a class="setting-item <%if (context.activeType == 'songs') {%>current<%}%>" href="#pages/<%=item.getId()%>/music_songs">
+    	<%=_t('All Songs')%>
+    </a>
+    <a class="setting-item <%if (context.activeType == 'albums') {%>current<%}%>" href="#pages/<%=item.getId()%>/music_albums">
+    	<%=_t('All Albums')%>
+    </a>
+</div>

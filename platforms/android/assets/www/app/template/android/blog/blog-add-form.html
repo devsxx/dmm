@@ -1,0 +1,82 @@
+<div class="blog-add-form">
+    <div class="form-general">
+        <!-- form content -->
+        <div class="form-title">
+            <%= _t('title') %>
+        </div>
+        <div class="form-group">
+            <input type="text" class="control-full" id="blog_form_title" placeholder="<%= _t('title') %>" value="" />
+        </div>
+
+        <div class="form-title">
+            <%= _t('post') %>
+            <span id="insert_image_btn" class="btn-form-insert-image">+ <%=_t('insert_image')%></span>
+        </div>
+        <div class="form-group">
+            <textarea id="blog_form_post" class="control-full textarea" placeholder="<%= _t('post') %>"></textarea>
+        </div>
+
+        <div class="form-title">
+            <%= _t('categories') %>
+        </div>
+        <div class="form-group form-group-flex">
+            <div class="categories-btn action-item" data-filter="public">
+                <span><%=_t('public')%></span>
+            </div>
+            <div class="categories-btn action-item" data-filter="personal">
+                <span><%=_t('personal')%></span>
+            </div>
+        </div>
+
+        <div class="form-title">
+            <%= _t('status') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="blog_form_status">
+                <option value="publish"><%=_t('publish')%></option>
+                <option value="draft"><%=_t('draft')%></option>
+            </select>
+        </div>
+
+        <div class="form-title">
+            <%= _t('view_privacy') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="blog_form_privacy">
+                <%_.each(view_options, function (option) {%>
+    			<option value="<%=option.sValue%>"><%=option.sPhrase%></option>
+    			<%});%>
+            </select>
+        </div>
+
+        <div class="form-title">
+            <%= _t('comment_privacy') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="blog_form_privacy_comment">
+                <%_.each(comment_options, function (option) {%>
+    			<option value="<%=option.sValue%>"><%=option.sPhrase%></option>
+    			<%});%>
+            </select>
+        </div>
+
+        <div class="form-title">
+            <%= _t('attachments') %>
+        </div>
+        <div class="form-group form-group-flex">
+            <div class="action-item" id="attach_gallery_btn">
+                <i class="icon icon-attachment-gallery"></i>
+            </div>
+            <div class="action-item" id="attach_link_btn">
+                <i class="icon icon-attachment-link"></i>
+            </div>            
+        </div>
+
+        <div>
+            <div class="clearfix" id="attachment_photo_holder">
+            </div>
+            <div class="clearfix" id="attachment_link_holder">
+            </div>
+        </div>
+    </div>
+</div>

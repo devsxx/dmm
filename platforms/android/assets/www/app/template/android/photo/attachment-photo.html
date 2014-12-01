@@ -1,0 +1,12 @@
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+	<% _.each(attachments,function(attachment){ %>
+        <%if (attachment.getImgSrc()) {%>
+    	<div rel="link" data-url="<%=attachment.getUrl()%>" class="swiper-slide attachment-photo-item">
+    		<span class="attachment-photo-item-thumb" style="background-image: url(<%= attachment.getImgSrc() %>)">
+    		</span>
+		</div>
+        <%}%>
+	<%}); %>
+	</div>
+</div>

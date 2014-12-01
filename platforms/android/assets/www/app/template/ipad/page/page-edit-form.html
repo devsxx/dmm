@@ -1,0 +1,62 @@
+<div class="page-add-form">
+    <div class="form-general">
+
+        <div class="form-title">
+        <%= _t('Cover Photo') %>
+        </div>
+        <div class="form-group">
+            <div id="page_form_cover_holder">
+                <!-- page cover will be added here --> 
+            </div>
+            <input class="btn btn-form-photo-cover" type="button" id="page_form_photo_browse" />
+        </div>
+
+        <div class="form-title">
+            <%= _t('Category') %>
+        </div>
+
+        <!--type-->
+        <div class="form-group">
+            <select class="control-full" id="page_form_type">
+                <%_.each(item.getCategoryOptions(), function (option) {%>
+                <option value="<%=option.type_id%>" <%if (option.type_id == item.getTypeId()) {%>selected="selected"<%}%>><%=option.name%></option>
+                <%});%>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="page_form_category">
+                <option value=""><%= _t('Select a Category')%></option>
+                <%_.each(_.findWhere(item.getCategoryOptions(), {type_id: item.getTypeId()}).sub_categories, function (subCategory) {%>
+                <option value="<%=subCategory.category_id%>" <%if (subCategory.category_id == item.getCategoryId()) {%>selected="selected"<%}%>><%=subCategory.name%></option>
+                <%});%>
+            </select>
+        </div>
+        <!--name-->
+        <div class="form-title">
+            <%= _t('Name') %>
+        </div>
+        <div class="form-group">
+            <input type="text" class="control-full" id="page_form_title" placeholder="<%= _t('Name') %>" value="<%=item.getTitle()%>"/>
+        </div>
+
+        <div class="form-title">
+            <%= _t('Information') %>
+        </div>
+        <div class="form-group">
+            <textarea class="control-full textarea" id="page_form_info" placeholder="<%= _t('Information') %>"><%=item.getText()%></textarea>
+        </div>
+
+
+        <div class="form-title">
+        <%= _t('Avatar') %>
+        </div>
+        <div class="form-group">
+        <div id="page_form_avatar_holder">
+        <!-- page avatar will be added here -->
+        </div>
+        <input class="btn btn-form-photo" type="button" id="page_form_photo_browse" />
+        </div>
+
+
+    </div>
+</div>

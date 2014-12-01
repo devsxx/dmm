@@ -1,0 +1,21 @@
+<div class="box-header">
+	<a href="#messages/compose">
+		<i class="icon icon-compose-message"></i>
+		<span><%= _t('New Message') %></span>
+	</a>
+</div>
+<div id="box-message-content" class="box-message-content swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="pvs"></div>
+			<div id="message_box_list_view_holder" class="swiper-list vertical"></div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="box-footer">
+    <div class="text-anchor">
+    	<div class=""><a href="#messages"><%= _t('See All') %></a></div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<!-- photo/tpl/album-index.html-->
+<div class="header">
+	<div clickable="true" data-click="sidebar:toggle" class="header-left">
+		<i class="icon icon-sidebar"></i>
+	</div>
+	<div class="header-right">
+	<%if(!iUserId || iUserId == viewerId){ %>
+		<a class="btn-top btn-add" href="#photos/add-album"></a>
+	<%}%>
+	</div>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+	</div>
+
+	<div class="header-center title">
+        <div class="title" id="page_title">
+            <%= _t('My Albums') %>
+        </div>
+	</div>
+</div>
+
+<div id="search_view_holder">
+	<!-- search holder -->
+</div>
+
+<div class="content content-background with-header-footer with-search swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list photo-album-list" id="album_my_list_view_holder"></div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-3 fobos">
+        <%if(!iUserId){ %>
+	        <a class="menu-item" href="#albums">
+	        	<div class=""><%= _t('Albums') %></div>
+	        </a>
+	        <a class="menu-item" href="#photos">
+	        	<div class="sibling"><%= _t('Photos') %></div>
+	        </a>
+	        <a class="menu-item current" href="#albums/my">
+	        	<div class="sibling"><%= _t('My Albums') %></div>
+	        </a>
+            <a class="menu-item" href="#photos/my">
+				<%= _t('My Photos') %>
+			</a>
+        <%}else{%>
+	        <a class="menu-item" href="#photos-of/user/<%=iUserId%>">
+	        	<div class=""><%= _t('Photos') %></div>
+	        </a>
+	        <a class="menu-item current" href="#albums-of/<%=iUserId%>">
+	        	<div class="sibling"><%= _t('Albums') %></div>
+	        </a>
+        <%}%>
+    </div>
+</div>

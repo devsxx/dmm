@@ -1,0 +1,38 @@
+<div class="search-simple">
+	<div id="adv_search_toggle_btn" class="btn-advance-search"></div>
+</div>
+
+<div id="adv_search_holder" class="search-advanced hide">
+
+	<div class="form-search-group include-btn-search">
+		<div class="form-group">
+			<span id="search_icon" class="icon-search"></span>
+			<input type="text" class="input-search control-full" id="search_keywords" placeholder="<%= _t('Search events') %>" value="" />
+		</div>
+	</div>
+
+	<%if (sView != 'my') {%>
+	<div class="form-search-group form-group">
+		<select class="control-full" id="search_category">
+			<option value="all_cate"><%= _t('All Categories') %></option>
+			<option value="attending"><%= _t('I\'m Attending') %></option>
+			<option value="may_attend"><%= _t('I May Attend') %></option>
+			<option value="not_attending"><%= _t('I\'m Not Attending') %></option>
+			<option value="invites"><%= _t('Event Invites') %></option>
+		</select>
+	</div>
+
+	<div class="form-search-group form-group">
+		<select class="control-full" id="search_order">
+			<option value="latest"><%= _t('Latest') %></option>
+			<option value="most_view"><%= _t('Most Viewed') %></option>
+			<option value="most_liked"><%= _t('Most Liked') %></option>
+			<option value="most_disscussed"><%= _t('Most Discussed') %></option>
+		</select>
+	</div>
+	<%}%>
+
+	<div class="form-search-submit">
+		<input type="button" class="btn btn-primary btn-small-fluid" id="search_btn" value="<%= _t('Search') %>" />
+	</div>
+</div>

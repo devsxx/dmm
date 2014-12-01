@@ -1,0 +1,6 @@
+<div class="setting-list">
+    <%if (!item.isOwner()) {%>
+    <a class="menu-item" id="<%= item.getDataId('report') %>" rel="delegate"><%= _t('report_this_album') %></a>
+    <%}%>
+</div>
+

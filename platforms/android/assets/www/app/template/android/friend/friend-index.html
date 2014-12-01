@@ -1,0 +1,29 @@
+<!-- friend/tpl/friend-index.html-->
+<div class="header">
+    <% if(bIsRoot) {%>
+        <div href="#" clickable="true" data-click="sidebar:toggle" class="header-left">
+            <i class="icon icon-sidebar"></i>
+        </div>
+    <% } else { %>
+        <div class="header-left">
+            <div class="btn-top btn-back" rel="back"></div>
+        </div>
+    <% } %>
+	<div class="header-center">
+            <div class="title"><%= _t('friends') %></div>
+	</div>
+</div>
+
+<div id="search_view_holder"></div>
+
+<div class="content with-header with-search swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="not-found hide" id="not_found"><%= _t('no_friends_found') %></div>
+			<div class="swiper-list vertical-align" id="friend_list_view_holder">
+				
+			</div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>

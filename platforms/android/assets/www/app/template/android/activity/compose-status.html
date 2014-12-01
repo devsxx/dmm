@@ -1,0 +1,32 @@
+<!-- activity/tpl/compose-status.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top" rel="back">
+			<%= _t('မတင္ပါ') %>
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top disabled hide" id="activity_status_post_btn">
+			<%= _t('post') %>
+		</div>
+	</div>
+	<div class="header-center">
+		<div class="title"><%= _t('update_status') %></div>
+	</div>
+</div>
+
+<div id="content" class="content with-header-footer swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div id="status_form_holder">
+				<div class="loading-initiator">
+					<!-- Loading				 -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!-- Select attachment type here -->
+<div id="compose_status_select_attachment_holder" class="hide"> </div>

@@ -1,0 +1,29 @@
+<!-- subscribe/tpl/subscription-upgrade.html-->
+<div class="header">
+    <div href="#" clickable="true" data-click="sidebar:toggle" class="header-left">
+        <i class="icon icon-sidebar"></i>
+    </div>
+    <div class="header-right">
+
+    </div>
+    <div class="header-center">
+        <div class="title">
+        <%= _t('Memberships') %>
+        </div>
+    </div>
+</div>
+
+<div class="content with-header swiper-container subscription-index" id="content">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="member-status">
+                Your membership status: <strong><span id="user_title"></span></strong>
+            </div>
+            <div class="swiper-list vertical-align" id="subscription_list_holder">
+            </div>
+            <%= utils.helper.loadmore() %>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,265 @@
+#message_list_view_holder {
+	padding: 0;
+}
+
+.page-message{
+	position: fixed;
+	top: 0;
+	bottom: @header-height;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background: white;
+	
+	-webkit-transform:  translateY(-46%) translateX(-28.6%) scale(0);
+	.transition-duration(@normal);
+	
+	.box-message-content{
+		position: fixed;
+		top: @box-header-height;
+		bottom: @footer-height;
+		left: 0;
+		right: 0;
+		width: 100%;
+		
+		// scrollable
+		.enable-vscroll();
+		.hide-scrollbar();
+	}
+	
+	.box-header{
+		height: @box-header-height;
+		line-height: @box-header-height;
+		vertical-align: middle;
+		border-bottom: @separator-border;
+		text-align: center;
+	}
+	
+	.box-footer{
+		bottom: 0;
+		left: 0;
+		right: 0;
+		position: fixed;
+		height: @footer-height;
+		line-height: @footer-height;
+		vertical-align: middle;
+		text-align: center;
+		border-top: 1px solid #7fcfec;
+	}
+	
+	&.open{
+		-webkit-transform:  translateY(@header-height) translateX(0)  scale(1);
+	}
+}
+
+#message-recipient-list{
+	border-bottom: 1px solid #ddd;
+	padding: @box-padding-base @box-padding-base;
+}
+
+.message-item,
+.conversation-item,
+.box-message-item
+{
+	.item-wrapper {
+		display: block;
+		min-height: @friend-image-width;
+	}  
+
+	&.message-new {
+		background-color: darken(@body-background, 5%);
+	}
+
+	&+div{
+		border-top: @separator-border;
+	}
+
+	padding: @box-padding-base;
+
+	.item-image{
+		float:left;
+		width: @friend-image-width;
+		margin-right: @box-padding-base;
+		
+		img{
+			width: @friend-image-width;
+			height: @friend-image-width;
+		}  
+	}
+
+	.item-folder {
+		background-color: darken(@body-background, 15%);  
+		color: @body-background;
+		padding: 1px 4px;
+		.border-radius(3px);
+	}
+	
+	.item-headline,
+	.item-subline,
+	.item-description,
+	.item-attachment,
+	.item-action{
+		padding-left: @friend-image-width + @box-padding-base;
+	}
+
+	.item-subline{
+		font-size: @font-size-small;
+	}
+	
+	.item-title {
+		color: darken(@item-description-color, 20%);  
+		.text-overflow();
+	}
+	.item-description{
+		color: @item-description-color;  
+		font-size: @font-size-small;
+		word-break: break-word;
+
+		img {
+			display: block;
+			margin: @box-padding-small 0;
+		}
+	}
+	
+	.item-subline{
+		color: @item-subline-color;
+		font-size: @font-size-small;
+	}
+	.item-action{
+		padding-top: @padding-base-vertical - 1px;
+	}
+
+	.item-headline {
+		.item-subline{
+			float: right;
+			padding-left: 0;
+		}  
+
+		> a, 
+		> span {
+			.text-overflow();
+			display: block;
+		}
+	}
+}
+
+.message-item {
+	&.message-new {
+		background-color: darken(@body-background, 5%)
+	}  
+}
+
+
+#wrap_mail_to_user {
+	border: @separator-border-light;
+	padding: @padding-base-vertical @padding-base-horizontal;
+
+	input#mail_to_user{
+		border: none;
+		margin-bottom: 0;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		height: auto;
+		position:relative;
+	}
+
+	li.list_user_send_last {
+		float: left;
+		border-bottom:none;
+	}
+
+	.mail_list .list_user_send {
+		float: left;
+		background:#f1f1f1;
+		border: @separator-border-light;
+		border-radius: 6px;
+		margin-right: @padding-base-vertical;
+		padding: 2px 20px 2px 8px;
+		position: relative;
+		font-size: @font-size-small;
+
+		.friend_search_remove {
+			position: absolute;
+			right: 2px;
+			width: 13px;
+			height: 14px;
+			text-indent:-1000px;
+			overflow:hidden;
+			margin-top: -@padding-base-vertical - 7 ;
+			background-image: url('@{image-path}/icon-delete.gif');
+			background-repeat: no-repeat;
+		}
+	}
+
+	ul {
+		list-style: none; 
+		margin: 0;
+		padding: 0;
+
+		&.autocomplete {
+			width: calc(~'50% + (@{box-padding-small} * 2)');
+            padding-top: @box-padding-small;
+            z-index: 1234;
+
+			li {
+				line-height: 25px;
+				overflow:hidden;
+				border-bottom: @separator-border-light;    
+
+				img {
+					float: left;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+
+#message-list,
+.message-list {
+	& > div {
+		& + div {
+			border-top: 1px dashed #dfdfdf;  
+		}    
+
+		.message-item {
+			img { max-width: 100%; }
+			
+			.item-description {
+				font-size: @font-size-small;
+			}
+
+			.item-attachment {        
+				& > div {
+					margin: @box-padding-small 0;
+					padding: @box-padding-base;
+					border: @separator-border;   
+					font-size: @font-size-small;
+
+					.item-att-image {
+						float: left;
+						max-width: 30%;
+						margin-right: @box-padding-base;
+					}
+
+					.item-att-title,
+					.item-attachment,
+					.item-att-description {
+						overflow-x: hidden;
+					}
+
+					&:after {
+						content: "";
+						display: table;
+						clear: both;
+					} 
+				}
+			}       
+		}
+	}
+}
+
+#compose_message_attachment_holder {
+	padding-top: 10px;
+}

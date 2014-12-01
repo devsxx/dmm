@@ -1,0 +1,79 @@
+<!-- event/tpl/event-item.html -->
+<div class="pvs"></div>
+<div class="event-item">
+	<div class="item-wrapper">
+		<div class="item-content-top">
+			<div class="item-image" style="background-image: url(<%= item.getBigImageSrc() %>)"></div>
+		</div>		
+            
+		<div class="table">
+			<div class="table-cell item-cal">
+				<div class="item-month"><%= date.month %></div>
+				<div class="item-date"><%= date.date %></div>
+			</div>
+			<div class="table-cell">
+				<div class="item-livetime">
+					<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+				</div>
+			</div>
+			<div id="rsvp_btn" class="table-cell item-rvsp">
+				<div class="icon-rvsp"></div>
+			</div>
+		</div>
+		<div class="event-rsvp-dropdown-wrapper hide"></div>
+        <%if (item.hasDescription()) {%>
+        <div class="item-description">
+            <%= utils.str.shorten(item.getDescription(), 250, true) %>
+        </div>
+        <%}%>
+	</div>
+</div>
+<div class="pvs"></div>
+
+<%if (item.canView()) {%>
+<div class="event-item-extra">
+	<%if (item.hasLocation()) {%>
+	<div class="item-text">
+		<i class="icon icon-location-arrow"></i>
+		<span><%= item.getLocation() %></span>
+	</div>
+	<%}%>
+	<%if (item.hasCategory()) {%>
+	<div class="item-text">
+		<i class="icon icon-folder-close"></i>
+		<span><%= item.getCategory() %></span>
+	</div>
+	<%}%>
+	<div class="item-text">
+		<i class="icon icon-time"></i>
+		<span><%= item.getTextStartTime() %></span> - 
+		<span><%= item.getTextEndTime() %></span>
+	</div>
+</div>
+<div class="pvs"></div>
+<div class="event-item-extra">
+	<div class="item-stats guest-count" data-rsvp="1"><span class="stats-number"><%=item.getTotalGoing()%></span><i class="icon icon-user"></i></div>
+	<div class="item-text"><%= _t('Going') %></div>	
+	<div class="clearfix">
+		<%_.each(item.getGoingList(), function (guest) {%>
+		<a href="#user/<%=guest.iUserId%>">
+			<img src="<%=guest.sUserImage%>" height="48">
+		</a>
+		<%}, this);%>
+	</div>
+</div>
+
+<div class="pvs"></div>
+<div class="event-item-extra">
+	<div class="item-stats guest-count" data-rsvp="2"><span class="stats-number"><%=item.getTotalMaybe()%></span><i class="icon icon-user"></i></div>
+	<div class="item-text"><%= _t('Maybe') %></div>	
+	<div class="clearfix">
+		<%_.each(item.getMaybeList(), function (guest) {%>
+		<a href="#user/<%=guest.iUserId%>">
+			<img src="<%=guest.sUserImage%>" height="48">
+		</a>
+		<%}, this);%>
+	</div>
+</div>
+<div class="pvs"></div>
+<%}%>

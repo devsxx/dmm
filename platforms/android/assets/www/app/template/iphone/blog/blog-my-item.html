@@ -1,0 +1,22 @@
+<div class="clearfix item-wrapper" rel="link" data-url="<%=item.getUrl()%>">
+    <div class="item-setting prevent" id="<%=item.getDataId('setting')%>" rel="delegate">
+        <i class="icon icon-setting"></i>
+    </div>
+    <div class="item-content">
+        <div class="item-title">
+            <span><%=utils.str.shorten(item.getTitle(), '36')%></span>
+        </div>
+	    <div>
+            <span class="item-subline"><%= item.getFormatedTime() %></span>
+            <%if (item.getUserSettingApproveBlogs()) {%>
+            / <span class="item-subline"><%=item.isApproved() ? _t('Approved') : _t('Pending')%></span>
+            <%}%>
+            <%if (!item.isPublish()) {%>
+            / <span class="item-subline"><%=_t('Draft')%></span>
+            <%}%>
+        </div>
+        <div class="item-description">
+            <span><%=utils.str.shorten(item.getText(), '80')%></span>
+        </div>
+    </div>    
+</div>

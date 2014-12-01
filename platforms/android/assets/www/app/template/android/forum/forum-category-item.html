@@ -1,0 +1,18 @@
+<!-- forum/tpl/forum-category-item.html -->
+<div class="clearfix category-item-wrapper">
+	<div class="category-header">
+		<i class="icon icon-category-item"></i>		
+		<i class="icon toggle-list-icon icon-chevron-up" data-id="<%=item.getDataId()%>"></i>
+		<div class="category-header-content">
+			<a class="category-title" href="<%=item.getUrl()%>"><%=item.getTitle()%></a>
+			<span class="forum-count">(<%=item.getChildCount()%>)</span>
+			
+			<div class="item-stats">
+				<span><%=_t('Threads')%>: <%=item.getThreadCount()%></span>
+				<span><%=_t('Posts')%>: <%=item.getPostCount()%></span>
+			</div>
+		</div>
+	</div>	
+	<div class="child-list">
+	</div>
+</div>

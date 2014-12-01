@@ -1,0 +1,19 @@
+<!-- event/tpl/event-guest.html -->
+<div class="popup-header">
+	<div class="popup-title">
+		<%=_t('Guest List')%>
+	</div>
+</div>
+
+<div class="popup-content swiper-container native-vscroll event-guest-list-popup" id="popup-content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="not-found hide" id="not_found"><%= _t('No guests found.') %></div>
+			<div id="event-guest-list">
+				<div class="loading-initiator">
+					<!-- Loading				 -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<!--questions-->
+<ul id="question_list">
+    <%_.each(item.getQuestions(), function (question, index) {%>
+    <li style="display:none;" data-questionid="<%=question.question_id%>">
+        <div class="quiz-question">
+            <span class="quiz-question-no">Question <%=index + 1%>/<%=item.getQuestions().length%>:</span>
+            <span class="quiz-question-content"><%=question.question%></span>
+        </div>
+        <div class="quiz-list-answer quiz_list_answer">
+        <%_.each(question.answers, function (answer) {%>
+            <div class="quiz_answer quiz-answer" data-answerid="<%=answer.answer_id%>" data-questionid="<%=answer.question_id%>">
+                <span class="quiz-check"></span>
+                <span class="quiz-answer-content"><%=answer.answer%></span>
+            </div>
+        <%});%>
+        </div>
+        <input type="hidden" name="<%=question.question_id%>" id="<%=question.question_id%>" value="">
+    </li>
+    <%});%>
+</ul>

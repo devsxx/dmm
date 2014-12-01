@@ -1,0 +1,50 @@
+<div class="form-general">
+	<div class="form-title">
+		*<%= _t('video_title') %>
+	</div>
+	<div class="form-group form-input-control">
+		<input type="text" class="control-full" id="ftitle" placeholder="<%= _t('video_title') %>" value="<%=model.getTitle()%>" />
+	</div>
+	
+	<div class="form-title">
+		<%= _t('description') %>
+	</div>
+	<div class="form-group form-input-control">
+		<textarea class="control-full textarea" id="fdescription" placeholder="<%= _t('description') %>"><%=model.getDescription()%></textarea>
+	</div>
+	
+	
+	<div class="form-title">
+		<%= _t('categories') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="fcategory_id">
+			<option value=""><%= _t('select_category') %></option>
+			<%_.each(category_options, function (category) {%>
+			<option value="<%=category.iCategoryId%>" <%if (category.iCategoryId == model.getCategoryId()) {%>selected="selected"<%}%>><%=category.sName%></option>
+			<%}, this);%>
+		</select>
+	</div>
+
+	<div class="form-title">
+		<%= _t('privacy') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="fauth_view">
+			<%_.each(view_options, function (option) {%>
+                <option value="<%=option.sValue%>" <%if (option.sValue == model.getViewPrivacyVal()) {%>selected="selected"<%}%>><%=option.sPhrase%></option>
+			<%}, this);%>
+		</select>
+	</div>
+
+	<div class="form-title">
+		<%= _t('comment_privacy') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="fauth_comment">
+			<%_.each(comment_options, function (option) {%>
+                <option value="<%=option.sValue%>" <%if (option.sValue == model.getCommentPrivacyVal()) {%>selected="selected"<%}%>><%=option.sPhrase%></option>
+			<%}, this);%>
+		</select>
+	</div>
+</div>

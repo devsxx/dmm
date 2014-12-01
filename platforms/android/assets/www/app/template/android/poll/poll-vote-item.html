@@ -1,0 +1,13 @@
+<div class="item-wrapper">
+    <a class="item-image" href="<%=item.getPosterUrl()%>">
+        <img src="<%=item.getPosterImageSrc()%>" />
+    </a>
+    <div class="item-content">
+    	<div class="item-headline">
+	    	<a href="<%=item.getPosterUrl()%>"><%=item.getPosterTitle()%></a>
+	    </div>
+	    <div class="item-subline">
+	    	<span><%=_t('voted')%> "<%=item.getAnswer()%>" <%=_t('on')%> <%=item.getFormatedTime()%></span>
+	    </div>
+    </div>
+</div>

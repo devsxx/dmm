@@ -1,0 +1,27 @@
+<div class="clearfix item-wrapper <% if(item.isOwner()) { %>item-owner<% } %>">
+	<div class="item-image">
+        <a href="<%= item.getSenderUrl() %>">
+            <img src="<%= item.getSenderImgSrc() %>">	
+        </a>
+	</div>
+    <div class="item-message">
+        <div class="item-message-time"><%= item.getTimeString() %></div>
+        <div class="item-message-status"><%= item.getSendStatus() %></div>
+        <% _.each(item.getMessages(), function(sMessage) { %>
+            <% if( (sMessage instanceof Array) && (sMessage.length > 1 ) ) { %>
+                <div class="item-message-desc group-message"> 
+                    <% _.each(sMessage, function(subMessage) { %>
+                        <span><%= subMessage %></span>                            
+                    <% }) %>
+                    <span class="arrow"></span>
+                </div>
+            <% } else { %>
+                <div class="item-message-desc"> 
+                    <span><%= sMessage %></span>
+                    <span class="arrow"></span>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
+</div>
+

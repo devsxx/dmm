@@ -1,0 +1,14 @@
+<div class="rsvp-dropdown-content prevent">
+    <div rel="delegate" id="<%= item.getDataId('rsvp') %>" data-rsvp="1" class="rsvp-dropdown-item <%if (item.getRSVP() == "1") {%>active<%}%>">
+        <i class="icon event-icon-join"></i>
+        <span><%= _t('Attend') %></span>
+    </div>
+    <div rel="delegate" id="<%= item.getDataId('rsvp') %>" data-rsvp="2" class="rsvp-dropdown-item <%if (item.getRSVP() == "2") {%>active<%}%>">
+        <i class="icon event-icon-maybe"></i>
+        <span><%= _t('Maybe') %></span>
+    </div>
+    <div rel="delegate" id="<%= item.getDataId('rsvp') %>" data-rsvp="3" class="rsvp-dropdown-item <%if (item.getRSVP() == "3") {%>active<%}%>">
+        <i class="icon event-icon-decline"></i>
+        <span><%= _t('Decline') %></span>
+    </div>
+</div>

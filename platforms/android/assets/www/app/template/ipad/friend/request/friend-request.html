@@ -1,0 +1,15 @@
+<!-- video/tpl/video-item -->
+<div class="clearfix item-wrapper">
+	<div class="item-image">
+		<a href="<%= item.getPosterUrl() %>">
+            <img src="<%= item.getPosterImageSrc() %>" width="48" height="48"/>
+        </a>
+	</div>
+	<div class="item-headline">
+		<a href="<%= item.getPosterUrl() %>"><%= utils.str.shorten(item.getPosterTitle(),22,false) %></a> <%= _t('has sent a friend request') %>
+	</div>
+	<div class="item-action">
+		<div class="btn btn-primary btn-long" id="friend_accept_btn"><%= _t('Accept') %></div>
+		<div class="btn btn-default btn-long" id="friend_deny_btn"><%= _t('Deny') %></div>
+	</div>
+</div>

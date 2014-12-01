@@ -1,0 +1,54 @@
+<div class="pvs"></div>
+
+<div class="form-title">
+    *<%= _t('location') %>
+</div>
+<div class="form-group">
+    <select id="user_form_location" class="control-full">
+        <option value=""><%=_t('select')%></option>
+        <%_.each(data.aLocations, function(aLocation) {%>
+        <option value="<%=aLocation.country_iso%>" <%if (aLocation.country_iso == item.getCountryISO()) {%>selected="selected"<%}%>><%=aLocation.name%></option>
+        <%});%>
+    </select>
+</div>
+<div class="form-group" id="user_form_childs_holder">
+</div>
+
+<div class="form-title">
+    <%= _t('city') %>
+</div>
+<div class="form-group">
+    <input id="user_form_city" type="text" class="control-full text" placeholder="<%= _t('City') %>" value="<%= item.getCity() %>" />
+</div>
+
+<div class="form-title">
+    <%= _t('ZIP / Postal Code') %>
+</div>
+<div class="form-group">
+    <input id="user_form_zippostalcode" type="text" class="control-full text" placeholder="<%=_t('Zip / Postal Code')%>" value="<%=item.getZipPostalCode()%>" />
+</div>
+
+<div class="form-title">
+    <%= _t('date_of_birth') %>
+</div>
+<div class="form-group group-span-inline clearfix">
+    <input id="user_form_birthday" type="text" class="control-full text" value="<%= item.getDateOfBirthYMD() %>" readonly />
+</div>
+
+<div class="form-title">
+    *<%= _t('gender') %>
+</div>
+<div class="form-group">
+    <select id="user_form_gender" class="control-full">
+        <option value=""><%=_t('select')%></option>
+        <option value="1"<%if (item.getGender() == 'Male') {%> selected="selected"<%}%>><%= _t('male') %></option>
+        <option value="2"<%if (item.getGender() == 'Female') {%> selected="selected"<%}%>><%= _t('female') %></option>
+    </select>
+</div>
+
+<div class="form-title">
+    <%= _t('about_me') %> 
+</div>
+<div class="form-group">
+    <textarea id="user_form_aboutme" placeholder="ကိုယ္ေရးအက်ဥ္း" class="control-full textarea"><%= item.getAboutMe() %></textarea>
+</div>

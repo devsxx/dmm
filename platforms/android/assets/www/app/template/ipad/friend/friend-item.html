@@ -1,0 +1,24 @@
+<!-- friend/tpl/friend-item -->
+<div class="clearfix item-wrapper">
+	<div class="item-image">
+		<a href="<%= item.getUrl() %>">
+			<img src="<%= item.getImgSrc() %>">	
+		</a>
+	</div>
+	<a class="item-headline" href="<%= item.getUrl() %>"><%= item.getPosterTitle() %></a>
+	<%if (!item.isSelf()) {%>
+    <div class="item-subline">
+		<span class="item-stats"><%= item.getTextMutualFriend() %></span>
+	</div>
+	<div id="item_action_holder" class="item-action">
+        <%if (item.isSentRequestBy()) {%>
+		<%} else if (item.isSentRequest()) {%>
+        <div class="request-sent"><%= _t('Request sent') %></div>
+        <%} else if (!item.isFriend() && !item.isOwner()) {%>
+        <div id="add_friend_btn" class="btn btn-primary btn-long"><%= _t('Add friend') %></div>
+        <%} else {%>
+        <a href="#messages/compose/<%=item.getId()%>" class="btn btn-primary btn-long"><%= _t('Send a message') %></a>
+        <%}%>
+	</div>
+    <%}%>
+</div>

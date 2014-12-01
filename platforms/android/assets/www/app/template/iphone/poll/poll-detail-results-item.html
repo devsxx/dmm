@@ -1,0 +1,9 @@
+<div class="item-answer">
+    <div class="poll-question"><%=item.getAnswer()%></div>
+    <div class="poll-answer">
+    	<div class="poll-result-bar">
+        	<span style="width: <%=item.getVotePercent()%>%;"></span>
+        </div>
+        <div class="poll-result"> <%=item.getTotalVote()%> (<%=item.getVotePercent()%>%)</div>
+    </div>		
+</div>

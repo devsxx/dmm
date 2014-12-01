@@ -1,0 +1,89 @@
+<!-- event/tpl/event-item.html -->
+<div class="pvl"></div>
+<div class="event-detail-info">
+	<div class="item-content-top">
+		<div class="item-image" style="background-image: url(<%= item.getBigImageSrc() %>)"></div>
+	</div>
+        
+	<div class="item-event-content">
+		<div class="item-cal">
+			<div class="item-month"><%= date.month %></div>
+			<div class="item-date"><%= date.date %></div>
+		</div>
+		<div class="box-justify item-event-content-detail">
+			<div class="item-livetime">
+				<i class="icon icon-time"></i>
+				<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+			</div>
+			<div class="item-host">
+				<span class="text-link">&nbsp;</span>
+			</div>
+			<div class="item-stats-group">
+				<div class="item-stats">
+					<span class="icon icon-user"></span>
+					<span class="num-total-member"><%=item.getTotalGuest()%></span>
+				</div>
+				<div class="item-stats next">
+					<span class="icon icon-time"></span>
+					<%=date.D + ', ' + date.M + ' ' + date.date + ' ' + _t('at') + ' ' + date.h + ':' + date.minute + date.A%>
+					- <%=end_date.D + ', ' + end_date.M + ' ' + end_date.date + ' ' + _t('at') + ' ' + end_date.h + ':' + end_date.minute + end_date.A%>
+				</div>
+			</div>
+			<div class="item-stats-group">
+				<%if (item.hasCategory()) {%>
+				<div class="item-stats">
+					<i class="icon icon-category"></i>
+					<span><%= item.getCategory() %></span>
+				</div>
+				<%}%>
+				<% if(item.hasLocation()){ %>
+				<div class="item-stats next">
+					<span class="icon icon-location"></span>
+					<%= item.getLocation() %>
+				</div>
+				<% } %>
+			</div>
+		</div>
+		<div id="rsvp_btn" class="box-justify item-rvsp">
+		</div>
+	</div>
+	<div class="event-rsvp-dropdown-wrapper hide"></div>
+	<%if (item.hasDescription()) {%>
+	<div class="item-description"><%= utils.str.shorten(item.getDescription(), 750, true) %></div>
+	<%}%>
+</div>
+<div class="pvl"></div>
+
+<%if (item.canView()) {%>
+<div class="event-detail-info-extra">
+	<div class="item-stats guest-count" data-rsvp="1"><span class="stats-number"><%=item.getTotalGoing()%></span><i class="icon icon-user"></i></div>
+	<div class="item-label"><%= _t('Going') %></div>	
+	<div class="clearfix people-list">
+		<%_.each(item.getGoingList(), function (guest) {%>
+		<a href="#user/<%=guest.iUserId%>">
+			<img src="<%=guest.sUserImage%>" />
+		</a>
+		<%}, this);%>
+	</div>
+	<div class="separator-line"></div>
+	<div class="item-stats guest-count" data-rsvp="2"><span class="stats-number"><%=item.getTotalMaybe()%></span><i class="icon icon-user"></i></div>
+	<div class="item-label"><%= _t('Maybe') %></div>	
+	<div class="clearfix people-list">
+		<%_.each(item.getMaybeList(), function (guest) {%>
+		<a href="#user/<%=guest.iUserId%>">
+			<img src="<%=guest.sUserImage%>" />
+		</a>
+		<%}, this);%>
+	</div>
+	<div class="separator-line"></div>
+	<div class="item-stats guest-count" data-rsvp="3"><span class="stats-number"><%=item.getTotalNotAttend()%></span><i class="icon icon-user"></i></div>
+	<div class="item-label"><%= _t('Not Attending') %></div>
+	<div class="clearfix people-list">
+		<%_.each(item.getNotAttendList(), function (guest) {%>
+		<a href="#user/<%=guest.iUserId%>">
+			<img src="<%=guest.sUserImage%>" height="48">
+		</a>
+		<%}, this);%>
+	</div>
+</div>
+<%}%>

@@ -1,0 +1,15 @@
+<div class="clearfix item-wrapper">
+    <div class="item-headline">
+        <span><%=iIndex%>.</span>
+        <span class='item-quiz-question'><%=sQuestion%></span>
+    </div>
+
+    <div class="item-quiz-result user-answer <%if (iAnswerId == iCorrectAnswer) {%>user-correct<%}%>">
+        <div class="item-image" style="background-image: url('<%=sImgSrc%>');"></div>
+        <div class="item-result"><%=sAnswer%> <span class="item-check"></span></div>
+    </div>
+    <div class="item-quiz-result correct-answer <%if (iAnswerId == iCorrectAnswer) {%>hide<%}%>">
+        <div class="item-image"></div>
+        <div class="item-result"><%=sCorrectAnswer%> <span class="item-check"></span></div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<!-- forum/tpl/forum-item -->
+<div class="clearfix item-wrapper">
+	<div class="item-image">
+		<i class="icon icon-forum-item"></i>
+	</div>
+	<div class="item-content">
+		<div class="item-title">
+			<a href="<%=item.getUrl()%>"><%=item.getTitle()%></a>
+		</div>		
+		<div class="item-stats">
+			<span><%=_t('Threads')%>: <%=item.getThreadCount()%></span>
+			<span class="dotline">&middot;</span>
+			<span><%=_t('Posts')%>: <%=item.getPostCount()%></span>
+		</div>
+	</div>
+</div>

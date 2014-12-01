@@ -1,0 +1,141 @@
+.page-notification{
+	position: fixed;
+	z-index: @zindex-tooltip;
+	top: @header-height;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background: white;
+	
+	-webkit-transform: translate(45px, -50%) scale(0, 0);
+	.transition-duration(@normal);
+	
+	.box-notification-content{
+		position: absolute;
+		top: 0;
+		bottom: @box-header-height;
+		left: 0;
+		right: 0;
+		width: 100%;
+		
+		// scrollable
+		.enable-vscroll();
+		.hide-scrollbar();
+
+		padding-bottom: @footer-height + 22px; // fix scroll
+	}  
+	
+	.box-header{
+		height: @box-header-height;
+		line-height: @box-header-height;
+		vertical-align: middle;
+		border-bottom: @separator-border;
+		text-align: center;
+	}
+	
+	.box-footer{
+		bottom: 0;
+		left: 0;
+		right: 0;
+		position: fixed;
+		height: @footer-height;
+		line-height: @footer-height;
+		vertical-align: middle;
+		text-align: center;
+		border-top: 1px solid #7fcfec;
+		background-color: @body-background;
+	}
+
+	.box-footer, .box-header, .box-notification-content {
+		display: none;
+	}
+	
+	&.open{
+		-webkit-transform: translate(0, 0) scale(1, 1);
+
+		.box-footer, .box-header, .box-notification-content {
+			display: block;
+		}
+	}
+}
+
+.icon-notification-type{
+	background-image: url("@{image-path}/icon-notification-comment.png");
+	background-size: 11px;
+	width: 12px;
+	height: 11px;
+
+	&[class^=event],
+	&[class^=fevent] {
+		background-image: url("@{image-path}/icon-notification-calendar.png");
+		background-size: 11px;
+		width: 12px;
+		height: 11px;
+	}
+
+	&[class$=like]{
+		background-image: url("@{image-path}/icon-notification-like.png");
+		background-size: 11px;
+		width: 12px;
+		height: 11px;
+	}
+}
+
+.icon-compose-message{
+	background-image: url("@{image-path}/icon-compose-message.png");
+	width: 13px;
+	height: 11px;
+	background-size: 13px;
+}
+
+.box-notification-item
+{
+	&+div{
+		border-top: @separator-border;
+	}
+
+	& > a {
+		display: block;
+	}
+	
+	.item-wrapper{
+		color: @text-color;
+	}
+
+	@friend-image-width: 48px;
+	padding: @box-padding-base 0;
+	
+	.item-image{
+		float:left;
+		width: @friend-image-width;
+		
+		img{
+			width: @friend-image-width;
+			height: @friend-image-width;
+		}  
+	}
+	
+	.item-headline,
+	.item-subline,
+	.item-description,
+	.item-action{
+		padding-left: @friend-image-width + @box-padding-base;
+	}
+	
+	.item-subline{
+		font-size: @font-size-small;
+	}
+	
+	.item-description{
+		color: @item-description-color;  
+	}
+	
+	.item-subline{
+		color: @item-subline-color;
+		font-size: @font-size-small;
+	}
+	.item-action{
+		padding-top: @padding-base-vertical - 1px;
+	}
+}

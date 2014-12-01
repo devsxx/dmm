@@ -1,0 +1,31 @@
+<!-- photo/tpl/album-index.html-->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" id="btn_back">
+		</div>
+	</div>
+
+	<div class="header-center">
+        <div class="title" id="page_title"><%= item.getName() %></div>		
+	</div>
+
+</div>
+
+<div id="search_view_holder">
+	<!-- search holder -->
+</div>
+
+<div class="content with-header-footer swiper-container" id="content-bottom">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list" id="message-list-view-holder"></div>
+		</div>
+	</div>
+</div>
+
+<div class="footer footer-chat" id="message-post-holder">
+    
+</div>
+
+<div id="<%= item.getUniqueHtmlIdForChatDetail() %>"> </div>
+

@@ -1,0 +1,22 @@
+
+
+<div class="user-extend-info-title"><%= _t('Contact information') %></div>
+<div>
+    <% if(item.getLocation()) { %>
+        <div><%= _t('Location') %>: <%= item.getLocation() %></div>
+    <% } %>
+
+    <% if(item.getZipPostalCode()) { %>
+        <div><%= _t('Zip Code') %>: <%= item.getZipPostalCode() %></div>
+    <% } %>
+
+    <% if(item.getRelationshipStatus()) { %>
+        <div><%= _t('Relationship') %>: <%= item.getRelationshipStatus() %> </div>
+    <% } %>
+</div>
+
+<div class="pvs"></div>
+<div class="user-extend-info-title"><%= _t('About me') %></div>
+<div>
+    <%if (item.getAboutMe()) {%><p><%= utils.str.shorten(item.getAboutMe(), 200,true) %></p><%}%>
+</div>

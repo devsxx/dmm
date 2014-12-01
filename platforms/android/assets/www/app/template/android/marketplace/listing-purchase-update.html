@@ -1,0 +1,29 @@
+<div class="item-wrapper">
+    <div class="item-table">
+        <div class="table-row">
+            <div class="table-left">
+                <span><%=_t('Item')%></span>
+            </div>
+            <div class="table-right">
+                <span><%=item.getTitle()%></span>
+            </div>
+        </div>
+        <div class="table-row price">
+            <div class="table-left">
+                <span><%=_t('Price')%></span>
+            </div>
+            <div class="table-right">
+                <span class="item-currency-symbol"><%=item.getCurrencySymbol()%></span>
+                <span><%=item.getPrice()%></span>
+            </div>
+        </div>
+    </div>
+    <div class="item-content">
+        <div class="message">
+            <span><%=_t('By clicking on the button below, you commit to buy this item from the seller.')%></span>
+        </div>
+        <div class="" id="commit_btn">
+            <span><%=_t('Commit to Buy')%></span>
+        </div>
+    </div>
+</div>

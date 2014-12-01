@@ -1,0 +1,5 @@
+<% items.each(function(item){%>
+	<div class="album-detail-photo-item">
+		<div rel="link" data-url="<%= item.getUrl() %>" class="item-image" style="background-image: url(<%= item.get('sPhotoUrl') %>)"></div>
+	</div>
+<% })%>

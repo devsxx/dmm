@@ -1,0 +1,14 @@
+<!-- video/tpl/attachment/video.html -->
+<div class="att-item-image" style="background-image: url(<%= video.sPhoto_Url %>)">
+	<div class="icon icon-item-mask"></div>
+	<span class="att-item-length"><%= duration %></span>
+</div>
+<div class="att-item-info">
+	<div class="att-item-title text-link">
+        <a href="#<%= video.sType %>/<%= video.iId %>" ><%= video.sTitle%></a>
+	</div>
+	<div class="att-item-description">
+		<%= utils.str.shorten(video.sDescription || '', 85 , false) %>
+	</div>
+	<div class="att-item-subline"><%= fromDomain %></div>
+</div>

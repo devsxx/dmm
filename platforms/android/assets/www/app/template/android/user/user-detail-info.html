@@ -1,0 +1,38 @@
+<!-- user/tpl/profile/activity.html -->
+<div class="header">
+	<% if(bIsRoot) {%>
+        <div href="#" clickable="true" data-click="sidebar:toggle" class="header-left">
+            <i class="icon icon-sidebar"></i>
+        </div>
+    <% } else { %>
+        <div class="header-left">
+            <div class="btn-top btn-back" rel="back"></div>
+        </div>
+    <% } %>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+	</div>
+    <div class="header-right">
+		<div class="btn-top btn-more hide" id="menu_toggle">
+		</div>
+	</div>
+</div>
+
+<div id="top_menu_holder" class="top-menu hide"></div>
+
+<div id="content" class="content content-background with-header swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div id="user-profile-info">
+				<div class="loading-initiator"></div>
+			</div>
+			<div class="pvs"></div>
+			<div id="activity_minibar_holder" class="user-profile-activity-minibar hide"></div>
+			<div class="pvs"></div>
+			<div id="activity-list" class="swiper-list vertical hide">
+				
+			</div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>

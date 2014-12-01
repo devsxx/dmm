@@ -1,0 +1,69 @@
+<div class="form-general">
+    <div class="form-title">
+        *<%= _t('Video Title') %>
+    </div>
+    <div class="form-group">
+        <input type="text" class="control-full" id="video_form_title" placeholder="<%= _t('Video Title') %>"/>
+    </div>
+    
+    <div class="form-title">
+        <%= _t('Description') %>
+    </div>
+    <div class="form-group">
+        <textarea class="control-full textarea" id="video_form_description" placeholder="<%= _t('Description') %>"></textarea>
+    </div>
+    
+    <div class="form-title">
+        <%= _t('Category') %>
+    </div>
+    <div class="form-group">
+        <select class="control-full" id="video_form_category">
+            <option value=""><%= _t('Select Category') %></option>
+            <%_.each(data.category_options, function (category) {%>
+            <option value="<%=category.iCategoryId%>"><%=category.sName%></option>
+            <%});%>
+        </select>
+    </div>
+   
+    <div class="form-title">
+        <%= _t('Privacy') %>
+    </div>
+    <div class="form-group">
+        <select class="control-full" id="video_form_privacy">
+            <%_.each(data.view_options, function (option) {%>
+            <option value="<%=option.sValue%>"><%=option.sPhrase%></option>
+            <%});%>
+        </select>
+    </div>
+   
+    <div class="form-title">
+        <%= _t('Comment Privacy') %>
+    </div>
+    <div class="form-group">
+        <select class="control-full" id="video_form_privacy_comment">
+            <%_.each(data.comment_options, function (option) {%>
+            <option value="<%=option.sValue%>"><%=option.sPhrase%></option>
+            <%});%>
+        </select>
+    </div>
+
+    <div class="form-title">
+        *<%= _t('Source') %>
+    </div>
+    <div class="form-group <%if (!data.bCanUploadVideo) {%>hide<%}%>">
+        <select class="control-full" id="video_form_type">
+            <option value=""><%= _t('Select Type') %></option>
+            <option value="youtube"><%= _t('YouTube') %></option>
+            <option value="file"><%= _t('File Upload') %></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="text" class="control-full <%if (data.bCanUploadVideo) {%>hide<%}%>" id="video_form_url" placeholder="<%= _t('URL') %>"/>
+    </div>
+
+    <div class="form-group attach-video-url-stage hide" id="video_form_file_preview" >
+        <input type="hidden" id="video_form_file_path" />
+        <span><%=_t('Video from device.')%></span>
+        <i class="icon icon-remove" id="remove_file_btn"></i>
+    </div>
+</div>

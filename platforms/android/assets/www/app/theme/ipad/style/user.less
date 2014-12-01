@@ -1,0 +1,330 @@
+.user-login-page{
+	background: url("@{image-path}/login-page-bg.png") repeat;
+	background-position: top center;
+	
+	.footer{
+		text-align: center;
+		margin-top: 130%;
+		top: 0;
+		background-color: transparent;
+
+		a {
+			color: @body-background;
+		}
+	}
+
+	.signing-in {
+		display: none;
+	}  
+
+	&.signin-loading {
+
+		.footer,
+		.login-form {
+			display: none;
+		}
+
+		.login-logo {
+			margin-top: 200px;
+			transition: all @slow;
+		}
+		.signing-in {
+			display: block;
+			transition: all @slow;
+
+			padding-top: 70px;
+			margin-top: 50px;
+			background-image: url("@{image-path}/loading.gif");
+			background-repeat: no-repeat;
+			background-position: top center;
+			background-size: 30px;
+			text-align: center;
+			color: @background-color;
+			font-size: @font-size-base;
+		}    
+	}
+}
+
+.login-logo{
+	background: url("@{image-path}/logo.png") no-repeat center;
+	width: 230px;
+	height: 87px;
+	background-size: 230px;
+	margin-top: 100px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.login-form{
+	margin: 0 auto;
+	width: 380px;
+	text-align:center;
+}
+
+.login-form {
+	& .btn-facebook {
+		color: #fff;
+		background-color: #3b5998;
+	}
+
+	& .btn-twitter {
+		color: #fff;
+		background-color: #0084b4;
+	}
+}
+
+.user-profile-info {	
+	height: 295px;
+	position: relative;	
+	margin-bottom: @box-padding-base;
+
+	.user-profile-cover-image {
+		height: 220px;
+		background-size: cover;
+		background-position: top center;
+	}
+
+	.avatar{
+		position: absolute;
+		left: 40px;
+		top: 135px;
+		z-index: 2;
+
+		.img {
+			border: 5px solid #fff;
+			width: @attachment-item-size;
+			height: @attachment-item-size;
+			border-radius: @attachment-item-size;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+
+			-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+		}		
+	}
+
+	#friend-action-holder {
+		& > div > div {
+			position: absolute;
+			top: -10px;
+			right: -10px;
+			width: 25px;
+			height: 25px;
+			background-size: 25px;
+			background-repeat: no-repeat;
+
+			&.remove-friend { background-image: url("@{image-path}/action_friend.png"); }
+			&.cancel-friend-request { background-image: url("@{image-path}/action_pending.png"); }
+			&.confirm-friend-request { background-image: url("@{image-path}/action_request.png"); }
+			&.add-friend { background-image: url("@{image-path}/action_add.png"); }
+
+			&:active {
+				-webkit-transform: scale3d(0.8, 0.8, 0.8);
+			}
+		}    
+	}
+
+	.ipad-user-basic-info {
+		padding-top: 5px;
+		margin-left: 120px;
+		padding-left: 100px;
+		height: 75px;
+		color: @item-description-color;
+		font-size: @font-size-small;
+		background: @body-background;
+		border-bottom: @separator-border-light;
+		position: relative;
+
+		.ipad-user-basic-info-mask {
+			position: absolute;
+			left: 0;
+			top: -38px;
+			background-color: rgba(0, 0, 0, 0.5);
+			height: 38px;
+			width: 100%;
+			padding-left: 100px;
+
+			.basic-contact-holder {
+				margin-left: 10px;
+				width: 260px;
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			.actions-justify.fobos {
+				border: 0;
+				background: transparent;
+				border-right: 1px solid rgba(255, 255, 255, 0.5);
+
+				a {
+					color: @body-background;
+				}
+			}
+
+			.actions-justify .action-item {
+				border-left: 1px solid rgba(255, 255, 255, 0.5);
+			}
+		}
+
+		i.icon {
+			margin-right: @box-padding-small;
+			color: @item-subline-color;
+		}
+
+		.user-information span {
+			display: inline-block;
+			width: 40%;
+			.text-overflow();
+		}
+
+		.about-information {
+			.text-overflow();
+		}
+	}
+
+	.jumptop {
+		height: 220px;
+	}
+	
+	.name{
+		font-size: @font-size-base;
+		font-weight: bold;
+		display: inline-block;
+
+		.fullname{
+			color: @body-background;
+			text-transform: uppercase;
+			display: inline-block;
+			max-width: 250px;
+			line-height: 38px;
+			.text-overflow();
+		}
+
+		i {
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: auto 12px;
+			width: 14px;
+			height: 38px;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		i.male {
+			background-image: url("@{image-path}/male_gender.png");
+		}
+
+		i.female {
+			background-image: url("@{image-path}/female_gender.png");
+		}
+	}	
+
+	#user-extend-info {
+		padding: 0 50px;
+		color: @item-description-color;
+		font-size: @font-size-small;
+
+		.user-extend-info-title {
+			padding: 2px 0;
+			color: @brand-primary;
+			border-top: 1px solid @brand-primary;
+			border-bottom: 1px solid @brand-primary;
+			text-transform: uppercase;
+			text-align: center;
+			margin-bottom: @box-padding-base;
+			font-size: @font-size-base;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				text-align: center;
+				font-size: @font-size-base;
+				.text-overflow();
+			}
+		}
+	}
+}
+
+.form-group {
+
+	&.form-group-border-signup:before {
+		content: "";
+		height: 20px;
+		width: 100%;
+		display: block;
+		background-image: url("@{image-path}/or_background.png");
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-size: 120%;    
+	}
+}
+
+.photo-cropping{
+	max-width: 100% !important;
+}
+
+#menu_toggle{
+	&:active {
+			-webkit-transform: scale3d(0.8, 0.8, 0.8);
+			color: #CCC;
+	}
+}
+
+.btn-top {
+	&.btn-back:active {
+			-webkit-transform: scale3d(0.8, 0.8, 0.8);
+			color: #CCC;
+	}
+}
+
+.private-page-message {
+	text-align:center;
+	color:gray;
+	line-height: 16px;
+	font-size: 13px;
+	padding: 10px;
+}
+
+
+.term-condition-content {
+	height: 300px;
+	font-size: @font-size-small;
+	padding: @box-padding-base 0;
+}
+
+/*** ipad version ***/
+.ipad-user-login-mask {
+	background-color: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+} 
+
+.ipad-user-login-area {
+	width: 540px;
+	height: 620px;
+	background-color: #039fd8;
+	margin: 200px auto;
+	position: relative;
+	z-index: 2;
+
+	.content {
+		position: absolute;
+	}
+
+	.footer {
+		position: absolute;
+		margin-top: 0;
+		bottom: 0;
+		top: inherit !important;
+		background-color: transparent;
+	}
+}

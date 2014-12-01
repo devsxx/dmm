@@ -1,0 +1,23 @@
+<div class="actions-justify gray">
+	<div class="action-item <%= item.isLiked()?'liked':'' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+		<span class="text-info"><%= item.getLikeCount() %></span>
+		<i class="icon icon-activity-like"></i>
+	</div>
+	
+	<% if(item.canComment()){%>
+	<div class="action-item" id="<%= item.getDataId('comment') %>" rel="delegate" data-display="focus">
+		<span class="text-anchor"><%= item.getCommentCount() %></span>
+		<i class="icon icon-activity-comment"></i>
+	</div>
+	<%} %>
+	<% if(item.canShare()) { %>
+	<div class="action-item" id="<%= item.getDataId('share') %>" rel="delegate">
+		<i class="icon icon-activity-share"></i>
+	</div>
+	<%} %>
+    <%if (!item.isOwner()) {%>
+    <div class="action-item" id="<%= item.getDataId('report') %>" rel="delegate">
+		<i class="icon icon-activity-report"></i>
+	</div>
+    <%}%>
+</div>

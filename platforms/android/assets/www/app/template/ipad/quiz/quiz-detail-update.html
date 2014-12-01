@@ -1,0 +1,86 @@
+<div class="quiz-detail-item">
+    <!--Title-->
+    <div class="item-headline">
+        <%=item.getTitle()%>
+    </div>
+    
+    <div class="item-content-detail clearfix">
+        <!--poster info-->
+        <a class="item-image" rel="photodetail" data-photourl="<%=item.getImageSrc()%>">
+            <img src="<%=item.getImageSrc()%>" />
+        </a>
+        <div class="item-content">
+            <div class="item-title">
+                <span><%=_t('by')%></span>
+                <a href="<%=item.getPosterUrl()%>"><%=item.getPosterTitle()%></a>                
+            </div>
+
+            <div class="item-subline">
+                <i class="icon icon-time"></i>
+                <span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+            </div>
+
+            <div class="stat-item">
+                <span class="icon-quiz-question"></span>
+                <%=item.getTotalQuestions()%> Question<% if (item.getTotalQuestions() > 1) {%>s<%}%>
+            </div>
+
+            <!--<input type="button" class="btn btn-primary btn-small-fluid" id="star_quiz_btn" value="<%= _t('Start Quiz') %>" />-->
+            <%if (item.canTake()) {%>
+                <a href="<%=item.getUrl()%>/start" class="btn btn-primary btn-small-fluid"><%=_t('Start Quiz')%></a>
+            <%}%>
+        </div>
+
+        <!--Descriptions-->
+        <%if (item.hasDescription()) {%>
+            <div class="item-description">
+                <%=item.getDescription()%>
+            </div>
+        <%}%>
+    </div>
+
+    <div class="event-item-extra" id="page_member_list">
+        <div class="item-stats">
+            <span class="text-info"><%=item.getTotalTakers()%></span>
+            <span class="icon icon-quiz-answer-blue"></span>
+        </div>
+        <div class="item-text"><%= _t('User Results') %></div>        
+        <div class="quiz-member-list" class="clearfix">
+            <%_.each(item.getTakerList(), function (member) {%>
+            <a href="#user/<%=member.iUserId%>" id="<%=member.user_id%>">
+                <img src="<%=member.sImageUrl%>" height="48">
+            </a>
+            <%}, this);%>
+        </div>
+    </div>
+
+    <div class="item-group hide" id="quiz_results_holder">
+    </div>
+</div>
+
+<div id="quiz_action_bar">
+    <div class="actions-justify gray">
+        <%if (item.canLike()) {%>
+        <div class="action-item <%= item.isLiked()?' liked':'' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+            <span class="text-info"><%= item.getLikeCount() %></span>
+            <i class="icon icon-activity-like"></i>
+        </div>
+        <%}%>
+        <%if (item.canComment()) {%>
+        <div class="action-item" id="<%= item.getDataId('comment') %>" rel="delegate" data-display="focus">
+            <span class="text-anchor"><%= item.getCommentCount() %></span>
+            <i class="icon icon-activity-comment"></i>
+        </div>
+        <%}%>
+        <%if (item.canShare()) {%>
+        <div class="action-item" id="<%= item.getDataId('share') %>" rel="delegate">
+            <i class="icon icon-activity-share"></i>
+        </div>
+        <%} %>
+        <%if (!item.isOwner()) {%>
+        <div class="action-item" id="<%= item.getDataId('report') %>" rel="delegate">
+            <i class="icon icon-activity-report"></i>
+        </div>
+        <%}%>
+    </div>
+</div>

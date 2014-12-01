@@ -1,0 +1,12 @@
+<div class="setting-list">
+	<%if (item.canDislike()) {%>
+    <div class="setting-item <%if (this.model.getDislikeCount() < 1) {%>hide<%}%>" id="dislike-list"></div>
+    <div class="setting-item" id="<%=item.getDataId('dislike')%>" rel="delegate">
+        <%= item.isDisliked() ? _t('Remove Dislike') : _t('Dislike')%>
+    </div>
+    <%}%>
+    <%if (!item.isOwner()) {%>
+    <a class="menu-item" id="<%= item.getDataId('report') %>" rel="delegate"><%= _t('Report this song') %></a>
+    <%}%>
+</div>
+

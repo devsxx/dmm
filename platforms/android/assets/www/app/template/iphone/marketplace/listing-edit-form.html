@@ -1,0 +1,115 @@
+<div class="listing-edit-form <%if (context.sView != 'info') {%>hide<%}%>" id="listing_edit_info_holder">
+    <div class="form-general">
+        <!-- form content -->
+        <div class="form-title">
+            <%= _t('Category') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full listing-form-category">
+                <option value=""><%= _t('Select Category') %></option>
+                <%_.each(data.category_options, function (option) {%>
+                <option value="<%=option.category_id%>" <%if (option.category_id == item.getCategoryIds()[0]) {%>selected="selected"<%}%>><%=option.name%></option>
+                <%});%>
+            </select>
+            <div class="listing-form-category-subs-holder"></div>
+        </div>
+
+        <div class="form-title">
+            <%= _t('What are you selling?') %>
+        </div>
+        <div class="form-group">
+            <input type="text" class="control-full" id="listing_form_title" placeholder="<%= _t('Title') %>" value="<%=item.getTitle()%>" />
+        </div>
+
+        <div class="form-title">
+            <%= _t('Short Description') %>
+        </div>
+        <div class="form-group">
+            <textarea id="listing_form_mini_description" class="control-full textarea" placeholder="<%= _t('Short Description') %>"><%=item.getMiniDescription()%></textarea>
+        </div>
+
+        <div class="form-title">
+            <%= _t('Description') %>
+        </div>
+        <div class="form-group">
+            <textarea id="listing_form_description" class="control-full textarea" placeholder="<%= _t('Description') %>"><%=item.getDescription()%></textarea>
+        </div>
+
+        <div class="form-title">
+            <%= _t('Price') %>
+        </div>
+        <div class="form-group form-group-flex">
+            <select class="control-full" id="listing_form_currency">
+                <%_.each(data.currency_options, function (option) {%>
+                <option value="<%=option.currency_id%>" <%if (option.currency_id == item.getCurrencyId()) {%>selected="selected"<%}%>><%=option.name%></option>
+                <%});%>
+            </select>
+            <input type="text" class="control-full" id="listing_form_price" placeholder="<%= _t('Price') %>" value="<%=item.getPrice() || 0.00%>" />
+        </div>
+
+        <%if (data.perms.bCanSell) {%>
+        <div class="form-title">
+            <%= _t('Enable Instant Payment') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="listing_form_sell">
+                <option value="1" <%if (item.isSell()) {%>selected="selected"<%}%>><%=_t('Yes')%></option>
+                <option value="0" <%if (!item.isSell()) {%>selected="selected"<%}%>><%=_t('No')%></option>
+            </select>
+        </div>
+        <%}%>
+
+        <div class="form-title">
+            <%= _t('Location') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="listing_form_country">
+                <option value=""><%= _t('Select Location') %></option>
+                <%_.each(data.country_options, function (option) {%>
+                <option value="<%=option.country_iso%>" <%if (item.getCountryIso() == option.country_iso) {%>selected="selected"<%}%>><%=option.name%></option>
+                <%});%>
+            </select>
+            <div id="listing_form_country_childs_holder"></div>
+        </div>
+
+        <div class="form-title">
+            <%= _t('City') %>
+        </div>
+        <div class="form-group">
+            <input type="text" class="control-full" id="listing_form_city" placeholder="<%= _t('City') %>" value="<%=item.getCity()%>" />
+        </div>
+
+        <div class="form-title">
+            <%= _t('Zip / Postal Code') %>
+        </div>
+        <div class="form-group">
+            <input type="text" class="control-full" id="listing_form_zipcode" placeholder="<%= _t('Zip / Postal Code') %>" value="<%=item.getZipCode()%>" />
+        </div>
+
+        <div class="form-title">
+            <%= _t('View Privacy') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="listing_form_privacy">
+                <%_.each(data.view_options, function (option) {%>
+                <option value="<%=option.sValue%>" <%if (option.sValue == item.getPrivacyId()) {%>selected="selected"<%}%>><%=option.sPhrase%></option>
+                <%});%>
+            </select>
+        </div>
+
+        <div class="form-title">
+            <%= _t('Comment Privacy') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="listing_form_privacy_comment">
+                <%_.each(data.comment_options, function (option) {%>
+                <option value="<%=option.sValue%>" <%if (option.sValue == item.getPrivacyCommentId()) {%>selected="selected"<%}%>><%=option.sPhrase%></option>
+                <%});%>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="listing-edit-form <%if (context.sView != 'photo') {%>hide<%}%>" id="listing_edit_photo_holder">
+    <div class="clearfix" id="attachment_photo_holder"></div>
+    <div id="photo_add_btn" class="btn-form-photo"></div>
+</div>

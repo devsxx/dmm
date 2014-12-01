@@ -1,0 +1,11 @@
+<div class="att-item-wrapper clearfix">
+	<%if (att.hasImage()) {%>
+	<div class="att-col-image">
+		<a href="<%=att.getUrl()%>"><img class="att-item-image" src="<%=att.getImageSrc()%>" /></a>
+	</div>
+	<%}%>
+	<div class="att-col-info">
+		<div class="att-item-title"><a href="<%=att.getUrl()%>"><%=utils.str.shorten(att.getQuestion(), 36)%></a></div>
+		<div class="att-item-description"><i class="icon-poll"></i> <%=att.getTotalVote()%></div>
+	</div>
+</div>

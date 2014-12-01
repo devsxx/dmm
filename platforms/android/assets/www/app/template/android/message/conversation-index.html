@@ -1,0 +1,36 @@
+<!-- message/tpl/message-index.html-->
+<div class="header">
+	<div href="#" clickable="true" data-click="sidebar:toggle" class="header-left">
+		<i class="icon icon-sidebar"></i>
+	</div>
+	<div class="header-right">
+		<a class="btn-top btn-add" href="#messages/compose"></a>
+	</div>
+	<div class="header-center">
+		<div class="title"><%= _t(filter == 'inbox'? 'လက္ခံစာ': 'ပို.စာ') %></div>
+	</div>
+</div>
+
+<div id="search_view_holder"></div>
+
+<div class="content with-header-footer body-bg with-search swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="not-found hide" id="not_found"><%= _t('no_messages_found') %></div>
+			<div class="swiper-list vertical" id="conversation_list_view_holder">
+			</div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-2 fobos">
+        <a class="menu-item <%= filter == 'inbox'? 'current': '' %>" href="#messages">
+        	<div class=""><%= _t('inbox') %></div>
+        </a>
+        <a class="menu-item <%= filter == 'sent'? 'current': '' %>" href="#messages/sent">
+        	<div class="sibling"><%= _t('sent_msg') %></div>
+        </a>
+    </div>
+</div>

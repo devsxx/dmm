@@ -1,0 +1,17 @@
+<div class="setting-list prevent-video-overlay">
+	<%if (item.canDislike()) {%>
+	<div class="setting-item <%if (this.model.getDislikeCount() < 1) {%>hide<%}%>" id="dislike-list"></div>
+    <div class="setting-item" id="<%=item.getDataId('dislike')%>" rel="delegate">
+        <%= item.isDisliked() ? _t('Remove Dislike') : _t('Dislike')%>
+    </div>
+    <%}%>
+    <%if (item.canEdit()) {%>
+	<a class="menu-item" href="#videos/edit/<%= item.getId()%>"><%= _t('Edit') %></a>
+	<%}%>
+	<%if (item.canDelete()) {%>
+	<a class="menu-item" rel="delegate" id="<%= item.getDataId('delete') %>"><%= _t('Delete') %></a>
+	<%}%>
+	<%if (!item.isOwner()) {%>
+	<a class="menu-item" id="<%= item.getDataId('report') %>" rel="delegate"><%= _t('Report') %></a>
+	<%}%>
+</div>

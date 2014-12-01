@@ -1,0 +1,11 @@
+<div class="setting-list">
+    <a class="setting-item" href="#pages/edit/<%= item.getId() %>">
+        <%= _t('edit') %>
+    </a>
+    <a class="setting-item" rel="delegate" id="<%= item.getDataId('delete') %>">
+        <%= _t('delete') %>
+    </a>
+    <a class="setting-item" href="#pages/invite/<%=item.getId()%>">
+        <%= _t('invite') %>
+    </a>
+</div>

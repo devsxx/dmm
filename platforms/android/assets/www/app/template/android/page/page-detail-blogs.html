@@ -1,0 +1,41 @@
+<!-- page/tpl/page-detail-blogs.html-->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+        </div>
+	</div>
+	<div class="header-right">
+		<a class="btn-top btn-add hide" href="#blogs/add/pages/<%=item.getId()%>" id="add_btn"></a>
+	</div>
+	<div class="header-center">
+		<div class="title" id="page_title">
+			<%= _t('loading...') %>
+		</div>
+	</div>
+</div>
+
+<div id="search_view_holder"></div>
+
+<div class="content with-header-footer body-bg with-search swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list vertical" id="list_holder">
+			</div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-2 fobos">
+        <a class="menu-item" href="<%=item.getUrl()%>">
+            <div class=""><%= _t('info') %></div>
+        </a>
+        <a class="menu-item" href="<%=item.getUrl()%>/activity">
+            <div class="sibling"><%= _t('activity') %></div>
+        </a>
+        <div class="menu-item current" id="footer_more_btn">
+            <div class="sibling"><%= _t('more') %></div>
+        </div>
+    </div>
+</div>

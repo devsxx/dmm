@@ -1,0 +1,40 @@
+<!-- forum/tpl/forum-index.html-->
+<div class="header">
+    <div href="#" clickable="true" data-click="sidebar:toggle" class="header-left">
+        <i class="icon icon-sidebar"></i>
+    </div>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+	</div>
+</div>
+
+<div id="search_view_holder"></div>
+
+<div class="content with-header-footer with-search swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div id="search_result_header">
+                <span><%=_t('Search ' + sSearchType + 's for')%>:</span> 
+                <span class="keyword"><%=sKeyword%></span>
+            </div>
+			<div class="swiper-list vertical-align search-result-holder list-holder" id="list_holder">
+				
+			</div>
+            <%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-3 fobos">
+        <a class="menu-item" href="#forums">
+        	<div class=""><%= _t('Forums') %></div>
+        </a>
+        <a class="menu-item" href="#forum_threads/new">
+        	<div class="sibling"><%= _t('New Posts') %></div>
+        </a>
+        <div class="menu-item" id="footer_more_btn">
+        	<div class="sibling"><%= _t('More') %></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="forum-thread-add-form">
+    <div class="form-general">
+        <!-- form content -->
+        <div class="form-title">
+            *<%= _t('Title') %>
+        </div>
+        <div class="form-group">
+            <input type="text" class="control-full" id="forum_thread_form_title" placeholder="<%= _t('Title') %>" value="<%=item.getTitle()%>" />
+        </div>
+
+        <div class="form-title">
+            *<%= _t('Message') %>
+            <span id="insert_image_btn" class="btn-form-insert-image">+ <%=_t('Insert Image')%></span>
+        </div>
+        <div class="form-group">
+            <textarea id="forum_thread_form_message" class="control-full textarea" placeholder="<%= _t('Message') %>"><%=item.getTextNotParsed()%></textarea>
+        </div>
+
+        <%if (data.bCanSetClosed) {%>
+        <div class="form-title">
+            <%= _t('Closed') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="forum_thread_form_closed">
+                <option value="1" <%if (item.isClosed()) {%>selected="selected"<%}%>><%=_t('Yes')%></option>
+                <option value="0" <%if (!item.isClosed()) {%>selected="selected"<%}%>><%=_t('No')%></option>
+            </select>
+        </div>
+        <%}%>
+
+        <div class="form-title">
+            <%= _t('Attachments') %>
+        </div>
+        <div class="form-group form-group-flex">
+            <div class="action-item" id="attach_gallery_btn">
+                <i class="icon icon-attachment-gallery"></i>
+            </div>
+            <div class="action-item" id="attach_link_btn">
+                <i class="icon icon-attachment-link"></i>
+            </div>
+            <div class="action-item" id="attach_poll_btn">
+                <i class="icon icon-bar-chart"></i>
+            </div>
+        </div>
+
+        <div>
+            <div class="clearfix" id="attachment_poll_holder">
+            </div>
+            <div class="clearfix" id="attachment_photo_holder">
+            </div>
+            <div class="clearfix" id="attachment_link_holder">
+            </div>
+        </div>
+    </div>
+</div>

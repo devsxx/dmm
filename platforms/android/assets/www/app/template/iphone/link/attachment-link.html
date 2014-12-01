@@ -1,0 +1,17 @@
+
+<div class="att-item-wrapper">
+	<div class="att-col-image">
+		<a href="javascript:void(0)" onclick="window.open(<%= onclick %>)">
+			<img class="att-item-image" src="<%= attachment.sPhoto_Url%>" />
+		</a>
+	</div>
+	<div class="att-col-info">
+		<div class="att-item-title">
+			<a href="javascript:void(0)" onclick="window.open(<%= onclick %>)">
+				<%= attachment.sTitle %>
+			</a>
+		</div>
+		<div class="att-item-subline"><%= domain %></div>
+		<div class="att-item-description"><%= utils.str.shorten(attachment.sDescription,100)%></div>
+	</div>
+</div>

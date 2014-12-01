@@ -1,0 +1,139 @@
+<%if (item.isPending()) {%>
+<div id="listing_message_holder">
+    <span class="warn-message"><%=_t('Listing is pending approval.')%></span>
+</div>
+<%}%>
+
+<div class="listing-detail-item">
+	<div class="item-image" style="background-image:url(<%=item.getImageSrc()%>);">
+		<%if (item.isFeatured()) {%>
+		<div class="item-featured">
+		</div>
+		<%}%>
+    </div>
+
+	<%if (item.hasPhotos()) {%>
+	<div class="wrap-swipper">
+		<div class="swiper-container" id="listing_photos_container">
+			<div class="swiper-wrapper clearfix" id="listing_photos_holder">
+			</div>
+		</div>
+	</div>
+    <%}%>
+
+	<%if (!item.isOwner()) {%>
+	<div class="item-action">
+		<div class="" id="contact_seller_btn"><%=_t('Contact Seller')%></div>
+		<%if (item.isSell() && item.getPrice() != 0) {%>
+    		<%if (item.canBuyInApp()) {%>
+                <a class="" href="#listing/<%=item.getId()%>/purchase"><%=_t('Buy Now')%></a>
+            <%}%>        
+		<%}%>
+	</div>
+	<%}%>
+
+    <div class="item-content">
+        <div class="item-table">
+            <div class="table-row item-price">
+                <div class="table-left">
+                    <span><%=_t('Price')%></span>
+                </div>
+                <div class="table-right">
+                    <%if (item.getPrice() == 0) {%>
+					<span><%=_t('Free')%></span>
+					<%} else {%>
+					<span class="item-currency-symbol"><%=item.getCurrencySymbol()%></span>
+					<span><%=item.getPrice()%></span>
+					<%}%>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-left">
+                    <span><%=_t('Created')%></span>
+                </div>
+                <div class="table-right">
+                    <a href="<%=item.getPosterUrl()%>"><%=item.getPosterTitle()%></a>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-left">
+                    <span><%=_t('Category')%></span>
+                </div>
+                <div class="table-right">
+                    <span><%=item.getCategory()%></span>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-left">
+                    <span><%=_t('Location')%></span>
+                </div>
+                <div class="table-right">
+                    <span><%=item.getCountry()%></span>
+                </div>
+            </div>
+            <%if (item.hasCity()) {%>
+            <div class="table-row">
+                <div class="table-left">
+                    <span><%=_t('City')%></span>
+                </div>
+                <div class="table-right">
+                    <span><%=item.getCity()%></span>
+                </div>
+            </div>
+            <%}%>
+            <%if (item.hasZipCode()) {%>
+            <div class="table-row">
+                <div class="table-left">
+                    <span><%=_t('Zip Code')%></span>
+                </div>
+                <div class="table-right">
+                    <span><%=item.getZipCode()%></span>
+                </div>
+            </div>
+            <%}%>
+            <div class="table-row">
+                <div class="table-left">
+                    <span><%=_t('Posted on')%></span>
+                </div>
+                <div class="table-right">
+                    <span><%=item.getTimeFormatted()%></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%if (item.showBuyInFullSite() && item.hasFullSiteUrl()) {%>
+    <div class="item-action">
+        <div class="" rel="externallink" data-url="<%=item.getFullSiteUrl()%>"><%=_t('Full Site')%></div>
+    </div>
+    <%}%>
+
+	<div class="item-info">
+		<div class="item-title">
+			<a href="javascript:void(0);"><%=item.getTitle()%></a>
+		</div>
+		<div class="item-description">
+			<%=utils.str.shorten(item.getText(), 250, true)%>
+		</div>
+	</div>
+
+    <%if (!item.isPending()) {%>
+    <div id="listing_action_bar">
+        <div class="actions-justify gray">
+            <%if (item.canLike()) {%>
+            <div class="action-item <%= item.isLiked() ? ' liked' : '' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+                <span class="text-info"><%= item.getLikeCount() %></span>
+                <i class="icon icon-activity-like"></i>
+            </div>
+            <%}%>
+            <%if (item.canComment()) {%>
+            <div class="action-item" id="<%= item.getDataId('comment') %>" rel="delegate" data-display="focus">
+                <span class="text-anchor"><%= item.getCommentCount() %></span>
+                <i class="icon icon-activity-comment"></i>
+            </div>
+            <%}%>
+        </div>
+    </div>
+    <%}%>
+</div>
+

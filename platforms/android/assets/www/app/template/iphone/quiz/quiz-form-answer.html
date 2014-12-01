@@ -1,0 +1,10 @@
+<div class="form-group single-answer <%if (typeof(is_correct) != 'undefined' && is_correct == 1) {%>correct<%}%>" data-answerid="<%if (typeof(answer_id) != 'undefined') {%><%=answer_id%><%}%>">
+    <div class="quiz-group-btn">
+        <a id="add_answer_btn" class="btn-quiz-add-answer"><%= _t('Add') %></a>
+        <a id="remove_answer_btn" class="btn-quiz-remove-answer"><%= _t('Remove') %></a>
+        <a id="correct_answer_btn" class="btn-quiz-correct"><%= _t('Correct') %></a>
+    </div>
+    <div class="quiz-answer-input">
+        <input type="text" name="" class="control-full answer" value="<%if (typeof(answer) != 'undefined') {%><%=answer%><%}%>" maxlength="100">
+    </div>
+</div>

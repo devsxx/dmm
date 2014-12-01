@@ -1,0 +1,10 @@
+<span class="you-like"><%= phrase0 %></span>
+<%= phrase1 %>
+<% if(hasAnd){ %>
+<%= _t('and') %>
+<% } %>
+<% if (phrase2 != ''){ %>
+    <a id="other-likes"><%= phrase2 %> </a> 
+<%} %>
+<span class="hide" id="has_like"><%=_t('liked this')%></span>
+<span class="hide" id="no_likes"><%=_t('Be the first of your friends to like this.')%></span>

@@ -1,0 +1,21 @@
+<div class="user-profile-info">
+    <div id="basic-info-holder">
+    </div>
+	<div id="user_detail_menu_holder" class="clearfix menu-justify grid-3 fobos hide">
+		<%if (item.canViewProfileInfo()) {%>
+		<a class="menu-item" href="<%= item.getAboutUrl() %>">
+			<div class=""><%= _t('ABOUT_1') %></div>
+		</a>
+		<%}%>
+		<%if (item.canViewPhoto()) {%>
+		<a class="menu-item" href="<%= item.getPhotoUrl() %>">
+			<div class="sibling"><%= _t('PHOTO_1') %></div>
+		</a>
+		<%}%>
+		<%if (item.canViewFriend()) {%>
+		<a class="menu-item" href="<%= item.getFriendUrl() %>">
+			<div class="sibling"><%= _t('FRIEND_1') %></div>
+		</a>
+		<%}%>
+	</div>
+</div>

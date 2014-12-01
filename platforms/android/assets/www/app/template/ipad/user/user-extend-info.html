@@ -1,0 +1,16 @@
+
+<div class="user-extend-info-title"><%= _t('About me') %></div>
+<div>
+    <%if (typeof(About_Me) != "undefined" && About_Me != null) {%><p><%= utils.str.shorten(About_Me.About_Me,200,true) %></p><%}%>
+</div>
+
+<div class="user-extend-info-title"><%= _t('Contact information') %></div>
+<div>
+    <%if (typeof(Details) != "undefined" && Details != null) {%>
+    <ul>
+        <%if ("" != Details.website) {%><li ><span class="icon icon-globe"></span> <%=Details.website%></li><%}%>
+        <%if ("" != Details.facebook) {%><li ><span class="icon icon-facebook-sign"></span> <%=Details.facebook%></li><%}%>
+        <%if ("" != Details.twitter) {%><li ><span class="icon icon-twitter"></span> <%=Details.twitter%></li><%}%>
+    </ul>
+    <%}%>
+</div>

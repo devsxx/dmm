@@ -1,0 +1,268 @@
+.user-login-page{
+	background: url("@{image-path}/login-page-bg.png") repeat;
+	background-position: top center;
+	
+	.footer {
+		text-align: center;
+		bottom: 0;
+		background:	transparent;
+
+		a {
+			color: @body-background;
+		}
+	}
+
+	.signing-in {
+		display: none;
+	}  
+
+	&.signin-loading {
+
+		.footer,
+		.login-form {
+			display: none;
+		}
+
+		.login-logo {
+			margin-top: 120px;
+			transition: all 2*@slow;
+		}
+
+		.signing-in {
+			display: block;
+			transition: all @slow;
+
+			padding-top: 70px;
+			margin-top: 50px;
+			background-image: url("@{image-path}/loading.gif");
+			background-repeat: no-repeat;
+			background-position: top center;
+			background-size: 30px;
+			text-align: center;
+			color: @background-color;
+			font-size: @font-size-base;
+		}    
+	}
+}
+
+.login-logo{
+	background: url("@{image-path}/logo.png") no-repeat center;
+	width: 230px;
+	height: 87px;
+	background-size: 180px;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.login-form{
+	margin: 0 auto;
+	width: 280px;
+	text-align:center;
+}
+
+.login-form {
+	& .btn-facebook {
+		color: #fff;
+		background-color: #3b5998;
+	}
+
+	& .btn-twitter {
+		color: #fff;
+		background-color: #0084b4;
+	}
+}
+
+.user-profile-info{
+	background: @body-background;
+
+	.user-profile-cover-image {
+		background-size: cover;
+		background-position: top center;
+		position: relative;
+
+		.user-profile-cover-mask {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 20%, rgba(0,0,0,0.3) 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.3)));
+			background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 20%, rgba(0,0,0,0.3) 100%);
+			background: -o-linear-gradient(top, rgba(0,0,0,0) 20%, rgba(0,0,0,0.3) 100%);
+			background: -ms-linear-gradient(top, rgba(0,0,0,0) 20%, rgba(0,0,0,0.3) 100%);
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,0.3) 100%);
+		}
+
+		.user-profile-cover-content {
+			position: relative;
+		}
+	}
+
+	.avatar{
+		.img {
+			border: 3px solid @body-background;
+			width: 100px;
+			height: 100px;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: @box-padding-base;
+			.border-radius(50px);
+		}
+	}
+
+	.jumptop {
+		height: 20px;
+	}
+	
+	.name{
+		.fullname{
+			color: @body-background;
+			text-transform: uppercase;
+
+			i {
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: auto 10px;
+				width: 10px;
+				height: 10px;
+				display: inline-block;
+			}
+
+			i.male {
+				background-image: url("@{image-path}/male_gender.png");
+			}
+
+			i.female {
+				background-image: url("@{image-path}/female_gender.png");
+			}
+		}
+		
+		color: @body-background;
+		text-align: center;  
+		padding-bottom: @box-padding-base;
+	}
+
+	#friend-action-holder {
+		& > div > div {
+			position: absolute;
+			top: 10px;
+			left: 50%;
+			margin-left: 45px;
+			width: 25px;
+			height: 25px;
+			background-size: 25px;
+			background-repeat: no-repeat;
+
+			&.remove-friend { background-image: url("@{image-path}/action_friend.png"); }
+			&.cancel-friend-request { background-image: url("@{image-path}/action_pending.png"); }
+			&.confirm-friend-request { background-image: url("@{image-path}/action_request.png"); }
+			&.add-friend { background-image: url("@{image-path}/action_add.png"); }
+
+			&:active {
+				-webkit-transform: scale3d(0.8, 0.8, 0.8);
+			}
+		}    
+	}
+
+	#user-extend-info {
+		padding: @box-padding-base 3*@box-padding-base;
+		color: @item-description-color;
+		font-size: @font-size-small;
+
+		.user-extend-info-title {
+			padding: 2px 0;
+			color: @brand-primary;
+			border-top: 1px solid @brand-primary;
+			border-bottom: 1px solid @brand-primary;
+			text-transform: uppercase;
+			text-align: center;
+			margin-bottom: @box-padding-base;
+			font-size: @font-size-base;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			li {
+				text-align: center;
+				font-size: @font-size-base;
+				.text-overflow();
+			}
+		}
+	}
+}
+
+.form-group {
+
+	&.form-group-border-signup:before {
+		content: "";
+		height: 20px;
+		width: 100%;
+		display: block;
+		background-image: url("@{image-path}/or_background.png");
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-size: 120%;    
+	}
+}
+
+
+// div.jcrop-tracker{
+//     width: 324px;
+//     height: 217px;
+//     position: absolute;
+//     top: -2px;
+//     left: -2px;
+//     z-index: 290;
+//     cursor: crosshair;
+// }
+
+.photo-cropping{
+	max-width: 100% !important;
+	// max-height: 100% !important;
+}
+
+#menu_toggle{
+	&:active {
+		-webkit-transform: scale3d(0.8, 0.8, 0.8);
+		color: #CCC;
+	}
+}
+
+.btn-top {
+	&.btn-back:active {
+		-webkit-transform: scale3d(0.8, 0.8, 0.8);
+		color: #CCC;
+	}
+}
+
+.private-page-message {
+	text-align:center;
+	color:gray;
+	line-height: 16px;
+	font-size: 13px;
+	padding: 10px;
+}
+
+.term-condition-content {
+	height: 300px;
+	font-size: @font-size-small;
+	padding: @box-padding-base 0;
+}
+
+.user-profile-activity-minibar .actions-justify.gray {
+	border-top: none;
+}
+
+.sigup_agree_term {
+	input[type=checkbox] {
+		vertical-align: -2px;
+	}
+
+	label {
+		font-weight: normal;
+	}
+}

@@ -1,0 +1,27 @@
+<!-- music/tpl/album-detail.html-->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+		</div>
+	</div>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+		<div class="title" id="page_title">
+			<%= _t('Loading...') %>
+		</div>
+	</div>
+</div>
+
+
+<div class="content with-header content-background swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div id="music-playlist-detail" class="swiper-list vertical-align">
+			</div>
+			<div id="activity_extra_holder" class="hide">
+                <!-- activity detail -->
+            </div>	
+            <div class="pvl"></div>
+		</div>
+	</div>
+</div>

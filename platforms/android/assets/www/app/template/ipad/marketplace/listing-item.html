@@ -1,0 +1,52 @@
+<!-- marketplace/tpl/listing-item -->
+<div class="item-wrapper">
+    <div class="item-image" style="background-image: url(<%=item.getImageSrc()%>)" rel="link" data-url="<%=item.getUrl()%>">
+        <div class="item-mask"></div>
+		<%if (item.isFeatured()) {%>
+		<div class="item-featured">
+		</div>
+		<%}%>
+		<%if (context.sView == 'my') {%>
+            <div class="item-setting prevent" id="<%=item.getDataId('setting')%>" rel="delegate">
+                <i class="icon icon-setting"></i>
+            </div>
+        <%}%>
+    </div>
+    <div class="item-info">
+        <div class="item-info-content">
+			<div class="item-price">
+                <%if (item.getPrice() == 0) {%>
+                <span><%=_t('Free')%></span>
+                <%} else {%>
+                <span class="item-currency-symbol"><%=item.getCurrencySymbol()%></span>
+                <span><%=item.getPrice()%></span>
+                <%}%>
+            </div>
+
+            <div class="item-headline">
+				<a href="<%=item.getUrl()%>"><%=item.getTitle()%></a>
+			</div>
+			
+			<div class="item-title">               
+                <span class="<%if (context.sView == 'my') {%>hide<%}%>">
+				<%=_t('by ')%> <a href="<%=item.getPosterUrl()%>" class="user_name"><%=utils.str.shorten(item.getPosterTitle(), 32)%></a>
+                </span>
+			</div>
+
+            <div class="item-description">
+                <%=utils.str.shorten(item.getMiniDescription(), 200)%>
+            </div>
+
+            <div class="item-subline">
+                <div class="att-item-text">
+                    <i class="icon icon-location-arrow"></i>
+                    <span><%=utils.str.shorten(item.getLocation(), 24)%></span>
+                </div>
+				<div class="att-item-time">
+					<i class="icon icon-time"></i>
+                    <span><%=item.getTimeFormatted()%></span>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>

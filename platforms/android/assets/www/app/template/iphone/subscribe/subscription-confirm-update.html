@@ -1,0 +1,11 @@
+<!-- subscribe/tpl/subscription-confirm-upgrade.html -->
+<div class="subscription-confirm-detail">
+    <div class="yn-title">Confirm your In-app purchase</div>
+    <div class="yn-desc">
+        Do you want to buy membership <strong class="gold"><%=item.getTitle()%></strong> for <strong class="money"><%= item.getCurrencySymbol() %><%= item.getDefaultCost() %></strong> one time
+        <% if (item.getDefaultRecurringCost()) {%>  and then <%= item.getCurrencySymbol() %><%= item.getDefaultRecurringCost() %> <%= item.getRecurringPeriod() %>
+        <%}%>
+    </div>
+    <a href="#" id="buy_btn" class="btn btn-primary btn-small-fluid"><%=_t('Buy')%></a>
+</div>
+</div>

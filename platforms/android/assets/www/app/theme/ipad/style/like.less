@@ -1,0 +1,15 @@
+#dislike-list-content,
+#like-list-content{
+   height: 200px; 
+}
+
+.dislike-list-holder,
+.like-list-holder {
+	> div {
+		padding: @box-padding-small;
+
+		& + div {
+			border-top: @separator-border;
+		}
+	}
+}

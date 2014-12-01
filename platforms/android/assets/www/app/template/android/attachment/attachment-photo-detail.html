@@ -1,0 +1,6 @@
+<div class="content content-background content-photo-detail swiper-container" id="content">
+	<div id="photo_zoom" style="line-height: <%=(Math.max(window.screen.height / window.devicePixelRatio, window.innerHeight) - 50) + 'px'%>;">
+	    <img class="lazy" src="<%=item.getPhotoUrl()%>" style="width:100%;"/>
+	</div>
+</div>
+<div class="btn-close-photo-detail" id="close_btn"></div>

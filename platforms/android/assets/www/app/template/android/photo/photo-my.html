@@ -1,0 +1,48 @@
+<!-- friend/tpl/index.html-->
+<div class="header">
+	<div href="#" clickable="true" data-click="sidebar:toggle" class="header-left">
+		<i class="icon icon-sidebar"></i>
+	</div>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+	</div>
+
+	<div class="header-right">
+		<a class="btn-top btn-add" href="#photos/add-album"></a>
+	</div>
+</div>
+
+<div class="content with-header-footer swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list clearfix" id="photo_list_view_holder"></div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-3 fobos">
+        <%if(!iUserId){ %>
+	        <a class="menu-item" href="#albums">
+	        	<div class=""><%= _t('albums') %></div>
+	        </a>
+	        <a class="menu-item" href="#photos">
+	        	<div class="sibling"><%= _t('photos') %></div>
+	        </a>
+	        <a class="menu-item" href="#albums/my">
+	        	<div class="sibling"><%= _t('my_albums') %></div>
+	        </a>
+            <div class="menu-item current" id="footer_more_btn">
+	        	<div class="sibling"><%= _t('more') %></div>
+	        </div>
+        <%}else{%>
+	        <a class="menu-item" href="#photos-of/user/<%=iUserId%>">
+	        	<div class=""><%= _t('photos') %></div>
+	        </a>
+	        <a class="menu-item current" href="#albums-of/<%=iUserId%>">
+	        	<div class="sibling"><%= _t('albums') %></div>
+	        </a>
+        <%}%>
+    </div>
+</div>

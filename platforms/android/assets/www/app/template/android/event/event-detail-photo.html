@@ -1,0 +1,46 @@
+<!-- activity/tpl/activity-detail.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top btn-more hide" id="top_menu_toggle">
+		</div>
+	</div>
+	<div class="header-center">
+		<div class="title">
+			<%= _t('event_photos') %>
+		</div>
+	</div>
+</div>
+
+<div id="top_menu_holder" class="top-menu hide"></div>
+
+<div class="content with-header-footer swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<%= utils.helper.loadnew() %>
+			<div id="photo-list">
+				<div class="loading-initiator">
+					<!-- Loading				 -->
+				</div>
+			</div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-3 fobos">
+        <a class="menu-item" href="#event/<%= item.getId() %>">
+        	<div class=""><%= _t('Info') %></div>
+        </a>
+        <a class="menu-item" href="#event/activity/<%= item.getId() %>">
+        	<div class="sibling"><%= _t('activity') %></div>
+        </a>
+        <a class="menu-item current" href="#event/photos/<%= item.getId() %>">
+        	<div class="sibling"><%= _t('photos') %></div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="clearfix actions-justify gray large">
+    <%if(exclude.indexOf('status') === -1) {%>
+    <a class="action-item" href="#activity/compose-status/<%=sItemType%>/<%=iItemId%>">
+		<i class="icon icon-post-status"></i> <%= _t('Status') %>
+	</a>
+	<%}%>
+	
+	<%if(exclude.indexOf('photo') === -1) {%>
+    <a class="action-item" href="#activity/compose-status-photo/<%=sItemType%>/<%=iItemId%>">
+		<i class="icon icon-post-photo"></i> <%= _t('Photo') %>
+	</a>
+	<%}%>
+	
+	<%if(exclude.indexOf('checkin') === -1) {%>
+    <a class="action-item" href="#activity/compose-status-checkin/<%=sItemType%>/<%=iItemId%>">
+		<i class="icon icon-post-checkin"></i><%= _t('Check In') %>
+	</a>
+	<%}%>
+</div>

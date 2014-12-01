@@ -1,0 +1,13 @@
+<div class="item user-info" data-href="#user/<%= viewer.getId() %>">
+	<img src="<%= viewer.get('profileimage') %>" class="sidebar-profile-photo" />
+	<%= utils.str.shorten(viewer.getTitle(),22,false) %>
+</div>
+
+<% menu_items.each(function(item){ %>
+	<%= item.toHtml(module, configs.get(item.getModuleId())) %>
+<% },this)%>
+
+<div class="item" data-href="#logout" id="link_logout">
+	<i class="sidebar-icon icon-sidebar-logout"></i>
+	<span><%= _t('sign_out') %></span>
+</div>

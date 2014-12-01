@@ -1,0 +1,34 @@
+<div class="footer with-action">
+	<div class="clearfix actions-justify gray large">
+        <% if(exclude.indexOf('camera') === -1) {%>
+		<div class="action-item js-status-add-attachment-link" data-type="camera" >
+			<i class="icon icon-attachment-camera"></i>
+		</div>
+        <% } %>
+
+        <% if(exclude.indexOf('gallery') === -1) {%>
+		<div class="action-item js-status-add-attachment-link" data-type="gallery">
+			<i class="icon icon-attachment-gallery"></i>
+		</div>
+        <% } %>
+
+        <% if(exclude.indexOf('video') === -1) {%>
+		<div class="action-item js-status-add-attachment-link" data-type="video">
+			<i class="icon icon-attachment-video"></i>
+		</div>
+        <% } %>
+
+        <% if(exclude.indexOf('checkin') === -1) {%>
+		<div class="action-item js-status-add-attachment-link" data-type="checkin">
+			<i class="icon icon-attachment-checkin"></i>
+		</div>
+        <% } %>
+
+        <% if(exclude.indexOf('link') === -1) {%>
+		<div class="action-item js-status-add-attachment-link" data-type="link">
+			<i class="icon icon-attachment-link"></i>
+		</div>
+        <% } %>
+
+	</div>
+</div>

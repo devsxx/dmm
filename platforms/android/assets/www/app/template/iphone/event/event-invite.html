@@ -1,0 +1,40 @@
+<!-- event/tpl/event-invite.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top" rel="back">
+			<%= _t('Cancel') %>
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top" id="invite_btn"><%= _t('Invite') %></div>
+	</div>
+	<div class="header-center">
+		<div id="page_title" class="title">
+			<%= _t('Invite Friends') %>
+		</div>
+	</div>
+</div>
+
+<div class="content with-header-footer swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="not-found hide" id="not_found"><%= _t('You have no friends you can invite.') %></div>
+			<div id="event-invite-list">
+				<div class="loading-initiator">
+					<!-- Loading				 -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-2 fobos">
+        <a id="markall_btn" class="menu-item" href="javascript:void(0)">
+        	<div class=""><%= _t('Mark All') %></div>
+        </a>
+        <a id="unmarkall_btn" class="menu-item" href="javascript:void(0)">
+        	<div class="sibling"><%= _t('Unmark All') %></div>
+        </a>
+    </div>
+</div>

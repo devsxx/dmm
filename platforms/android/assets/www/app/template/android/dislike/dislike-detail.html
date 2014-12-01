@@ -1,0 +1,10 @@
+<span class="you-dislike"><%= phrase0 %></span>
+<%= phrase1 %>
+<% if(hasAnd){ %>
+<%= _t('and') %>
+<% } %>
+<% if (phrase2 != ''){ %>
+    <a id="other-dislikes"><%= phrase2 %> </a> 
+<%} %>
+<%= _t('disliked_this') %>
+

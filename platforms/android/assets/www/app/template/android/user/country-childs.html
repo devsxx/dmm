@@ -1,0 +1,6 @@
+<select id="user_form_childs" class="control-full">
+    <option value="0"><%=_t('state_province')%></option>
+    <%_.each(data, function(aChild) {%>
+    <option value="<%=aChild.child_id%>" <%if (aChild.child_id == item.getChildId()) {%>selected="selected"<%}%>><%=aChild.name%></option>
+    <%});%>
+</select>

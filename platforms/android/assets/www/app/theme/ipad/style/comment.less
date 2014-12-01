@@ -1,0 +1,88 @@
+.comment-popup{
+	min-height: 360px;
+	position: relative;
+	
+	.comment-form{
+		position: fixed;
+		bottom: 0;
+		left:0;
+		right:0;
+		margin: -@box-padding-base + 1px;
+	}
+}
+
+.comment-list{
+
+	background: @body-background;
+
+	.comment-item{
+		border-bottom: @separator-border;    
+		padding: @box-padding-base;
+		
+		.item-image{
+			width: @avatar-image-size;
+			height:  @avatar-image-size;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: block;
+			float: left;
+		}
+		.item-headline{
+			padding-left: @avatar-image-size + @box-padding-base;
+			font-size: @font-size-base;
+
+			& > span {
+				color: #b6b6b6;
+				float: right;
+				.icon {
+					margin-right: 3px;
+				}
+			} 
+
+			& > a {
+				display: inline-block;
+				max-width: 100%;
+				.text-overflow();
+			}
+		}
+
+		.item-content{
+			padding-left: @avatar-image-size + @box-padding-base;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			font-size: @font-size-small;
+			word-break: break-word;
+		}
+
+		.item-subline{
+			padding-left: @avatar-image-size + @box-padding-base;
+			font-size: @font-size-small;
+		}
+	}
+}
+
+.comment-action {
+	& > * {
+		display: inline-block;
+	}
+
+	.action-item {
+		.text-info {
+			color: #999;  
+		}
+
+		a.text { 
+			color: #999; 
+
+			&.liked,
+			&.disliked {
+				color: @link-color;	
+			}	
+		}
+		
+		&.liked .text-info {
+			color: @link-color;
+		}
+	}
+}

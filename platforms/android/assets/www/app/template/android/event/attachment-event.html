@@ -1,0 +1,17 @@
+<div class="att-item-wrapper">
+	<a class="att-item-image" style="background-image: url(<%= attachment.sPhoto_Url %>)" href="<%= attUrl%>"></a>
+	<div class="table">
+		<div class="table-cell att-col-cal">
+			<div class="att-item-month"><%= month %></div>
+			<div class="att-item-date"><%= day %></div>
+		</div>
+		<div class="table-cell att-col-info">
+			<a class="att-item-title" href="<%= attUrl%>"><%= attachment.sTitle %></a>
+			<div class="att-item-description"><%= time %>
+                <% if(attachment.sLocation != ''){%>
+                <%= _t('at') %> <%= attachment.sLocation %>
+                <%}%>
+			</div>
+		</div>
+	</div>
+</div>

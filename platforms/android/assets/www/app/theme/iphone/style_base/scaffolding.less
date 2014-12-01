@@ -1,0 +1,185 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+
+// Reset the box-sizing
+
+*,
+*:before,
+*:after {
+  .box-sizing(border-box);
+}
+
+html,
+body,
+#main,
+#content,
+#beeber-content
+{
+  &::-webkit-scrollbar {
+    width: 0; 
+    display:none;
+  }
+}
+
+// Body reset
+html {
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @text-color;
+  background-color: @body-background;
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+
+// Links
+
+a {
+  color: @link-color;
+  text-decoration: none;
+
+  // &:focus {
+    // .tab-focus();
+  // }
+//   
+  // &.current{
+    // color: @text-color;
+  // }
+}
+
+.page{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.clear{
+  clear: both;
+}
+
+.text-anchor{
+  color: @link-color;
+}
+
+// Images
+
+img {
+  vertical-align: middle;
+}
+
+// Responsive images (ensure images don't scale beyond their parents)
+.img-responsive {
+  .img-responsive();
+}
+
+// Rounded corners
+.img-rounded {
+  border-radius: @border-radius-large;
+}
+
+// Image thumbnails
+//
+// Heads up! This is mixin-ed into thumbnails.less for `.thumbnail`.
+.img-thumbnail {
+  padding: @thumbnail-padding;
+  line-height: @line-height-base;
+  background-color: @thumbnail-bg;
+  border: 1px solid @thumbnail-border;
+  border-radius: @thumbnail-border-radius;
+  .transition(all .2s ease-in-out);
+
+  // Keep them at most 100% wide
+  .img-responsive(inline-block);
+}
+
+// Perfect circle
+.img-circle {
+  border-radius: 50%; // set radius in percents
+}
+
+
+// Horizontal rules
+
+hr {
+  margin-top:    @line-height-computed;
+  margin-bottom: @line-height-computed;
+  border: 0;
+  border-top: 1px solid @hr-border;
+}
+
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+
+.hide{
+  display:none !important;
+}
+
+.body-bg{
+  background: @body-background;
+}
+
+.clearfix{
+  .clearfix();
+}
+
+.table{
+  display: table;
+  .table-cell{
+    display: table-cell;
+    vertical-align: top;
+  }
+}
+
+.att-item-subline{
+  color: @item-subline-color;
+  font-size: @font-size-small;
+}
+
+.att-item-description{
+  color: @item-description-color;
+  font-size: @font-size-small;
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+
+.invisible{
+  visibility: hidden;
+}
+
+.visible{
+  visibility: visible;
+}

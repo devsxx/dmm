@@ -1,0 +1,15 @@
+.rate-bar{
+	text-align: center;
+	.rate-item{
+		display: inline-block;
+		background-image: url("@{image-path}/icon-rate-default.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 25px 25px;
+		width: 17%;
+		height: 40px;
+		&.rated{
+			background-image: url("@{image-path}/icon-rate-default-rated.png");
+		}
+	}
+}

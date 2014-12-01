@@ -1,0 +1,8 @@
+<div class="att-item-wrapper">
+    <a class="att-item-image" style="background-image: url(<%= sPhoto_Url %>);" href="<%=attUrl%>">
+    </a>
+    <div class="att-col-info">
+        <div class="att-item-title"><a href="<%=attUrl%>"><%=utils.str.shorten(attachment.sTitle, 48)%></a></div>
+        <div class="att-item-description"><%=utils.str.shorten(attachment.sDescription, 96)%></div>
+    </div>
+</div>

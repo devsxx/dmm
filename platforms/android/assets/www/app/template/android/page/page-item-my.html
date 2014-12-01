@@ -1,0 +1,31 @@
+<div class="clearfix item-wrapper" rel="link" data-url="<%=item.getUrl()%>">
+    <div class="item-setting prevent" id="<%=item.getDataId('setting')%>" rel="delegate">
+        <i class="icon icon-setting"></i>
+    </div>
+
+    <div class="item-headline">
+        <span><%=item.getTitle()%></span>
+    </div>
+    <div class="item-content">
+        <a class="item-image" href="<%=item.getUrl()%>">
+            <img src="<%=item.getAvatarImageSrc()%>" />
+        </a>
+
+        <%if (item.getCategoryName()) { %> 
+        <div class="item-subline">
+            <span class="icon icon-category"></span>
+            <span><%=item.getCategoryName()%></span>
+        </div>
+        <% } %>
+        
+        <div class="item-subline">
+            <div class="action-item <%= item.isLiked() ? 'liked' : '' %>" id="<%= item.getDataId('like') %>">
+                <i class="icon icon-activity-like"></i>
+                <span class="text-info"><%= item.getTotalMembers() %></span>
+            </div>
+        </div>
+        <div class="item-description">
+            <span><%=item.getStrippedText().substr(0,1000)%></span>
+        </div>
+    </div>
+</div>

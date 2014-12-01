@@ -1,0 +1,31 @@
+<div class="clearfix item-wrapper" rel="link" data-url="<%=item.getUrl()%>">
+    <div class="item-setting prevent" id="<%=item.getDataId('setting')%>" rel="delegate">
+        <i class="icon icon-setting"></i>
+    </div>
+    <div class="item-image">
+        <a href="<%=item.getUrl()%>"><img src="<%=item.getImageSrc()%>" /></a>
+    </div>
+    <div class="item-content">
+        <div class="item-title">
+            <a href="<%=item.getUrl()%>"><%=utils.str.shorten(item.getTitle(), 36)%></a>
+            <%if (item.isClosed()) {%><span class="icon-quiz-lock"></span><%}%>
+        </div>
+        <div class="item-subline">
+            <i class="icon icon-time"></i>
+            <span class="livetime" data-livetime="<%=item.getTimestamp()%>"><%=item.getLivetime()%></span>
+        </div>
+        <div class="item-stats">
+            <div class="stat-item">
+                <span class="icon icon-quiz-question"></span>
+                <%=item.getTotalQuestions()%> Question<% if (item.getTotalQuestions() > 1) {%>s<%}%>
+            </div>
+            <div class="stat-item">
+                <span class="icon icon-quiz-answer"></span>
+                <%=item.getTotalTakers()%> Answer<% if (item.getTotalTakers() > 1) {%>s<%}%>
+            </div>
+        </div>
+    </div>
+    <div class="item-description">
+        <span><%=utils.str.shorten(item.getDescription(), 100)%></span>
+    </div>
+</div>

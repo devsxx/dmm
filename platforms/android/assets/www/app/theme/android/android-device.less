@@ -1,0 +1,125 @@
+/* 
+* remove transform 
+* support android 2.3 version
+*/
+body.android44 {
+	.footer {
+		-webkit-transform: translate3d(0px,0px,0px);
+	}
+}
+
+body.android23 {
+	
+	.footer.footer-chat{
+		position: relative;
+	}
+
+	overflow: scroll;
+	
+	&.sidebar-open{
+		overflow: hidden;
+	}
+	
+	&.popup-open{
+		overflow: hidden;
+	}
+	// fix transform animation
+	#container {	
+		overflow: hidden;
+	}
+
+	// disable webkit-transform
+	.page-main,
+	.page-bottom,
+	.page-sidebar {
+		-webkit-transform: none !important;	
+		overflow: hidden;
+
+		.transition-duration(@fast);
+	}
+
+	.page-main { margin-left: 0; }
+	.page-sidebar { left: -@sidebar-width; }
+	.sidebar-open {
+		.page-main { margin-left: @sidebar-width; }
+		.page-sidebar { left: 0; }
+	}
+		
+	.page-bottom { 
+		width: 100%;
+		display: none; 
+	}
+
+	&.bottom-open {
+		.page-main { display: none; }
+		.page-bottom { display: block; }	
+	}
+
+	// notification 
+	.page-request,
+	.page-notification,
+	.page-message {
+		width: 100%;	
+		display: none;
+		-webkit-transform: none !important;	
+		.transition-duration(@fast);
+
+		&.open {
+			display: block;
+		}
+	}
+
+	// backdrop
+	.backdrop { position: fixed; }
+
+	// fix another issue
+	.beeber-item {
+		.beeber-arrow {
+			background-image: url("@{image-path}/beeber-arrow.png");
+			background-repeat: no-repeat;
+			background-size: 15px;
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			bottom: -7px;
+			left: 13px;
+			background-color: transparent;
+			-webkit-transform: none;
+			transform: none;
+		}
+	}
+
+	// fix login page
+	.user-login-page {
+		.login-logo {
+			height: 120px;
+		}
+
+		&.signin-loading {		
+			.login-logo {
+				margin-top: 80px;
+				height: 87px; 
+				transition: all 2*@slow;
+			}
+		}
+	}
+
+
+	// chat indicator 
+	.page-bottom .content .swiper-wrapper {
+		width: 100% !important;
+	}	
+
+	// fix music page 
+	.mejs-container .mejs-controls .mejs-time.mejs-currenttime-container {
+		margin-left: 15px;
+	}
+
+	// fix advance search select box
+	#search_view_holder {
+		top: 0;
+		padding-top: 45px;
+		z-index: @zindex-navbar - 1;
+	}
+}
+

@@ -1,0 +1,8 @@
+<div class="setting-list">
+    <a class="setting-item <%if (context.sView == 'my-thread') {%>current<%}%>" href="#forum_threads/my-thread">
+        <%=_t('My Threads')%>
+    </a>
+    <a class="setting-item <%if (context.sView == 'subscribed') {%>current<%}%>" href="#forum_threads/subscribed">
+        <%=_t('Subscribed Threads')%>
+    </a>
+</div>

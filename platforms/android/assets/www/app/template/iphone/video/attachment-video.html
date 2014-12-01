@@ -1,0 +1,11 @@
+<!-- video/tpl/attachment/video.html -->
+<a class="att-item-image" style="background-image: url(<%= video.sPhoto_Url %>)" href="#<%= video.sType %>/<%= video.iId %>">
+	<div class="icon icon-item-mask"></div>
+</a>
+<div class="att-item-title" class="text-link">
+	<a href="#<%= video.sType %>/<%= video.iId %>" ><%= video.sTitle%></a>
+</div>
+<div class="att-item-subline"><%= video.sOriginalLink_Url %></div>
+<div class="att-item-description">
+	<%= utils.str.shorten(video.sDescription || '', 85 , false) %>
+</div>

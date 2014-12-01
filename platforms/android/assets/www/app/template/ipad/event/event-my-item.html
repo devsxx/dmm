@@ -1,0 +1,26 @@
+<!-- event/tpl/event-item.html -->
+
+<div class="item-wrapper">
+	<a class="item-image" style="background-image: url(<%= item.getImageSrc() %>)" href="<%= item.getUrl() %>">	
+	</a>
+	<div class="table">
+		<div class="table-cell item-cal">
+			<div class="item-month"><%= date.month %></div>
+			<div class="item-date"><%= date.date %></div>
+		</div>
+		
+		<div class="table-cell item-rvsp">
+			<div class="icon-rvsp"></div>
+		</div>
+
+		<div class="table-cell">
+			<div class="item-title"><%= item.getTitle() %></div>
+			<div class="item-description"><%= date.time %>
+				<% if(item.hasLocation()){ %>
+				 <%= _t('at') %> <%= item.getLocation() %>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pvm"></div>

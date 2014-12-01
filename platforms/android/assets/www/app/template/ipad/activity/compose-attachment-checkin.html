@@ -1,0 +1,47 @@
+<!-- activity/tpl/compose-attachment-checkin.html -->
+<div class="header">
+	<div class="header-left">
+        <div class="btn-top" id="checkin_back_btn">
+        	<%= _t('Cancel') %>
+        </div>
+	</div>
+	<div class="header-right">
+		<!-- <div class="btn-top" id="activity_status_post_btn">Post</div> -->
+	</div>
+	<div class="header-center">
+		<div class="title"><%= _t('Check-in') %></div>
+	</div>
+</div>
+
+<div id="content-bottom" class="content with-header swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="form-general update-status-checkin">
+                <!-- checkin -->
+                <div class="layout_container">
+                    <div class="content_container">
+                        <div class="yncheckin">
+                            <div id="location_map" class="map">
+                            </div>
+                            <div class="action_checkin">
+								<div class="form-group">
+									<input class="control-full" type="text" id="search_keyword" placeholder="Search your location"/>
+								</div>
+                                <div id="location_not_found" class="not-found hide"><span><%= _t('Location is not found.') %></span></div>
+                                <div id="location_loading" class="not-found hide"><span><%= _t('Loading...') %></span></div>
+
+                                <div class="checkin-list-content">
+                                    <div id="checkinlistviewitem">
+                                    </div>
+                                    <%= utils.helper.loadmore() %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

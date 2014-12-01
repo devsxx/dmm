@@ -1,0 +1,68 @@
+<div class="poll-add-form">
+<div class="form-general" id="poll_add_form_content">
+    <!-- form content -->
+    <div class="form-title">
+        *<%=_t('Question')%>
+    </div>
+    <div class="form-group">
+        <input type="text" class="control-full" id="poll_form_question" placeholder="<%=_t('Question')%>" value=""/>
+    </div>
+
+    <%if (context.action != 'attach') {%>
+    <div class="form-title">
+        <%=_t('Privacy')%>
+    </div>
+    <div class="form-group">
+        <select class="control-full" id="poll_form_privacy">
+            <%_.each(data.view_options, function (option) {%>
+			<option value="<%=option.sValue%>"><%=option.sPhrase%></option>
+			<%});%>
+        </select>
+    </div>
+
+    <div class="form-title">
+        <%=_t('Comment Privacy')%>
+    </div>
+    <div class="form-group">
+        <select class="control-full" id="poll_form_privacy_comment">
+            <%_.each(data.comment_options, function (option) {%>
+			<option value="<%=option.sValue%>"><%=option.sPhrase%></option>
+			<%});%>
+        </select>
+    </div>
+    <%}%>
+
+    <div class="form-title">
+        <%=_t('Public Votes')%>
+    </div>
+    <div class="form-group">
+        <select class="control-full" id="poll_form_hide_vote">
+            <option value="0"><%=_t('Yes')%></option>
+            <option value="1"><%=_t('No')%></option>
+        </select>
+    </div>
+
+    <%if (context.action != 'attach') {%>
+    <div class="form-title">
+        <%=_t('Image')%>
+    </div>
+    <div class="form-group">
+        <div class="clearfix" id="attachment_photo_holder">
+        </div>
+        <div id="photo_add_btn" class="btn-form-photo"></div>
+    </div>
+    <%}%>
+
+    <div class="form-title">
+        *<%=_t('Answers')%>
+    </div>
+    <div class="form-group">
+        <input type="text" class="control-full poll-form-answer" id="" />
+        <span class="btn-form icon-answer-plus"></span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="control-full poll-form-answer" id="" />
+        <span class="btn-form icon-answer-minus"></span>
+    </div>
+</div>
+</div>

@@ -1,0 +1,19 @@
+<div class="form-general">
+    <div class="form-title">
+       *<%= _t('title') %>
+    </div>
+	<div class="form-group ">
+        <input class="control-full" type="text" name="sTitle" id="title" value="<%= item.getTitle() %>" />
+	</div>
+
+    <div class="form-title">
+       <%= _t('description') %>
+    </div>
+
+	<div class="form-group ">
+        <textarea class="control-full textarea" type="text" name="sDescription" id="description"><%= item.getDescription() %></textarea>
+	</div>
+
+    <input class="btn btn-active btn-small-fluid" type="submit" id="save_photo" value="<%= _t('save') %>">
+
+</div>

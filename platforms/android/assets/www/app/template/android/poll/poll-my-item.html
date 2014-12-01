@@ -1,0 +1,21 @@
+<div class="clearfix item-wrapper">
+    <div class="item-setting" id="<%=item.getDataId('setting')%>" rel="delegate">
+        <i class="icon icon-setting"></i>
+    </div>
+    <a class="item-image" href="<%=item.getUrl()%>">
+        <img src="<%=item.getImageSrc()%>" />
+    </a>
+    <div class="item-content">
+        <div class="item-title">
+            <a href="<%=item.getUrl()%>"><%=utils.str.shorten(item.getQuestion(), 72)%></a>
+        </div>
+        <div class="item-subline">
+            <i class="icon icon-time"></i> <span class="livetime" data-livetime="<%=item.getTimestamp()%>"><%=item.getLivetime()%></span>
+        </div>
+        <div class="item-stats">
+            <span><i class="icon-poll"></i> <%=item.getTotalVote()%></span>
+            <span><i class="icon icon-activity-like"></i> <%=item.getLikeCount()%></span>
+            <span><i class="icon icon-activity-comment"></i> <%=item.getCommentCount()%></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="setting-list">
+	<%if (item.isOwner()) {%>
+		<a class="menu-item" href="#user-edit/<%=item.getId()%>"  ><%=_t('edit_info')%></a>
+		<a class="menu-item" id="<%=item.getDataId('editavatar')%>" rel="delegate"><%=_t('edit_avatar')%></a>
+		<a class="menu-item" id="<%=item.getDataId('editcover')%>" rel="delegate"><%=_t('edit_cover')%></a>
+	<%} else {%>
+		<%if (item.canSendMessage()) {%>
+		<a class="menu-item" href="#messages/compose/<%=item.getId()%>"><%= _t('send_a_message') %></a>
+		<%}%>
+		<a class="menu-item" id="<%=item.getDataId('report')%>" rel="delegate"><%=_t('report')%></a>
+		<a class="menu-item" id="<%=item.getDataId('block')%>" rel="delegate">
+		    <%=_t(item.isBlocked() ? 'မဘေလာ့ခ္ဘူး' : 'ဘေလာ့ခ္မယ္')%>
+		</a>
+	<%}%>
+</div>

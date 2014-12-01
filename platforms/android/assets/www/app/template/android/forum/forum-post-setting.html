@@ -1,0 +1,9 @@
+<div class="setting-list">
+	<%if (item.isOwner()) {%>
+	<a class="setting-item" href="#forum_post/<%=item.getId()%>/edit"><%=_t('Edit')%></a>
+	<a class="setting-item" id="<%=item.getDataId('delete')%>" rel="delegate"><%=_t('Delete')%></a>
+	<%}%>
+	<%if (!thread.isAnnouncement()) {%>
+	<a class="setting-item" id="<%=item.getDataId('report')%>" rel="delegate"><%=_t('Report')%></a>
+	<%}%>
+</div>

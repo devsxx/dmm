@@ -1,0 +1,40 @@
+<!-- quiz/tpl/quiz-detail.html -->
+<div class="header">
+    <div class="header-left">
+        <div class="btn-top btn-back">
+        </div>
+    </div>
+    <div class="header-center">
+        <div class="title" id="page_title">
+            <%= _t('Loading...') %>
+        </div>
+    </div>
+</div>
+
+<div class="content content-background with-header-footer swiper-container" id="content">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div id="quiz_start_holder" class="quiz-detail-content">
+                <div class="loading-initiator">
+                    <!-- Loading -->
+                </div>
+            </div>
+            <div id="activity_extra_holder" class="hide">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer quiz-detail-footer">
+    <div class="clearfix menu-justify grid-3 fobos">
+        <div class="menu-item" id="prev_btn">
+            <%= _t('Previous') %>
+        </div>
+        <div class="menu-item" id="submit_btn">
+            <%= _t('Submit Answer') %>
+        </div>
+        <div class="menu-item" id="next_btn">
+            <%= _t('Next') %>
+        </div>
+    </div>
+</div>

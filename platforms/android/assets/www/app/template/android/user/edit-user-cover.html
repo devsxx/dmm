@@ -1,0 +1,29 @@
+<!-- user/tpl/about -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top" rel="back">
+			<%= _t('Cancel') %>
+		</div>
+	</div>
+    <div class="header-right">
+		<div class="btn-top" id="save-photo">
+			<%= _t('save') %>	
+		</div>
+	</div>
+	<div class="header-center">
+		<div id="page_title" class="title">
+            <%= _t('edit_cover') %>
+		</div>
+	</div>
+</div>
+
+<div id="content" class="content with-header ">
+    <div id="edit-avatar">
+        <div id="img_container">
+        	<img id="profile_photo" class="photo-cropping" src="<%=context.imageURI%>" />
+        </div>
+    </div>
+</div>
+
+
+

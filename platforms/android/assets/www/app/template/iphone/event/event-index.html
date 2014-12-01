@@ -1,0 +1,38 @@
+<!-- event/tpl/event-index.html-->
+<div class="header">
+	<div clickable="true" data-click="sidebar:toggle" class="header-left">
+		<i class="icon icon-sidebar"></i>
+	</div>
+	<div class="header-right">
+		<a class="btn-top btn-add" href="#events/add"></a>
+	</div>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+	</div>
+</div>
+
+<div id="search_view_holder">
+	<!-- search view here	 -->
+</div>
+
+<div class="content with-header-footer with-search swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list vertical-align" id="event_list_view_holder">
+			</div>
+			<div class="pvs"></div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-3 fobos">
+        <a class="menu-item <%= sView == 'upcomming'?'current':'' %>" href="#events">
+        	<div class=""><%= _t('All Events') %></div>
+        </a>
+        <a class="menu-item <%= sView == 'my'?'current':'' %>" href="#events/my">
+        	<div class="sibling"><%= _t('My Events') %></div>
+        </a>
+    </div>
+</div>

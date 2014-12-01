@@ -1,0 +1,385 @@
+.photo-upload-list .btn-form-photo {
+	float: left;
+}
+
+.album-detail-photo-item{
+	float: left;
+	padding: 2px;
+	width: 33.33%;
+
+	.item-image{
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+		padding-bottom: 100%;
+		display:block;
+	}
+}
+
+.padding-base.album-detail-info {
+	padding-top: @box-padding-small;
+	margin-top: 0px;
+	border: 1px solid #d1d1d1;
+
+	.photo-list {
+		margin: 0 -@box-padding-small;
+	}
+
+	.album-action-bar {
+		margin-top: @box-padding-small;
+	}
+}
+
+.photo-item{
+	float: left;
+	padding: 1px;
+	width: 50%;
+
+	.item-wrapper {
+		position: relative;
+
+		.item-image{
+			width: 100%;
+			height: 110px;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			display:block;
+			position: relative;
+			.item-footer{
+				color: white;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding: @box-padding-base/2 @box-padding-base;
+				background-color: rgba(0,0,0,0.3);
+				.item-stats,
+				.item-title{
+					display: inline-block;
+				}
+				.next{
+					padding-left: @box-padding-base;
+				}
+			}
+		}
+		
+		.item-footer-my {
+			color: white;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding: @box-padding-base/2 @box-padding-base;
+			background-color: rgba(0,0,0,0.3);
+
+			.item-parent {
+				.text-overflow();
+			}
+			
+			.item-stats,
+			.item-title{
+				display: inline-block;
+			}
+			.next{
+				padding-left: @box-padding-base;
+			}
+		}
+
+		.photo-author {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			padding: @box-padding-base;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+
+			background: -moz-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,1)),color-stop(100%,rgba(0,0,0,0)));
+			background: -webkit-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			background: -o-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			background: -ms-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			background: linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000',endColorstr='#00000000',GradientType=0);
+
+			a {
+				color: @body-background;
+			}      
+		}
+	}  
+}
+
+.photo-my-album-item {
+	padding: 0 @box-padding-base;
+	
+	.item-setting {
+		float: right;
+	}
+
+	& + div {
+		border-top: @separator-border;
+	}
+
+	.item-actions{
+		float: right;
+		.item-action{
+			padding-right: @box-padding-base/2;
+			color: @text-color;
+		}
+	}
+	.item-image{
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 60px;
+		height: 60px;
+		float: left;
+	}
+	.item-headline{
+		padding-left: 60px + @box-padding-base;
+	}
+	.item-subline{
+		padding-left: 60px + @box-padding-base;
+	}
+	.item-action i {
+		padding: 10px;
+	} 
+}
+
+
+.photo-album-item{
+	width: 100%;
+ 
+	.item-wrapper{
+		position: relative;
+		.swiper-container{
+			height: 116px;
+			width: 320px;
+		}
+		.swiper-wrapper{
+			height: 116px;
+			overflow: hidden;
+		}
+		.swiper-slide{
+			height: 116px;
+			width: 320px;
+			float:left;
+		}
+		.item-image{
+			width: 320px; // do not set to 100% ( issue with slide.)
+			height: 116px;
+			background-size: cover;
+			background-position: center;
+			display:block;
+			position: relative;
+		}
+		
+		.item-footer{
+				color: white;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding: @box-padding-base/2 @box-padding-base;
+				// .gradient-vertical();
+				background-color: rgba(0,0,0,0.3);
+				.item-stats{
+					display: inline-block;
+					float: right;
+				}
+				.item-title{
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow-x: hidden;
+				}
+				.next{
+					padding-left: @box-padding-base;
+				}
+			}
+
+		.photo-author {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			padding: @box-padding-base;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+
+			background: -moz-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,1)),color-stop(100%,rgba(0,0,0,0)));
+			background: -webkit-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			background: -o-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			background: -ms-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			background: linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000',endColorstr='#00000000',GradientType=0);
+
+			a {
+				color: @body-background;
+			}
+		}
+	}  
+}
+
+.photo-album-list {
+	overflow: hidden; // fixed for swiper.
+	.pvs {
+		height: 2px;
+	}
+}
+
+.photo-upload-list {
+	padding: 0 @box-padding-base;
+
+	.btn-form-photo {
+		float: left;
+	}
+}
+
+.content.content-photo-detail {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	background-color: #000;
+	
+	.swiper-slide {
+		width: 320px;
+		height: 100%;
+		float: left;
+
+		.content-slide {
+			position: relative;
+			width: 100%;
+			height: 100%;
+
+			.photo_display {
+				overflow: hidden;
+
+				.image-content {
+					position: absolute;
+					width: 100%;
+					height: 100%;          
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					display: block;
+				}
+			}
+
+		}
+	}  
+}
+
+.photo-content-outline{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.photo_detail_info {
+	position: absolute;
+	bottom: 36px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	
+	a {
+		color: white;
+	}
+
+	.photo-headline {
+		padding: @box-padding-base;
+		border-bottom: 1px dashed @border-color;		
+		color: darken(@body-background, 10%);
+		.text-overflow();
+
+		span { 
+			color: white; 
+			font-weight: bold;
+		}
+	}
+
+	.photo-status  {
+		padding: @box-padding-base;
+		padding-bottom: 0;
+		font-size: ceil(@font-size-base * 0.9);
+		color: darken(@body-background, 10%);
+
+		a {
+			color: @brand-primary;
+		}
+	}
+
+	.photo-info-author {
+		.photo-time {
+			float: right;
+			color: #fff;
+			padding: @box-padding-base;
+
+			.icon {
+				margin-right: 2px;
+			}
+		}
+
+		.photo-author {
+			padding: @box-padding-base;
+			.text-overflow();   
+
+			img {
+				width: 20px;
+				height: 20px;
+			}         
+		}
+	}
+}
+
+.photo-detail-action {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+
+	.footer {
+		position: absolute;
+
+		.menu-item {
+			&.liked .text-info {
+				color: #31708f;
+			}
+
+			.text-info,
+			.text-anchor {
+				color: #999;
+			}
+
+		}
+	}
+}
+
+.btn-close-photo-detail {
+	position: absolute;
+	z-index: 99;
+	top: @box-padding-base;
+	right: @box-padding-base;
+
+	background-image: url("@{image-path}/btn-close-photo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30px;
+	width: 32px;
+	height: 32px;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.photo-loading {
+	background-image: url("@{image-path}/photo-loading.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+.page-bottom .activity-extra { 
+	border-top: @separator-border-light;
+}

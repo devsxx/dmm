@@ -1,0 +1,51 @@
+<div class="quiz-edit-form">
+    <div class="form-general" id="quiz_edit_form_content">
+        <!-- form content -->
+        <div class="form-title">
+            <%= _t('Quiz Title') %>
+        </div>
+        <div class="form-group">
+            <input type="text" class="control-full" id="quiz_form_title" placeholder="<%= _t('Quiz Title') %>" value="<%=item.getTitle()%>" maxlength="100"/>
+        </div>
+
+        <div class="form-title">
+            <%= _t('Description') %>
+        </div>
+        <div class="form-group">
+            <textarea id="quiz_form_description" class="control-full textarea" placeholder="<%= _t('Description') %>"><%=item.getDescription()%></textarea>
+        </div>
+
+        <div class="form-title">
+            <%= _t('Privacy') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="quiz_form_privacy">
+                <%_.each(item.getViewOptions(), function (option) {%>
+                <option value="<%=option.sValue%>" <%if (option.sValue == item.getViewPrivacy()) {%>selected="selected"<%}%>><%=option.sPhrase%></option>
+                <%});%>
+            </select>
+        </div>
+
+        <div class="form-title">
+            <%= _t('Comment Privacy') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="quiz_form_privacy_comment">
+                <%_.each(item.getCommentOptions(), function (option) {%>
+                <option value="<%=option.sValue%>" <%if (option.sValue == item.getCommentPrivacy()) {%>selected="selected"<%}%>><%=option.sPhrase%></option>
+                <%});%>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <div id="quiz_form_photo_holder">
+                <!-- quiz photo will be added here -->
+            </div>
+            <input class="btn btn-form-photo" type="button" id="quiz_form_photo_browse" />
+        </div>
+    </div>
+</div>
+
+<div id="quiz_edit_form_questions" class="hide">
+
+</div>

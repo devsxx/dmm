@@ -1,0 +1,11 @@
+<!-- friend/tpl/friend-item-chat -->
+<div class="clearfix item-wrapper" rel="delegate" id="<%= item.getDataId('detail') %>" data-display="page">
+	<div class="item-image">
+		<a href="<%= item.getUrl() %>">
+			<img src="<%= item.getImgSrc() %>">	
+		</a>
+	</div>
+	<div class="item-headline"><%= item.getLink() %></div>
+    <div class="item-status <%= item.getStatus() %>"><%= item.getStatus() %></div>
+</div>
+
