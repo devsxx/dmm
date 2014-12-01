@@ -1,0 +1,11 @@
+<div class="setting-list">
+    <a class="setting-item" href="#photos/add-album/pages/<%=item.getId()%>">
+    	<%=_t('Add Albums')%>
+    </a>
+    <a class="setting-item <%if (context.activeType == 'albums') {%>current<%}%>" href="#pages/<%=item.getId()%>/photo_albums">
+    	<%=_t('View Albums')%>
+    </a>
+    <a class="setting-item <%if (context.activeType == 'photos') {%>current<%}%>" href="#pages/<%=item.getId()%>/photos">
+    	<%=_t('View Photos')%>
+    </a>
+</div>

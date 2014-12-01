@@ -1,0 +1,45 @@
+<!-- page/tpl/page-detail-info.html -->
+<div class="header">
+    <div class="header-left">
+        <div class="btn-top btn-back" rel="back">
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="btn-top btn-more hide" id="top_menu_toggle">
+        </div>
+    </div>
+    <div class="header-center">
+        <div id="page_title" class="title">
+            <%= _t('ခဏေစာင့္ပါ...') %>
+        </div>
+    </div>
+</div>
+
+<div id="top_menu_holder" class="top-menu hide"></div>
+
+<div class="content content-background with-header-footer swiper-container" id="content">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div id="page_detail_info" class="page-detail-info">
+                <div class="loading-initiator">
+                    <!-- Loading				 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="clearfix menu-justify grid-3 fobos">
+        <a class="menu-item current" href="<%=item.getUrl()%>">
+            <div class=""><%= _t('info') %></div>
+        </a>
+        <a id="event_menu_actvity" class="menu-item" href="<%=item.getUrl()%>/activity">
+            <div class="sibling"><%= _t('activity') %></div>
+        </a>
+        <div class="menu-item" id="footer_more_btn">
+            <div class="sibling"><%= _t('more') %></div>
+        </div>
+    </div>
+</div>
+

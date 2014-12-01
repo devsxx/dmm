@@ -1,0 +1,22 @@
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" id="btn_back">
+		</div>
+	</div>
+	<div class="header-center">
+        <div class="title" id="page_title"><%= _t('Comment') %></div>		
+	</div>
+</div>
+
+<!-- swiper -->
+<div class="content content-background with-header swiper-container" id="content-bottom">
+	<div class="swiper-wrapper">
+    	<div class="swiper-slide">
+    		<div class="pvm"></div>
+			<div id="activity_extra_holder">
+				<!-- loading activity extra -->
+			</div>	
+			<%= utils.helper.loadmore() %>
+    	</div>
+	</div>
+</div>

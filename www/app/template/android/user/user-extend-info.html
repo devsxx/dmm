@@ -1,0 +1,28 @@
+
+
+<div class="user-extend-info-title"><%= _t('contact_information') %></div>
+<div>
+    <% if(item.getLocation()) { %>
+        <div><%= _t('location') %>: <%= item.getLocation() %></div>
+    <% } %>
+
+    <% if(item.getZipPostalCode()) { %>
+        <div><%= _t('Zip Code') %>: <%= item.getZipPostalCode() %></div>
+    <% } %>
+
+    <% if(item.getRelationshipStatus()) { %>
+        <div><%= _t('relationship') %>: <%= item.getRelationshipStatus() %> </div>
+    <% } %>
+</div>
+
+<div class="pvs"></div>
+<div class="user-extend-info-title"><%= _t('about_me') %></div>
+<div>
+    <%if (item.getAboutMe()) {%><p><%= utils.str.shorten(item.getAboutMe(), 200,true) %></p><%}%>
+</div>
+
+<div class="pvs"></div>
+<div class="user-extend-info-title"><%= _t('activity_points') %></div>
+<div>
+    <%if (item.getActivityPoints()) {%><p><%= utils.str.shorten(item.getActivityPoints(), 200,true) %></p><%}%>
+</div>

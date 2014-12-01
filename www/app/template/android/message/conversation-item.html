@@ -1,0 +1,21 @@
+<!-- video/tpl/video-item -->
+<a href="<%= item.getUrl() %>" class="clearfix item-wrapper">
+	<div class="item-image">
+		<img src="<%= item.getPosterImageSrc() %>" width="48" height="48"/>
+	</div>
+	<div class="item-headline">
+		<div class="item-subline">
+			<%if (item.getFolder() != 'sent') {%><span class="item-folder"><%=item.getFolder()%></span><%}%>
+			<i class="icon icon-time"></i>
+			<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+		</div>
+		
+		<span><%= item.getPosterTitle() %></span>
+	</div>
+	<div class="item-title">
+		<%if (item.isReply()) {%><%=_t('re')%>: <%}%><%= item.getTitle() %>
+	</div>
+	<div class="item-description">
+		<%= utils.str.shorten(item.getDescription(), 100) %>
+	</div>
+</a>

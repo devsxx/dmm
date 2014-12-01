@@ -1,0 +1,14 @@
+<div class="setting-list">
+    <%if (item.canEdit()) {%>
+    <a class="setting-item" rel="delegate" id="<%= item.getDataId('edit') %>">
+    	<%= _t('Edit') %>
+    </a>
+    <%}%>
+    <%if (item.canDelete()) {%>
+    <a class="setting-item" rel="delegate" id="<%= item.getDataId('delete') %>">
+    	<%= _t('Delete') %>
+    </a>
+    <%}%>
+</div>
+
+

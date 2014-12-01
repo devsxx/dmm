@@ -1,0 +1,29 @@
+<!-- music player -->
+<div class="musicContent miniplayer-content">
+    <div class="music-player music-cover-image">
+        <div class="music-player-image" style="background-image:url(<%= item.getImageSrc() %>)"></div>
+    </div>
+    
+    <div class="younet_html5_player mobile">		
+        <div class="title-info" id="id_player">
+        	
+            <!--<p class="song-title-head"><=sTitle%></p>-->
+            <!--audio src="http://product-dev.younetco.com/mobile/se460/public/music_song/23/0c/0c17_6c20.mp4?c=d518" width="100%" autoplay="true"></audio-->
+        </div>
+        <div id="listsong">
+            <ul class="mejs-list scroll-pane song-list">
+        	<% items.each(function(item){ %>
+        		<li class="current">
+	        		<!-- song item of song list -->
+					<p class="song-order"><%= item.getOrderNumber() %>.</p>
+					<p class="play-icon"></p>
+					<span class="link"><%= item.getSongPath() %></span>
+					<span class="song-title"><%= item.getTitle() %>
+						<!--span class="song-author">Linkin Park</span-->
+					</span>
+				</li>
+        	<%}) %>
+            </ul>
+        </div>
+    </div>
+</div>

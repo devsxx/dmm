@@ -1,0 +1,12 @@
+<div class="setting-list">
+	<%if (item.canEdit()) {%>
+	<a class="setting-item" href="#blogs/edit/<%=item.getId()%>">
+		<%= _t('Edit Blog') %>
+	</a>
+	<%}%>
+	<%if (item.canDelete()) {%>
+	<div class="setting-item" id="<%=item.getDataId('delete')%>" rel="delegate">
+		<%= _t('Delete Blog') %>
+	</div>
+	<%}%>
+</div>

@@ -1,0 +1,22 @@
+<!-- friend/tpl/friend-item -->
+<div class="item-wrapper">
+	<a href="<%= item.getUrl() %>" class="item-image" style="background-image: url(<%= item.getImgSrc() %>)"></a>
+	<div class="item-footer">
+		<div class="item-stats" id="<%= item.getDataId('comment') %>" rel="delegate">
+            <span><%= item.getCommentCount() %></span>
+            <i class="icon icon-activity-comment-white"></i>
+        </div>
+		<div class="item-stats next <%= item.isLiked() ? 'liked': '' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+			<span><%= item.getLikeCount() %></span>
+			<i class="icon icon-activity-like-white"></i>
+		</div>        
+		<div class="item-footer-author">
+			<a class="item-poster-link" href="<%= item.getPosterUrl() %>"><%= item.getPosterTitle() %> </a>
+			<div class="item-posted-date">
+				<i class="icon icon-time"></i>
+				<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+			</div>
+		</div>
+		<a class="item-poster-image" href="<%= item.getPosterUrl() %>" class="footer-author-image" style="background-image:url(<%= item.getPosterImageSrc() %>)";></a>
+	</div>			
+</div>

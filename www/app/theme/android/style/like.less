@@ -1,0 +1,18 @@
+#dislike-list-content,
+#like-list-content{
+   height: 200px; 
+}
+
+.dislike-list-holder,
+.like-list-holder {
+	.hide-scrollbar();
+	overflow: hidden;
+
+	> div {
+		padding: @box-padding-small;
+
+		& + div {
+			border-top: @separator-border;
+		}
+	}	
+}

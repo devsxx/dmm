@@ -1,0 +1,62 @@
+<div class="blog-detail-item">
+    <a class="item-image" href="<%=item.getPosterUrl()%>">
+        <img src="<%=item.getPosterImageSrc()%>" />
+    </a>
+    <div class="item-content">
+        <div class="item-headline">
+            <div>
+                <span><%=_t('by')%></span>
+                <a href="<%=item.getPosterUrl()%>"><%=item.getPosterTitle()%></a>
+            </div>
+        </div>
+
+        <div class="item-subline">
+            <i class="icon icon-time"></i>
+            <span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+        </div>
+    </div>
+    <div class="item-description">
+        <span><%=utils.str.shorten(item.getText(), 250, true)%></span>
+    </div>
+</div>
+<%if (item.hasAttachments()) {%>
+<div class="item-attachment">
+    <div class="item-headline"><%=_t('Attachments')%></div>
+    <div class="clearfix" id="attachment_photo_holder">
+    </div>
+    <div class="clearfix" id="attachment_link_holder">
+    </div>
+</div>
+<%}%>
+<%if (item.isApproved()) {%>
+<div id="blog_action_bar">
+	<div class="actions-justify gray">
+        <%if (item.canLike()) {%>
+        <div class="action-item <%= item.isLiked() ? ' liked' : '' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+            <span class="text-info"><%= item.getLikeCount() %></span>
+            <i class="icon icon-activity-like"></i>
+        </div>
+        <%}%>
+        <%if (item.canComment()) {%>
+        <div class="action-item" id="<%= item.getDataId('comment') %>" rel="delegate" data-display="focus">
+            <span class="text-anchor"><%= item.getCommentCount() %></span>
+            <i class="icon icon-activity-comment"></i>
+        </div>
+        <%}%>
+        <%if (item.canShare()) {%>
+        <div class="action-item" id="<%= item.getDataId('share') %>" rel="delegate">
+            <i class="icon icon-activity-share"></i>
+        </div>
+        <%}%>
+        <%if (!item.isOwner()) {%>
+        <div class="action-item" id="<%= item.getDataId('report') %>" rel="delegate">
+            <i class="icon icon-activity-report"></i>
+        </div>
+        <%}%>
+    </div>
+</div>
+<%} else {%>
+<div id="blog_message_holder">
+    <span class="warn-message"><%=_t('This blog is pending an Admins approval.')%></span>
+</div>
+<%}%>

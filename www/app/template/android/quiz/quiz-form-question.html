@@ -1,0 +1,13 @@
+<div class="question-form" data-questionid="<%if (typeof(question_id) != 'undefined') {%><%=question_id%><%}%>">
+    <a id="remove_question_btn" class="btn-quiz-remove-question"><%= _t('Remove Question') %></a>
+    <div class="form-title question-number-title">
+        <%= _t('Question') %>
+    </div>
+    <div class="form-group">
+        <input type="text" class="control-full question-title" value="<%if (typeof(question) != 'undefined') {%><%=question%><%}%>" placeholder="<%= _t('Question') %>">
+    </div>
+
+    <div class="form-title item-title"><%= _t('Answers') %></div>        
+    <div class="answers-list">
+    </div>
+</div>

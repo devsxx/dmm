@@ -1,0 +1,45 @@
+<!-- poll/tpl/poll-detail.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top btn-more hide" id="top_menu_toggle"></div>
+	</div>
+	<div class="header-center">
+		<div class="title" id="page_title">
+			<%= _t('Loading...') %>
+		</div>
+	</div>
+</div>
+
+<div class="content content-background with-header-footer swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div id="poll_detail_holder" class="poll-detail-content">
+				<div class="loading-initiator">
+					<!-- Loading -->
+				</div>
+			</div>
+			<div id="activity_extra_holder" class="hide">
+			</div>
+			<div id="poll_vote_list_holder" class="hide">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-3 fobos">
+        <div class="menu-item" id="show_answers_btn">
+        	<div class=""><%= _t('Questions') %></div>
+        </div>
+        <div class="menu-item hide" id="show_results_btn">
+        	<div class=""><%= _t('Results') %></div>
+        </div>
+        <div class="menu-item hide" id="show_voters_btn">
+        	<div class=""><%= _t('Member Votes') %></div>
+        </div>
+    </div>
+</div>

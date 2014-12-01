@@ -1,0 +1,34 @@
+<!-- message/tpl/message-reply.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top" rel="back">
+			<%= _t('Cancel') %>
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top" id="send_btn"><%= _t('Send') %></div>
+	</div>
+	<div class="header-center">
+		<div class="title" id="page_title">
+			<%= _t('Loading...') %>
+		</div>
+	</div>
+</div>
+
+<div id="content" class="content with-header-footer swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div id="message-recipient-list" class="hide">
+				<%= _t('Between') %> <a href="<%=viewer.getUrl()%>"><%= _t('You') %></a> 
+				<%= _t('and') %> <span id="recipients_list_less"></span>
+				<span id="recipients_list_more" class="hide"></span>
+	            <i id="toggle_recipients" class="hide"><%= _t('More') %></i>
+            </div>
+			<div class="form-general">
+				<textarea class="fluid-no-border" id="reply_message" placeholder="<%= _t('Reply Message...') %>"></textarea>
+				<div id="reply_message_attachment_holder"> </div>
+                <input class="btn btn-form-photo" type="button" id="photo_add_btn" />
+			</div>
+		</div>
+	</div>
+</div>

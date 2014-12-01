@@ -1,0 +1,70 @@
+<div class="poll-detail-item">
+    <div class="item-top-content clearfix">
+        <div class="item-image">
+            <img src="<%=item.getImageSrc()%>" />
+        </div>
+        <div class="item-content">
+            <div class="item-headline">
+                <span><%=utils.str.shorten(item.getQuestion(), 72)%></span>
+            </div>
+            <div class="item-subline">
+                <div>
+                    <span><%=_t('by')%></span>
+                    <a href="<%=item.getPosterUrl()%>"><%=item.getPosterTitle()%></a>
+                </div>
+                <div>
+                    <i class="icon icon-time"></i>
+                    <span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+                </div>
+            </div>
+        </div>    
+    </div>
+    
+    <div class="item-group hide <%if (item.isVoted()) {%>disabled<%}%>" id="poll_answers_holder">
+        <%_.each(item.getAnswers(), function (answer) {%>
+        <div class="item-poll poll-answers-item" data-answerid="<%=answer.getId()%>">
+            <div class="poll-checkbox <%if (item.getAnswerId() == answer.getId()) {%>checked<%}%>"></div>
+            <span><%=answer.getAnswer()%></span>
+        </div>
+        <%});%>
+    </div>
+
+    <div class="item-group hide" id="poll_results_holder">
+    </div>
+
+    <div class="item-group item-group-poll-result hide" id="poll_vote_list_wrapper_min">
+        <span><%=_t('Poll')%></span>
+        <span class="poll-stats" id="poll_vote_count">
+            <span id="poll_vote_count_num"><%=item.getTotalVote()%></span>
+            <i class="icon-poll-active"></i>
+        </span>
+        <div id="poll_vote_list_holder_min"></div>
+    </div>
+</div>
+
+<div id="poll_action_bar">
+	<div class="actions-justify gray">
+        <%if (item.canLike()) {%>
+        <div class="action-item <%= item.isLiked() ? ' liked' : '' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+            <span class="text-info"><%= item.getLikeCount() %></span>
+            <i class="icon icon-activity-like"></i>
+        </div>
+        <%}%>
+        <%if (item.canComment()) {%>
+        <div class="action-item" id="<%= item.getDataId('comment') %>" rel="delegate" data-display="focus">
+            <span class="text-anchor"><%= item.getCommentCount() %></span>
+            <i class="icon icon-activity-comment"></i>
+        </div>
+        <%}%>
+        <%if (item.canShare()) {%>
+        <div class="action-item" id="<%= item.getDataId('share') %>" rel="delegate">
+            <i class="icon icon-activity-share"></i>
+        </div>
+        <%} %>
+        <%if (!item.isOwner()) {%>
+        <div class="action-item" id="<%= item.getDataId('report') %>" rel="delegate">
+            <i class="icon icon-activity-report"></i>
+        </div>
+        <%}%>
+    </div>
+</div>

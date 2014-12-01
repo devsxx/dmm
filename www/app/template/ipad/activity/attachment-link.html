@@ -1,0 +1,13 @@
+<div class="user_add_content link">
+    <div class="close_button"><a href="javascript:void(0);" id="remove_attachment_btn"></a></div>
+    <div class="wrap clearfix">
+		<%if (sDefaultImage != null) {%><div class="wrap_img" style="background-image:url(<%=sDefaultImage%>);"></div><%}%>
+        <div class="wrap_content">
+            <%if (sTitle != null) {%><div class="link_post_title"><%=sTitle%></div><%}%>
+            <%if (sLink != null) {%><div class="link_post_source"><%=sLink%></div><%}%>
+            <%if (sDescription != null) {%><div class="link_post_desc"><%=utils.helper.shorten(sDescription, 200, "...")%></div><%}%>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+

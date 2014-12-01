@@ -1,0 +1,16 @@
+<div class="form-group">
+	<select id="report_reason_select" class="control-full">
+		<option value="" disabled="true" selected="true"><%= _t('Type') %></option>          
+		<option value="spam"><%= _t('Spam') %></option>
+		<option value="abuse"><%= _t('Abuse') %></option>
+		<option value="inappropriate"><%= _t('Inappropriate Content') %></option>
+		<option value="licensed"><%= _t('Licensed Material') %></option>
+		<option value="other"><%= _t('Other') %></option>
+    </select>
+</div>
+<div class="form-group">
+	<textarea class="control-full textarea" id="report_reason_comment" placeholder="<%= _t('Description') %>"><%= message %></textarea>
+</div>
+<div class="">
+	<button class="btn btn-primary btn-large-fluid" id="submit_report_btn"><%= _t('Report') %></button>
+</div>

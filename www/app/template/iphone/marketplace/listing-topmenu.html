@@ -1,0 +1,23 @@
+<div class="setting-list">
+    <%if (item.isOwner()) {%>
+	<a class="menu-item" href="#listing/<%=item.getId()%>/edit">
+		<%= _t('Edit Listing') %>
+	</a>
+	<a class="menu-item" href="#listing/<%=item.getId()%>/edit/photo">
+		<%= _t('Edit Photos') %>
+	</a>
+	<a class="menu-item" href="#listing/<%=item.getId()%>/invite">
+		<%= _t('Invite') %>
+	</a>
+	<div class="menu-item" id="<%=item.getDataId('delete')%>" rel="delegate">
+		<%= _t('Delete Listing') %>
+	</div>
+	<%} else {%>
+    <div class="menu-item" id="<%=item.getDataId('share')%>" rel="delegate">
+        <%= _t('Share') %>
+    </div>
+    <div class="menu-item" id="<%=item.getDataId('report')%>" rel="delegate">
+        <%= _t('Report') %>
+    </div>
+    <%}%>
+</div>

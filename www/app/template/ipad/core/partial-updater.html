@@ -1,0 +1,18 @@
+<div class="header-notification">
+	<div class="beeber-item" id="beeber-request-indicator">
+		<i class="icon icon-beeber-request"></i>
+		<i class="beeber-arrow"></i>
+		<span class="beeber-counter <%= iRequest > 0 ? '': 'hide' %>" id="beeber-request-counter"><%= iRequest %></span>
+	</div>
+	<div class="beeber-item" id="beeber-message-indicator">
+		<i class="icon icon-beeber-message"></i>
+		<i class="beeber-arrow"></i>
+		<span class="beeber-counter <%= iMessage>0 ? '': 'hide' %>" id="beeber-message-counter"><%= iMessage %></span>
+	</div>
+	<div class="beeber-item" id="beeber-notification-indicator">
+		<i class="icon icon-beeber-notification"></i>
+		<i class="beeber-arrow"></i>
+		<span class="beeber-counter <%= iNotification > 0 ? '': 'hide' %>" id="beeber-notification-counter"><%= iNotification %></span>
+	</div>
+</div>
+

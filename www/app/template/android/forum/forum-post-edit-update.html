@@ -1,0 +1,19 @@
+<div class="form-general">
+	<!-- form content -->
+	<!-- <textarea class="fluid-no-border" id="input_content" placeholder="<%= _t('Content') %>"><%=item.getBody()%></textarea> -->
+	<div id="input_content" contenteditable="true" class="form-edit-forum needsclick">
+		<%=item.getBody()%>
+	</div>
+	
+	<div class="form-group group-checkbox hide" id="photo_delete_holder">
+		<input type="checkbox" id="photo_delete">
+		<label for="photo_delete"><%=_t('This post has a photo attached. Do you want to delete it?')%></label>
+	</div>
+	<div class="form-group hide" id="attachment_holder">
+		<!--<div class="attachment-photo-item">
+			<div id="attachment_photo" data-src="" style="background-image: url('');" ></div>
+			<div id="attachment_photo_remove" class="close_button"></div>
+		</div>-->
+	</div>
+	<div id="photo_add_btn" class="btn-form-photo hide"></div>
+</div>

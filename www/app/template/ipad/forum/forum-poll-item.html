@@ -1,0 +1,25 @@
+<!-- forum/tpl/forum-poll-item -->
+<div class="item-wrapper">
+	<div class="poll-detail-item">
+		<div class="forum-poll-question">
+			<div class="item-setting" id="<%=item.getDataId('setting')%>" rel="delegate">
+				<i class="icon icon-setting"></i>
+			</div>
+			<div class="item-title">
+				<i class="icon icon-bar-chart"></i>
+				<span><%=_t('Poll')%>:</span>
+				<span class="poll-title"><%=item.getQuestion()%></span>
+			</div>
+		</div>
+		<div class="item-group hide <%if (item.isVoted()) {%>disabled<%}%>" id="poll_answers_holder">
+			<%_.each(item.getAnswers(), function (answer) {%>
+			<div class="item-poll poll-answers-item" data-answerid="<%=answer.getId()%>">
+				<div class="poll-checkbox"></div>
+				<span><%=answer.getAnswer()%></span>
+			</div>
+			<%});%>
+		</div>
+		<div class="item-group hide" id="poll_results_holder">
+		</div>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="clearfix item-wrapper" rel="link" data-url="<%=item.getUrl()%>">
+    <a class="item-image" href="<%=item.getPosterUrl()%>">
+    	<img src="<%=item.getPosterImageSrc()%>" />
+    </a>
+    <div class="item-content">
+        <div class="item-title">
+            <span><%=item.getTitle()%></span>
+        </div>		
+	    <div class="item-headline">
+	        <span><%=_t('by')%></span>
+            <a href="<%=item.getPosterUrl()%>"><%=item.getPosterTitle()%></a>
+            <span class="item-subline"><i class="icon icon-time"></i> <%= item.getFormatedTime() %></span>
+	    </div>
+    </div>
+    <div class="item-description">
+        <span><%=utils.str.shorten(item.getText(), '250')%></span>
+    </div>
+</div>

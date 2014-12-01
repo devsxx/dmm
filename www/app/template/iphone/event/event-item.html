@@ -1,0 +1,35 @@
+<!-- event/tpl/event-item.html -->
+<div class="item-wrapper event-item">
+	<div class="item-content-top">
+		<a class="item-image" style="background-image: url(<%= item.getBigImageSrc() %>)" href="<%= item.getUrl() %>"></a>
+		<div class="item-profile">
+			<a href="<%=item.getPosterUrl()%>" class="item-profile-link">
+				<img src="<%=item.getPosterImageSrc()%>" />
+				<span class="item-profile-name"><%=item.getPosterTitle()%></span>
+			</a>
+		</div>
+		<%if (item.canEdit() || item.canDelete()) {%>
+		<span class="item-setting" id="<%= item.getDataId('setting') %>" rel="delegate"></span>
+		<%}%>
+	</div>
+	<div class="item-content-bottom">
+		<div class="item-cal">
+			<div class="item-month"><%= date.month %></div>
+			<div class="item-date"><%= date.date %></div>
+		</div>		
+		<div id="rsvp_btn" class="item-rvsp prevent">
+		</div>
+		<div class="item-info">
+			<div>
+				<a href="<%=item.getUrl()%>" class="item-title"><%= item.getTitle() %></a> | <span class="text-total-member"><%=item.getTextTotalMember()%></span>
+			</div>
+			<div class="item-description"><%= item.getTextShortStartTime() %>
+				<% if(item.hasLocation()){ %>
+				 <%= _t('at') %> <%= item.getLocation() %>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="event-rsvp-dropdown-wrapper hide"></div>
+<div class="pvm"></div>

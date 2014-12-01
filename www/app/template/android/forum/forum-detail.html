@@ -1,0 +1,62 @@
+<!-- forum/tpl/forum-detail.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+		</div>
+	</div>
+	<div class="header-right">
+		<a class="btn-top btn-add hide" id="add_thread_btn" href="#forum/<%=item.getId()%>/add_thread"></a>
+	</div>
+	<div class="header-center">
+		<div id="page_title" class="title">
+			<%= _t('Loading...') %>
+		</div>
+	</div>
+</div>
+
+<div id="search_view_holder"></div>
+
+<div class="content with-header-footer with-search swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list vertical-align forum-list-holder">
+				<div class="forum-list" id="forum_list_holder"></div>
+
+				<div class="clearfix announcement-item-wrapper">
+					<div class="announcement-header hide" id="announcement_list_header">
+						<i class="icon icon-announcement-item"></i>		
+						<i class="icon toggle-icon icon-chevron-up"></i>
+						<div class="announcement-header-content">
+							<span class="announcement-title"><%=_t('Announcements')%></span>
+							<span class="count forum-count"></span>
+						</div>
+					</div>
+					<div class="thread-list" id="announcement_list_holder"></div>
+				</div>
+
+				<div class="clearfix thread-item-wrapper">
+					<div class="thread-header hide" id="thread_list_header">
+						<i class="icon icon-thread-item"></i>		
+						<i class="icon toggle-icon icon-chevron-up"></i>
+						<div class="thread-header-content">
+							<span class="thread-title"><%=_t('Threads')%></span>
+					<span class="count forum-count"></span>
+						</div>
+					</div>
+					<div class="thread-list" id="thread_list_holder"></div>
+				</div>
+			</div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer footer-pagination">
+	<div class="clearfix menu-justify grid-2 fobos">
+        <div class="menu-item" id="forum_quickjump_holder">
+        </div>
+        <div class="menu-item">
+        	<div class="sibling" id="pagination_holder"></div>
+        </div>
+    </div>
+</div>

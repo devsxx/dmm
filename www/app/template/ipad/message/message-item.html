@@ -1,0 +1,21 @@
+<div class="clearfix message-item">
+	<div class="item-image">
+		<a href="<%= item.getPosterUrl() %>">
+			<img src="<%= item.getPosterImageSrc() %>" />
+		</a>
+	</div>
+	<div class="item-headline">
+		<div class="item-subline">
+			<i class="icon icon-time"></i>
+            <span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+		</div>
+		<a href="<%= item.getPosterUrl() %>">
+			<%= item.getPosterTitle() %>
+		</a>
+	</div>
+	<div class="item-description">
+		<%= item.getContent() %>
+	</div>
+	<div class="item-attachment">
+	</div>
+</div>

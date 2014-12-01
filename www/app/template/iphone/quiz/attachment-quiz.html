@@ -1,0 +1,11 @@
+<div class="att-item-wrapper clearfix">
+    <% if (attachment.sPhoto_Url) {%>
+    <div class="att-col-image">
+        <a href="<%=attUrl%>"><img class="att-item-image" src="<%=attachment.sPhoto_Url%>" /></a>
+    </div>
+    <%}%>
+	<div class="att-col-info">
+		<div class="att-item-title"><a href="<%=attUrl%>"><%=utils.str.shorten(attachment.sTitle, 48)%></a></div>
+		<div class="att-item-description"><%=utils.str.shorten(attachment.sDescription, 96)%></div>
+	</div>
+</div>

@@ -1,0 +1,86 @@
+<div class="form-general">
+	<!-- form content -->
+	<div class="form-title">
+		<%= _t('event_name') %>
+	</div>
+	<div class="form-group">
+		<input type="text" class="control-full" id="event_form_name" placeholder="<%= _t('Event Name') %>" value="" maxlength="100" />
+	</div>
+
+	<div class="form-title">
+		<%= _t('description') %>
+	</div>
+	<div class="form-group">
+		<textarea id="event_form_description" class="control-full textarea" placeholder="<%= _t('Description') %>"></textarea>
+
+	</div>
+	<!-- Start Date -->
+	<div class="form-title">
+		<%= _t('starting_date') %>
+	</div>
+	<!-- Start Date -->
+	<div class="form-group form-group-flex clearfix">
+		<input class="input-datetime" type="text" id="event_form_start_date" value="<%=_t('Start Date')%>" readonly />
+		<input class="input-datetime" type="text" id="event_form_start_time" value="<%=_t('Start Time')%>" readonly />
+	</div>
+	<!-- End date -->
+	<div class="form-title">
+		<%= _t('ending_date') %>
+	</div>
+	<!-- End date -->
+	<div class="form-group form-group-flex clearfix">
+        <input class="input-datetime" type="text" id="event_form_end_date" value="<%=_t('End Date')%>" readonly />
+        <input class="input-datetime" type="text" id="event_form_end_time" value="<%=_t('End Time')%>" readonly />
+	</div>
+
+	<div class="form-title">
+		<%= _t('location') %>
+	</div>
+	<div class="form-group">
+		<input type="text" class="control-full" id="event_form_location" placeholder="<%= _t('Location') %>" />
+	</div>
+
+	<div class="form-title">
+		<%= _t('category') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="event_form_category">
+            <option value=""><%= _t('select_category') %></option>
+			<%_.each(data.category_options, function (category) {%>
+			<option value="<%=category.iCategoryId%>"><%=category.sName%></option>
+			<%}, this);%>
+		</select>
+	</div>
+
+	<div class="form-title">
+		<%= _t('privacy') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="event_form_privacy">
+			<%_.each(data.view_options, function (option) {%>
+			<option value="<%=option.sValue%>"><%=option.sPhrase%></option>
+			<%}, this);%>
+		</select>
+	</div>
+
+	<div class="form-title">
+		<%= _t('comment_privacy') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="event_form_privacy_comment">
+			<%_.each(data.comment_options, function (option) {%>
+			<option value="<%=option.sValue%>"><%=option.sPhrase%></option>
+			<%}, this);%>
+		</select>
+	</div>
+    
+	<div class="form-title">
+		<%= _t('main_photo') %>
+	</div>
+    <div class="form-group">
+		<div id="event_form_photo_holder">
+			<!-- event photo will be add here -->
+		</div>
+		<input class="btn btn-form-photo" type="button" id="event_form_photo_browse" />
+	</div>
+</div>

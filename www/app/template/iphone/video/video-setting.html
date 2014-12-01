@@ -1,0 +1,17 @@
+<div class="setting-list">
+	<%if (item.canEdit()) {%>
+	<a class="setting-item" href="#videos/edit/<%= item.getId() %>">
+		<%= _t('Edit this video') %>
+	</a>
+	<%}%>
+	<%if (item.canDelete()) {%>
+	<a class="setting-item" rel="delegate" id="<%= item.getDataId('delete') %>">
+		<%= _t('Delete this video') %>
+	</a>
+	<%}%>
+	<%if (!item.isOwner()) {%>
+	<a class="setting-item" id="<%= item.getDataId('report') %>" rel="delegate">
+		<%= _t('Report this video') %>
+	</a>
+	<%}%>
+</div>

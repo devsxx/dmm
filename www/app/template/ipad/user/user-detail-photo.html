@@ -1,0 +1,34 @@
+<!-- friend/tpl/index.html-->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back"></div>
+	</div>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+	</div>
+	<div class="header-center title">
+        <div class="title" id="page_title">
+            <%= _t('Photos') %>
+        </div>
+	</div>
+</div>
+
+<div class="content content-background with-header-footer swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list clearfix" id="photo_list_view_holder"></div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-3 fobos">
+        <a class="menu-item current" href="#user-photo/<%= item.getId() %>">
+        	<div class=""><%= _t('Photos') %></div>
+        </a>
+        <a class="menu-item" href="#user-album/<%= item.getId() %>">
+        	<div class="sibling"><%= _t('Albums') %></div>
+        </a>
+    </div>
+</div>

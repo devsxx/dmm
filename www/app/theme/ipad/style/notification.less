@@ -1,0 +1,116 @@
+.page-notification {
+	position: fixed;
+	top: 0;
+	bottom: @header-height;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background: white;
+
+	-webkit-transform:  translateY(-46%) translateX(-22.8%) scale(0);
+	.transition-duration(@normal);
+
+	.box-notification-content {
+		position: fixed;
+		top: 0;
+		bottom: @box-header-height;
+		left: 0;
+		right: 0;
+		width: 100%;
+
+		// scrollable
+		.enable-vscroll();
+		.hide-scrollbar();
+	}  
+
+	.box-header {
+		height: @box-header-height;
+		line-height: @box-header-height;
+		vertical-align: middle;
+		border-bottom: @separator-border;
+		text-align: center;
+	}
+
+	.box-footer {
+		bottom: 0;
+		left: 0;
+		right: 0;
+		position: fixed;
+		height: @footer-height;
+		line-height: @footer-height;
+		vertical-align: middle;
+		text-align: center;
+		border-top: 1px solid #7fcfec;
+	}
+
+	&.open {
+		-webkit-transform:  translateY(@header-height) translateX(0) scale(1);
+	}
+}
+
+.icon-notification-type {
+	background-image: url("@{image-path}/icon-activity-comment.png");
+	background-size: 10px;
+	width: 12px;
+	height: 10px;
+
+	&[class^=event],
+	&[class^=fevent] {
+		background-image: url("@{image-path}/icon-notification-calendar.png");
+		background-size: 11px;
+		width: 12px;
+		height: 11px;
+	}
+	&[class$=like]{
+		background-image: url("@{image-path}/icon-activity-like.png");
+		background-size: 10px;
+		width: 12px;
+		height: 10px;
+	}
+}
+
+.box-notification-item {
+	padding: @box-padding-base;
+
+	& + div{
+		border-top: @separator-border;
+	}
+
+	.item-wrapper{
+		color: @text-color;
+	}
+
+	.item-image{
+		float:left;
+		width: @friend-image-width;
+
+		img{
+			width: @friend-image-width;
+			height: @friend-image-width;
+		}  
+	}
+
+	.item-headline,
+	.item-subline,
+	.item-description,
+	.item-action{
+		padding-left: @friend-image-width + @box-padding-base;
+	}
+
+	.item-subline{
+		font-size: @font-size-small;
+	}
+
+	.item-description{
+		color: @item-description-color;  
+	}
+
+	.item-subline{
+		color: @item-subline-color;
+		font-size: @font-size-small;
+	}
+	
+	.item-action{
+		padding-top: @padding-base-vertical - 1px;
+	}
+}

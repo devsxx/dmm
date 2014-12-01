@@ -1,0 +1,30 @@
+<div class="">
+    <!-- photo/tpl/album-index.html-->
+    <div class="header">
+        <div clickable="true" data-click="sidebar:toggle" class="header-left">
+            <i class="icon icon-sidebar"></i>
+        </div>
+
+		<div class="header-center">
+			<%= utils.helper.updater() %>
+		</div>
+
+	    <div class="header-right">
+			<div class="btn-top btn-more" id="menu_toggle">
+			</div>
+		</div>
+	</div>
+
+	<div id="top_menu_holder" class="top-menu hide"></div>
+
+	<div id="search_view_holder" class="clearfix"></div>
+
+	<div class="content with-search swiper-container" id="content">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+	            <div class="not-found hide" id="not_found"><%= _t('No contact found.') %></div>
+				<div class="swiper-list" id="friend-list-view-holder"></div>
+			</div>
+		</div>
+	</div>
+</div>

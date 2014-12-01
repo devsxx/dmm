@@ -1,0 +1,61 @@
+<!-- activity/tpl/newsfeed.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top" rel="back">
+			<%= _t('မပို.ဘူး') %>
+		</div>
+	</div>
+    <div class="header-right">
+		<div class="btn-top disabled" id="post_message_btn">
+			<%= _t('send') %>	
+		</div>
+	</div>
+	<div class="header-center" href="#">
+		<div class="title">
+			<%= _t('compose') %>
+		</div>
+	</div>
+</div>
+
+<!-- swiper -->
+<div class="content with-header swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list vertical">
+				<div class="clearfix jumptop"></div>
+				<div class="form-title">
+				   <%= _t('to') %>
+				</div>
+				<div class="form-group">
+                    <div id="wrap_mail_to_user">
+                        <ul id="to_user_list" class="mail_list">
+                            <li class="list_user_send_last">
+                                <input type="text" id="mail_to_user" placeholder="<%= _t('to') %>" />
+                                <div class="hide" id="autocomplete_mail_to_holder"></div>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+				</div>
+
+				<div class="form-title">
+				   <%= _t('subject') %>
+				</div>
+				<div class="form-group">
+					<input id="subject" type="text" class="control-full text" placeholder="အေၾကာင္းအရာ" />
+				</div>
+
+				<div class="form-title">
+				   <%= _t('message') %>
+				</div>
+				<div class="from-group">
+					<textarea id="message" rows="4" class="control-full textarea" name="body" placeholder="စာတုိ"></textarea>
+				</div>
+
+                <div id="compose_message_attachment_holder"> </div>
+                <input class="btn btn-form-photo" type="button" id="photo_add_btn" />
+
+			</div>
+		</div>
+	</div>
+</div>

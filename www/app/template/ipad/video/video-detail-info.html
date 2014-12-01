@@ -1,0 +1,33 @@
+<!-- activity/tpl/activity-detail.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top btn-more hide" id="top_menu_toggle">
+		</div>
+	</div>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+		<div class="title" id="page_title">
+			<%= _t('Loading...') %>
+		</div>
+	</div>
+</div>
+
+<div id="top_menu_holder" class="top-menu hide"></div>
+
+<div class="content content-background with-header swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div id="video_detail_info_holder" class="video-detail-info">
+				<div class="loading-initiator">
+					<!-- Loading				 -->
+				</div>
+			</div>
+			<div id="activity_extra_holder" class="hide"></div>
+			<div class="pvl"></div>
+		</div>
+	</div>
+</div>

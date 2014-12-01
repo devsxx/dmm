@@ -1,0 +1,29 @@
+<!-- forum/tpl/forum-post-item -->
+<div class="item-wrapper">
+	<div class="item-forum-top clearfix">
+		<div class="item-image">
+			<i class="icon icon-search-post"></i>
+		</div>
+		<div class="item-content">
+			<div class="item-headline">
+				<span><%=_t('Posted in thread')%></span>
+			<a href="<%=item.getThreadUrl()%>"><%=utils.str.shorten(item.getThreadTitle(), 60)%></a>
+			</div>
+			<div class="item-subline">
+				<div>
+					<span><%=_t('by')%></span>
+					<a href="<%=item.getPosterUrl()%>"><%=utils.str.shorten(item.getPosterTitle(), 16)%></a>
+				</div>
+				<div>
+					<i class="icon icon-time"></i>
+					<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item-forum-content">
+		<div class="clear item-story">
+			<%=utils.str.shorten(item.getText(), 120)%>
+		</div>
+	</div>
+</div>

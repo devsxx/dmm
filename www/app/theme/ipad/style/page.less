@@ -1,0 +1,233 @@
+@item-page-image-size: 125px;
+
+.attachment-pages {
+	border-top: 1px dotted @border-light-color;
+	padding: @box-padding-base 0;
+	margin: 0 @box-padding-base;
+	margin-top: @box-padding-small;
+	min-height: 100 + @box-padding-small;
+
+	.att-item-image {
+		float: left;
+		width: 100px;
+		height: 100px;
+		margin-right: @box-padding-base;
+
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.att-col-info {
+		overflow: hidden;
+	}
+}
+
+.page-item {
+	position: relative;
+	margin: @box-padding-large  0;	
+	height: @item-page-image-size;
+	background-color: @background-color;
+	-webkit-box-shadow: 0 0 5px @border-color;
+	-moz-box-shadow: 0 0 5px @border-color;
+	box-shadow: 0 0 5px @border-color;
+
+	.item-setting {
+		right: 0;
+		position: absolute;
+		padding: @box-padding-base;
+	}
+
+	.item-image {
+		float: left;	
+		
+		img {
+			width: @item-page-image-size;
+			height: @item-page-image-size;
+		}
+	}
+
+	.item-content {
+		overflow: hidden;
+		padding:  @box-padding-small @box-padding-base;	
+
+		.item-headline {
+			color: @link-color;
+			font-weight: bold;
+			font-size: @font-size-large;
+			.text-overflow();
+		}
+
+		.item-subline {
+			display: inline-block;
+			margin-right: @box-padding-small;
+
+			.text-info {
+				color: @text-color;
+			}
+
+			.liked .text-info {
+				color: @link-color;
+			}
+		}
+
+		.item-description {
+			border-top: @separator-border;
+			padding-top: @box-padding-small;
+			margin-top: @box-padding-small;
+			overflow: hidden;
+		    text-overflow: ellipsis;
+		    display: -webkit-box;
+		    /* number of lines to show */
+		    -webkit-line-clamp: 2;
+		    -webkit-box-orient: vertical;
+		    word-break: break-all;
+		}
+	}
+
+	.icon-category {
+		background-size: 11px;
+		width: 12px;
+		height: 14px;
+		vertical-align: -1px;
+		opacity: 0.6;
+	}
+}
+
+.page-detail-info {	
+	margin: 0 @box-padding-large;
+	background-color: @background-color;
+	-webkit-box-shadow: 0 0 5px @border-color;
+	-moz-box-shadow: 0 0 5px @border-color;
+	box-shadow: 0 0 5px @border-color;
+
+	.page-detail-info-content {
+		position: relative;				
+		padding-bottom: @box-padding-base;	
+
+		.item-cover {
+			background-color: @gray-lighter;
+			height: 230px;
+			background-repeat: no-repeat;
+			background-position: top center;
+			background-size: cover;
+		}
+
+		.item-avatar {
+			position: absolute;
+			width: @attachment-photo-size;
+			height: @attachment-photo-size;
+			top: 180px;
+			left: @box-padding-large;
+			border: 5px solid rgba(255, 255, 255, 0.5);		
+			-webkit-border-radius: 2px;		
+			-moz-border-radius: 2px;		
+			border-radius: 2px;		
+			background-repeat: no-repeat;
+			background-position: top center;
+			background-size: cover;
+		}
+
+		.item-content-top {
+			padding: @box-padding-small @box-padding-small @box-padding-small 160px;
+			min-height: 45px;
+
+			.item-headline,
+			.item-subline {
+				.text-overflow();
+			}
+
+			.item-headline {
+				color: @link-color;
+				font-size: @font-size-large + 10;
+			}
+		}
+
+		.item-description {
+			padding: @box-padding-base @box-padding-base 0 @box-padding-base;
+			word-break: break-all;	
+
+			img {
+				max-width: 100%;
+			}
+		}
+
+		&.no-cover {
+			.item-avatar {
+				position: static;
+				float: left;
+				margin: @box-padding-small;
+			}
+
+			.item-content-top {
+				overflow: hidden;
+				padding: @box-padding-small+25 @box-padding-small @box-padding-small 0;
+				margin: 0 @box-padding-base;
+				height: @attachment-photo-size + @box-padding-small;
+				border-bottom: 1px dotted @border-light-color;
+			}
+		}
+	}
+
+	.event-item-extra {
+		border-top: @separator-border-light;
+		padding: @box-padding-base;
+
+		.item-stats,
+		.action-item {
+			float: right;
+		}
+
+		.item-text {
+			padding-bottom: @box-padding-small;
+		}
+
+		img {
+			width: 65px;
+			height: 65px;
+			margin-bottom: 5px;
+		}
+	}
+
+	.icon-category {
+		background-size: 11px;
+		width: 12px;
+		height: 14px;
+		vertical-align: -1px;
+		opacity: 0.6;
+	}
+}
+
+.friend-list {
+	padding-top: @box-padding-small;
+
+	.page-invite-item {
+		padding: @box-padding-small 2*@box-padding-small;
+		min-height: 2*@box-padding-small+@avatar-image-size;
+		width: 50%;
+		float: left;
+		
+		label {
+			font-weight: normal;
+			display: block;
+		}
+
+		.item-image {
+			width: @avatar-image-size;
+			height: @avatar-image-size;
+			float: left;
+			margin-right: @box-padding-small;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		.item-title {
+			.text-overflow();
+		}
+	}
+}
+
+.page-apps-list.swiper-list.vertical {
+	padding: @box-padding-large;
+}

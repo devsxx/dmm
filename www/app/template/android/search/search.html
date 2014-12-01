@@ -1,0 +1,30 @@
+<div class="search-area">
+	<div class="search-simple">
+		<%if (bAdvanced) {%>
+		<div id="adv_search_toggle_btn" class="btn-advance-search"></div>
+		<%}%>
+		<div class="form-search-group">
+			<span class="icon-search" id="search-button"></span>
+			<input type="text" class="input-search control-full" id="search-textbox-item" placeholder="<%=sPlaceHolder%>" />
+		</div>
+	</div>
+	<%if (bAdvanced) {%>
+	<div id="adv_search_holder" class="search-advanced hide">
+		<div class="form-search-group inline">
+			<div class="form-group">
+				<select class="control-full" name="select-category" id="search_category">
+                    <option value="0"><%= _t('all_categories') %></option>
+                </select>
+            </div>
+            <div class="form-group">
+				<select class="control-full" name="select-category" id="search_event_browseby">
+                    <option value="starttime"><%= _t('start_time') %></option>
+                </select>
+            </div>
+		</div>
+		<div class="form-search-submit">
+			<input type="button" class="btn btn-primary btn-small-fluid" id="search_btn" value="<%= _t('search') %>" />
+		</div>
+	</div>
+	<%}%>
+</div>

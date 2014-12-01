@@ -1,0 +1,63 @@
+<!-- page/tpl/page-detail-info-update.html -->
+<div class="page-detail-info-content <%if (item.getCoverImageSrc()=='') { %>no-cover<% } %>">
+
+    <%if (item.getCoverImageSrc()) { %>
+        <div class="item-cover" style="background-image:url(<%= item.getCoverImageSrc() %>);"></div>
+    <% } %>
+
+    <div class="item-avatar" style="background-image:url(<%= item.getAvatarImageSrc() %>);"></div>
+
+    <div class="item-content-top">
+        <div class="item-headline item-title">
+            <span><%=item.getTitle()%></span>
+        </div>
+        
+        <%if (item.getCategoryName()) { %>
+        <div class="item-subline">
+            <span class="icon icon-category"></span>
+            <span><%=item.getCategoryName()%></span>
+        </div>
+        <% } %>
+    </div>
+
+    <%if (item.getText()) { %>
+    <div class="item-description">
+        <span><%=utils.str.shorten(item.getParsedText(), 250, true)%></span>
+    </div>
+    <% } %>
+</div>
+
+<!--Liked and Admins list, copied style from events-->
+<div class="event-item-extra" id="page_member_list">
+    <div class="action-item <%= item.isLiked() ? 'liked' : '' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+        <span class="text-info"><%=item.getTotalMembers()%></span>
+        <i class="icon icon-activity-like"></i>
+    </div>
+    <div class="item-text"><%= _t('Liked') %></div>
+    <div class="clearfix">
+        <%_.each(item.getMemberListMin(), function (member) {%>
+        <a href="#user/<%=member.user_id%>" id="<%=member.user_id%>">
+            <img src="<%=member.user_image%>" height="48">
+        </a>
+        <%});%>
+        <%if (item.getTotalMembers() > 18) {%>
+        <span class="more-link" id="more_members_btn"><%=_t('More')%></span>
+        <%}%>
+    </div>
+</div>
+
+<div class="event-item-extra" id="page_admin_list">
+    <div class="item-stats guest-count"><span class="stats-number"><%=item.getTotalAdmins()%></span><i class="icon icon-user"></i></div>
+    <div class="item-text"><%= _t('Admin') %></div>
+    <div class="clearfix">
+        <%_.each(item.getAdminListMin(), function (admin) {%>
+        <a href="#user/<%=admin.user_id%>">
+            <img src="<%=admin.user_image%>" height="48">
+        </a>
+        <%});%>
+        <%if (item.getTotalAdmins() > 18) {%>
+        <span class="more-link" id="more_admins_btn"><%=_t('More')%></span>
+        <%}%>
+    </div>
+</div>
+

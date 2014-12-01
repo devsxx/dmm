@@ -1,0 +1,17 @@
+<div class="comment-action">
+	<div class="action-item">
+		<a class="text link-like <%if (item.isLiked()) {%>liked<%}%>"><%=item.getLikeLabel()%></a>		
+	</div>
+	<%if(item.canDislike()){%>
+	<span class="middot">-</span>
+	<div class="action-item">
+		<a class="text link-dislike <%if (item.isDisliked()) {%>disliked<%}%>"><%=item.getDislikeLabel()%></a>
+	</div>
+	<%}%>
+	<%if(item.isOwner()){%>
+	<span class="middot">-</span>
+	<div class="action-item">				
+		<a class="text delete-comment"><%= _t('delete') %></a>
+	</div>
+	<%}%>
+</div>

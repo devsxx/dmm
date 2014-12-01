@@ -1,0 +1,15 @@
+<div class="setting-list">
+	<%if (!item.isVoted()) {%>
+	<div class="setting-item" id="<%=item.getDataId('viewanswers')%>" rel="delegate">
+		<%= _t('View Questions') %>
+	</div>
+	<div class="setting-item" id="<%=item.getDataId('viewresults')%>" rel="delegate">
+		<%= _t('View Results') %>
+	</div>
+	<%}%>
+	<%if (item.getTotalVote() > 0) {%>
+	<div class="setting-item" id="<%=item.getDataId('viewvoters')%>" rel="delegate">
+		<%= _t('View Member Votes') %>
+	</div>
+	<%}%>
+</div>

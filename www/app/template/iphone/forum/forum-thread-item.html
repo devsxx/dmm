@@ -1,0 +1,25 @@
+<!-- forum/tpl/forum-thread-item -->
+<div class="clearfix item-wrapper">
+	<div class="item-image item-thread-icon"></div>
+	
+	<div class="item-forum-content">
+		<div class="item-title">
+			<%if (item.isSticky()) {%>
+				<i class="icon icon-pushpin"></i>
+			<%}%>
+			<a href="<%=item.getUrl()%>"><%=utils.str.shorten(item.getTitle(), 60)%></a>			
+		</div>
+		<div class="item-description">
+			<span><%=_t('Last post by ')%></span> 
+			<a href="<%=item.getLastUserUrl()%>"><%=utils.str.shorten(item.getLastUserTitle(), 16)%></a>
+		</div>
+		<div class="item-stats">
+			<span><i class="icon icon-comments"></i> <%=item.getTotalPost()%></span>
+			<span><i class="icon icon-eye-open"></i> <%=item.getTotalView()%></span>
+			<span>
+				<i class="icon icon-time"></i>
+				<span class="livetime" data-livetime="<%= item.getTimeUpdate() %>"><%= item.getLiveTimeUpdate() %></span>
+			</span>
+		</div>
+	</div>	
+</div>

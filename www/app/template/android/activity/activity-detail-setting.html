@@ -1,0 +1,18 @@
+<div class="setting-list">
+	<%if (item.canDislike()) {%>
+    <div class="setting-item <%if (this.model.getDislikeCount() < 1) {%>hide<%}%>" id="dislike-list"></div>
+    <div class="setting-item" id="<%=item.getDataId('dislike')%>" rel="delegate">
+        <%= item.isDisliked() ? _t('remove_dislike') : _t('dislike')%>
+    </div>
+    <%}%>
+	<% if(item.canDelete()){ %>
+	<a class="setting-item" rel="delegate" id="<%= item.getDataId('delete') %>">
+		<%= _t('delete_this_post') %>
+	</a>
+	<% } %>
+	<% if (!item.isOwner()) { %>
+	<a class="setting-item" id="<%= item.getDataId('report') %>" rel="delegate">
+		<%= _t('report_this_post') %>
+	</a>
+	<% } %>	
+</div>

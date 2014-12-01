@@ -1,0 +1,85 @@
+<div class="form-general">
+	<!-- form content -->
+	<div class="form-title">
+		<%= _t('Event Name') %>
+	</div>
+	<div class="form-group">
+		<input type="text" class="control-full" placeholder="Event Name"  id="event_form_name" value="<%=item.getTitle()%>" maxlength="100" />
+	</div>
+
+	<div class="form-title">
+		<%= _t('Description') %>
+	</div>
+	<div class="form-group">
+		<textarea id="event_form_description" class="control-full textarea" placeholder="Description"><%=item.getDescription()%></textarea>
+	</div>
+    
+    <!-- Start Date -->
+	<div class="form-title">
+		<%= _t('Starting Date') %>
+	</div>
+    <div class="form-group form-group-flex clearfix">
+        <input class="input-datetime control-full" type="text" id="event_form_start_date" value="<%=date.fullYear+'-'+date.m+'-'+date.d%>" readonly />
+        <input class="input-datetime control-full" type="text" id="event_form_start_time" value="<%=date.H+':'+date.i+':00'%>" readonly />
+    </div>
+
+    <!-- End date -->
+	<div class="form-title">
+		<%= _t('Ending Date') %>
+	</div>
+    <div class="form-group form-group-flex clearfix">
+        <input class="input-datetime control-full" type="text" id="event_form_end_date" value="<%=end_date.fullYear+'-'+end_date.m+'-'+end_date.d%>" readonly />
+        <input class="input-datetime control-full" type="text" id="event_form_end_time" value="<%=end_date.H+':'+end_date.i+':00'%>" readonly />
+    </div>
+
+	<div class="form-title">
+		<%= _t('Location') %>
+	</div>
+	<div class="form-group">
+		<input type="text" class="control-full" placeholder="Location" id="event_form_location" value="<%=item.getLocation()%>" />
+	</div>
+
+	<div class="form-title">
+		<%= _t('Category') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="event_form_category">
+            <option value=""><%= _t('Select Category') %></option>
+			<%_.each(item.getCategoryOptions(), function (category) {%>
+			<option value="<%=category.iCategoryId%>" <%if (category.iCategoryId == item.getCategoryId()) {%>selected="selected"<%}%>><%=category.sName%></option>
+			<%}, this);%>
+		</select>
+	</div>
+
+	<div class="form-title">
+		<%= _t('Privacy') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="event_form_privacy">
+			<%_.each(item.getViewOptions(), function (option) {%>
+			<option value="<%=option.sValue%>" <%if (option.sValue == item.getViewPrivacy()) {%>selected="selected"<%}%>><%=option.sPhrase%></option>
+			<%}, this);%>
+		</select>
+	</div>
+
+	<div class="form-title">
+		<%= _t('Comment Privacy') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" id="event_form_privacy_comment">
+			<%_.each(item.getCommentOptions(), function (option) {%>
+			<option value="<%=option.sValue%>" <%if (option.sValue == item.getCommentPrivacy()) {%>selected="selected"<%}%>><%=option.sPhrase%></option>
+			<%}, this);%>
+		</select>
+	</div>
+
+	<div class="form-title">
+		<%= _t('Main Photo') %>
+	</div>
+	<div class="form-group">
+		<div id="event_form_photo_holder">
+			<!-- event photo will be add here -->
+		</div>
+		<input class="btn btn-form-photo" type="button" id="event_form_photo_browse" />
+	</div>
+</div>

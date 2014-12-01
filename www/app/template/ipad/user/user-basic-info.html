@@ -1,0 +1,61 @@
+<div class="user-profile-cover-image" style="background-image:url(<%= item.getCoverPhotoUrl() %>);">
+    <div class="clearfix jumptop"></div>
+    <div class="avatar">
+        <div class="img" style="background-image:url(<%= item.getBigImageSrc() %>);"></div>
+        <div id="friend-action-holder"> </div>
+    </div>
+    <div class="ipad-user-basic-info">
+        <div class="ipad-user-basic-info-mask">        	
+            <div class="name">
+        	    <span class="fullname">
+        	        <%= item.getTitle() %> 	        
+        	    </span>
+        	    <i class="<%= item.getGender().toLowerCase() %>"></i>
+        	</div>            
+            <div class="basic-contact-holder">
+                <div class="clearfix actions-justify fobos">
+                    <%if (item.canViewPhoto()) {%>
+                    <a class="action-item link" href="<%= item.getPhotoUrl() %>">
+                        <%= _t('PHOTO') %> (<%= item.getTotalPhotos() %>)
+                    </a>
+                    <%}%>
+                    <%if (item.canViewFriend()) {%>
+                    <a class="action-item link" href="<%= item.getFriendUrl() %>">
+                        <%= _t('FRIEND') %> (<%= item.getTotalFriends()%>)
+                    </a>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    	<div class="user-information">
+            <% if(item.getBirthDate()) { %>
+                <span class="birthday">
+                    <i class="icon icon-gift"></i><%= item.getBirthDate() %>
+                </span>
+            <% } %>
+                
+            <% if(item.getFacebookContact()) { %>
+                <span class="facebook">
+                    <i class="icon icon-facebook-sign"></i><%= item.getFacebookContact() %>
+                </span>
+            <% } %>
+                
+            <% if(item.getWebsiteContact()) { %>
+                <span class="homepage">
+                    <i class="icon icon-globe"></i><%= item.getWebsiteContact() %>
+                </span>	    
+            <% } %>
+
+            <% if(item.getTwitterContact()) { %>
+                <span class="twitter">
+                    <i class="icon icon-twitter-sign"></i><%= item.getTwitterContact() %>	    
+                </span>
+            <% } %>
+    	</div>	
+        <% if(item.getAboutMe() && item.canViewProfileInfo()) { %>
+            <div class="about-information">
+                <i class="icon icon-user-gray"></i><%= item.getAboutMe() %>
+            </div>	
+        <% } %>            
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<!-- quiz/tpl/quiz-index.html-->
+<div class="header">
+	<div href="#" clickable="true" data-click="sidebar:toggle" class="header-left">
+		<i class="icon icon-sidebar"></i>
+	</div>
+	<div class="header-right">
+		<a id="add-btn" class="btn-top btn-add hide" href="#quizzes/add"></a>
+	</div>
+	<div class="header-center">
+		<%=utils.helper.updater()%>
+	</div>
+</div>
+
+<div id="search_view_holder"></div>
+
+<div class="content with-header-footer body-bg with-search swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="not-found hide" id="not_found"><%= _t('No quizzes found.') %></div>
+			<div class="swiper-list vertical" id="quiz_list_holder">
+			</div>
+			<%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-2 fobos">
+        <a class="menu-item <%if (sView == 'all') {%>current<%}%>" href="#quizzes">
+        	<div class=""><%= _t('All Quizzes') %></div>
+        </a>
+        <a class="menu-item <%if (sView == 'my') {%>current<%}%>" href="#quizzes/my">
+        	<div class="sibling"><%= _t('My Quizzes') %></div>
+        </a>
+    </div>
+</div>

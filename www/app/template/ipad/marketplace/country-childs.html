@@ -1,0 +1,6 @@
+<select id="listing_form_country_childs" class="control-full">
+    <option value="0"><%=_t('State/Province:')%></option>
+    <%_.each(data, function(option) {%>
+    <option value="<%=option.child_id%>" <%if (option.child_id == selected) {%>selected="selected"<%}%>><%=option.name%></option>
+    <%});%>
+</select>

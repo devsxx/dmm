@@ -1,0 +1,40 @@
+<!-- quiz/tpl/quiz-detail-results.html -->
+<div class="header">
+    <div class="header-left">
+        <div class="btn-top btn-back">
+        </div>
+    </div>
+    <div class="header-center">
+        <div class="title" id="page_title">
+            <%=_t('Loading')%>
+        </div>
+    </div>
+</div>
+
+<div class="content content-background with-header-footer swiper-container" id="content">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="quiz-result-content">
+                <div class="quiz-result-user">
+                    <span><%=_t('Quiz Results for')%></span>
+                    <a id="result_title" class="result-title"><%=_t('Quiz')%></a>
+                    <span id="result_percent"></span>
+                </div>
+                <div id="quiz_user_result_holder" class="quiz-user-result-content">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="clearfix menu-justify grid-3 fobos">
+        <a class="menu-item" href="#quiz/<%=iQuizId%>">
+            <div class=""><%= _t('Info') %></div>
+        </a>
+        <a class="menu-item current" href="#quiz/<%=iQuizId%>/results">
+            <div class=""><%= _t('User Results') %></div>
+        </a>
+    </div>
+</div>

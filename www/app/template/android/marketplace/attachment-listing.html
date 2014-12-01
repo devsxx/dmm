@@ -1,0 +1,22 @@
+<div class="att-item-wrapper">
+	<a href="<%=item.getUrl()%>" class="att-item-image"><img src="<%=item.getImageSrc()%>"/></a>
+	<div class="att-item-detail">
+		<a href="<%=item.getUrl()%>" class="item-title"><%=item.getTitle()%></a>
+		<div class="att-item-price">
+		    <%if (item.getPrice() == 0) {%>
+		    <span><%=_t('Free')%></span>
+		    <%} else {%>
+		    <span class="item-currency-symbol"><%=item.getCurrencySymbol()%></span>
+		    <span><%=item.getPrice()%></span>
+		    <%}%>
+		</div>
+		<div class="att-item-text">
+			<i class="icon icon-folder-close"></i>
+			<span><%=item.getCategory()%></span>
+		</div>
+		<div class="att-item-text">
+			<i class="icon icon-location-arrow"></i>
+			<span><%=item.getLocation()%></span>
+		</div>
+	</div>
+</div>

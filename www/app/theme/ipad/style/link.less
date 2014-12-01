@@ -1,0 +1,36 @@
+.attachment-link{
+	margin: 0 @box-padding-base;
+	border: @separator-border;  
+	height: @attachment-item-size+2;
+	background-color: darken(@body-background, 3%);
+
+
+	.att-item-image{
+		display: block;
+		width: @attachment-item-size;
+		height: @attachment-item-size;
+		float: left;
+		margin-right: @box-padding-small;
+		background-size: cover;
+		background-position: center;
+	}
+	
+	.att-col-info{
+		padding: @box-padding-small;
+		overflow: hidden;
+		word-break: break-word;
+
+		.att-item-title{
+			font-size: @font-size-small;
+		}
+		.att-item-subline{
+			color: @item-subline-color;
+			font-size: @font-size-small;
+		}
+		.att-item-description{
+			color: @item-description-color;
+			font-size: @font-size-small;
+		}
+	}
+	
+}

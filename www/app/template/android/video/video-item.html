@@ -1,0 +1,36 @@
+<!-- video/tpl/video-item -->
+<div class="item-wrapper">
+	<a class="item-image" style="background-image: url(<%= item.getImageSrc() %>)" href="<%= item.getUrl() %>">
+		<div class="item-mask"></div>
+	</a>
+	<span class="item-video-length"><%= item.getDurationFormat() %></span>
+	<div class="item-video-info">
+		<div class="actions-justify gray">
+		<div class="action-item can-rate <%= item.isRated()?'rated':'' %>" id="<%= item.getDataId('rate') %>" rel="delegate">
+			<span class="text-info"><%= item.getRateValue() %></span>
+			<i class="icon icon-activity-rate"></i>
+		</div>
+		<% if(item.canLike()){%>
+		<div class="action-item <%= item.isLiked()?'liked':'' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+				<span class="text-info"><%= item.getLikeCount() %></span>
+				<i class="icon icon-activity-like"></i>
+			</div>
+		<%} %>
+		<% if(item.canComment()){%>
+		<div class="action-item" id="<%= item.getDataId('comment') %>" rel="delegate">
+			<span class="text-info"><%= item.getCommentCount() %></span>
+			<i class="icon icon-activity-comment"></i>
+		</div>
+		<%} %>
+		</div>
+		<div class="item-video-info-content">
+			<div class="item-headline">
+				<a href="<%= item.getUrl() %>"><%= item.getTitle() %></a>
+			</div>
+			<div class="item-subline">
+				<%= _t('by') %> <a href="<%= item.getPosterUrl() %>"><%= item.getPosterTitle() %></a>
+			</div>
+		</div>
+	</div>	
+</div>
+<div class="pvm"></div>

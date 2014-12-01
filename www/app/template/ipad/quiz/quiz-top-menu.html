@@ -1,0 +1,16 @@
+<div class="setting-list">
+    <%if (item.canDislike()) {%>
+    <div class="menu-item <%if (this.model.getDislikeCount() < 1) {%>hide<%}%>" id="dislike-list"></div>
+    <div class="menu-item" id="<%=item.getDataId('dislike')%>" rel="delegate">
+        <%= item.isDisliked() ? _t('Remove Dislike') : _t('Dislike')%>
+    </div>
+    <%}%>
+    <%if (item.isOwner()) {%>
+    <a class="setting-item" href="#quizzes/edit/<%=item.getId()%>">
+        <%= _t('Edit') %>
+    </a>
+    <a class="setting-item" rel="delegate" id="<%= item.getDataId('delete') %>">
+        <%= _t('Delete') %>
+    </a>
+    <%}%>
+</div>

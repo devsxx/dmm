@@ -1,0 +1,13 @@
+<div class="setting-list">
+	<% if(item.isOnline()) { %>
+	    <a class="menu-item" rel="delegate" id="<%= item.getDataId('toOffline') %>"><%= _t('Offline') %></a>
+	<% } else { %>
+	    <a class="menu-item" rel="delegate" id="<%= item.getDataId('toOnline') %>"><%= _t('Online') %></a>
+	<% } %>
+
+	<% if(item.isMuteChatNotification()) { %>
+	    <a class="menu-item" rel="delegate" id="<%= item.getDataId('unmute') %>"><%= _t('Unmute Notification') %></a>
+	<% } else { %>
+	    <a class="menu-item" rel="delegate" id="<%= item.getDataId('mute') %>"><%= _t('Mute Notification') %></a>
+	<% } %>
+</div>

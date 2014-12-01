@@ -1,0 +1,21 @@
+<div class="setting-list">
+    <%if (item.canDislike()) {%>
+    <div class="setting-item <%if (this.model.getDislikeCount() < 1) {%>hide<%}%>" id="dislike-list"></div>
+    <div class="setting-item" id="<%=item.getDataId('dislike')%>" rel="delegate">
+        <%= item.isDisliked() ? _t('Remove Dislike') : _t('Dislike')%>
+    </div>
+    <%}%>
+    <%if (item.canEdit()) {%>
+    <a class="setting-item" rel="delegate" id="<%= item.getDataId('edit') %>"><%= _t('Edit Photo') %></a>
+    <%}%>
+    <%if (item.canDelete()) {%>
+    <a class="setting-item" rel="delegate" id="<%= item.getDataId('delete') %>"><%= _t('Delete Photo') %></a>
+    <%}%>
+    <%if (item.isOwner()) {%>
+    <a class="setting-item" rel="delegate" id="<%= item.getDataId('makeProfile') %>" ><%= _t('Make Profile Photo') %></a>
+    <%} else {%>
+    <a class="setting-item" id="<%= item.getDataId('report') %>" rel="delegate"><%= _t('Report this photo') %></a>
+    <%}%>
+    <a class="processing-status hide"> </a>
+</div>
+

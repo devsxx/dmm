@@ -1,0 +1,55 @@
+<div class="photo_detail_info" id="photo_title_<%= item.getId() %>">
+    <div class="photo-headline">
+        <span class="photo-title"><%=utils.str.shorten(item.getTitle(), 20, false)%></span>
+        <%if (item.hasAlbum()) {%>
+        	<%=_t('in')%> <a class="album-title" href="<%=item.getAlbumUrl()%>"><%=utils.str.shorten(item.getAlbumTitle(), 20, false)%></a>
+        <%}%>
+    </div>
+    <% if (item.getDescription()) { %>
+    <div class="photo-status <% if ( item.getDescription() ) { %> margin-bottom <% } %>">
+        <%= utils.str.shorten(item.getDescription(), 50, true) %>
+    </div>
+    <% } %>
+    <div class="photo-info-author">
+        <div class="photo-time">
+            <i class="icon icon-time"></i>
+            <span data-utime="<%= item.getTimestamp() %>" class="livetimestamp"><%= item.getLivetime() %></span>
+        </div>
+        <div class="photo-author">
+            <img src="<%= _.escape(item.getPosterImageSrc()) %>" />
+            <a href="<%= item.getPosterUrl() %>"><%= item.getPosterTitle() %></a>
+        </div>        
+    </div>
+    <div class="clear clearfix"></div>
+</div>
+<div class="footer">
+    <div class="clearfix menu-justify grid-5 gray">
+        <div class="item-like menu-item <%= item.isLiked()?'liked':'' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+            <div class="sibling">
+                <span class="text-info"><%= item.getLikeCount() %></span>
+                <i class="icon icon-activity-like"></i>
+            </div>
+        </div>
+        <% if(item.canComment()){%>
+        <div class="item-comment menu-item" data-display="page" id="<%= item.getDataId('comment') %>" rel="delegate">
+        	<div class="sibling">
+				<span class="text-info"><%= item.getCommentCount() %></span>
+				<i class="icon icon-activity-comment"></i>
+			</div>
+		</div>
+        <%} %>
+        <% if(item.canShare()) { %>
+        <div class="item-share menu-item" id="<%= item.getDataId('share') %>" rel="delegate">
+            <div class="sibling">
+                <i class="icon icon-activity-share"></i>
+            </div>
+        </div>
+        <%} %>
+        <div class="item-more menu-item item-setting" id="<%= item.getDataId('setting') %>" rel="delegate">
+            <div class="sibling">
+                <%=_t('More') %>
+            </div>
+        </div>
+    </div>
+    <div class="clear clearfix"></div>
+</div>

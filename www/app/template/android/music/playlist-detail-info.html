@@ -1,0 +1,20 @@
+<div class="music-playlist-detail-info">
+   <!-- <h3><=sAlbumName%></h3>-->
+    <div class="item-headline"><%= _t('uploaded_by') %> <a href="<%= item.getPosterUrl() %>"><%= item.getPosterTitle() %></a></div>
+    <div class="item-subline">
+        <div class="item-stats next">
+            <!--<i class="icon-headphones"></i>&nbsp;<=iTotalPlay%> plays-->
+			<span class="text-info"><%= item.getTrackCount() %></span>
+			<i class="icon icon-music-track"></i>
+        </div>
+        <div class="item-stats next">
+            <!--<i class="icon-calendar"></i>&nbsp;<=sFullTimeStamp%>-->
+			<span class="text-info"><%= item.getPlayCount() %></span>
+			<i class="icon icon-music-listen"></i>
+        </div>
+        <div class="item-stats next">
+            <i class="icon icon-music-genre"></i>
+            <span class="text-info">Rock</span>            
+        </div>
+    </div>
+</div>

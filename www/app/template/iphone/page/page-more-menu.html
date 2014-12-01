@@ -1,0 +1,17 @@
+<div class="setting-list">
+    <a class="setting-item <%if (context.activeModule == 'photo') {%>current<%}%>" href="#pages/<%= item.getId() %>/photos">
+        <%= _t('Photos') %>
+    </a>
+    <a class="setting-item <%if (context.activeModule == 'event') {%>current<%}%>" href="#pages/<%= item.getId() %>/events">
+        <%= _t('Events') %>
+    </a>
+    <a class="setting-item <%if (context.activeModule == 'video') {%>current<%}%>" href="#pages/<%= item.getId() %>/videos">
+        <%= _t('Videos') %>
+    </a>
+    <a class="setting-item <%if (context.activeModule == 'music') {%>current<%}%>" href="#pages/<%= item.getId() %>/music_songs">
+        <%= _t('Music') %>
+    </a>
+    <a class="setting-item <%if (context.activeModule == 'blog') {%>current<%}%>" href="#pages/<%= item.getId() %>/blogs">
+        <%= _t('Blogs') %>
+    </a>
+</div>

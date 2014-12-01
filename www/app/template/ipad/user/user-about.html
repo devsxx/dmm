@@ -1,0 +1,34 @@
+<!-- user/tpl/about -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back"></div>
+	</div>
+    <% if(item.isOwner()) { %>
+        <div class="header-right">
+            <div class="btn-top btn-more" id="menu_toggle">
+            </div>
+        </div>
+    <% } %>
+	<div class="header-center">
+		<div id="page_title" class="title">
+            <%= _t('About') %>
+		</div>
+	</div>
+</div>
+
+<div id="top_menu" class="top-menu hide"> </div>
+<div id="content" class="content with-header swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+            <div class="user-profile-info">
+                <div id="basic-info-holder">
+                    <div class="loading-initiator"></div>
+                </div>
+                <div id="user-extend-info">
+                </div>
+            </div>
+			<div class="pvs"></div>
+		</div>
+	</div>
+</div>
+

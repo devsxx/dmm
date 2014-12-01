@@ -1,0 +1,38 @@
+<!-- message/tpl/message-detail.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+		</div>
+	</div>
+	<div class="header-center">
+		<div class="title" id="page_title">
+			<%= _t('loading ...') %>
+		</div>
+	</div>
+</div>
+
+<div id="content" class="content with-header-footer swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div id="message-recipient-list" class="hide">
+				<%= _t('between') %> <a href="<%=viewer.getUrl()%>"><%= _t('you') %></a>
+				<%= _t('and') %> <span id="recipients_list_less"></span>
+				<span id="recipients_list_more" class="hide"></span>
+	            <i id="toggle_recipients" class="hide"><%= _t('more') %></i>
+            </div>
+			<div class="swiper-list vertical" id="message_list_view_holder"> <!-- message-list -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-1 fobos">
+        <a class="menu-item hide" id="conversation_reply_btn" href="#message-reply/<%=item.getId()%>">
+        	<div class=""><%= _t('reply') %></div>
+        </a>
+        <div class="menu-item">
+        	<div class="sibling" id="conversation_delete_btn"><%= _t('delete') %></div>
+        </div>
+    </div>
+</div>

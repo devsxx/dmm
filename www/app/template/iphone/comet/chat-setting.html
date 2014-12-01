@@ -1,0 +1,12 @@
+<div class="setting-list chat-setting-list">
+	<a class="setting-item mark-available <%= item.status=='available'?'active':'' %>" rel="delegate" id="<%= item.getDataId('toAvailable') %>"> <%= _t('Available') %> </a>
+	<!-- <a class="setting-item mark-away <%= item.status=='away'?'active':'' %>" rel="delegate" id="<%= item.getDataId('toAway') %>"> <%= _t('Away') %> </a> -->
+	<a class="setting-item mark-invisible <%= item.status=='invisible'?'active':'' %>" rel="delegate" id="<%= item.getDataId('toInvisible') %>"> <%= _t('Invisible') %> </a>
+	<a class="setting-item mark-busy <%= item.status=='busy'?'active':'' %>" rel="delegate" id="<%= item.getDataId('toBusy') %>"> <%= _t('Busy') %> </a>
+	<a class="setting-item mark-offline <%= item.status=='offline'?'active':'' %>"  rel="delegate" id="<%= item.getDataId('toOffline') %>"> <%= _t('Offline') %> </a>
+	<% if(item.mute) { %>
+	    <a class="menu-item" rel="delegate" id="<%= item.getDataId('unmuteNotification') %>"><%= _t('Unmute Notification') %></a>
+	<% } else { %>
+	    <a class="menu-item" rel="delegate" id="<%= item.getDataId('muteNotification') %>"><%= _t('Mute Notification') %></a>
+	<% } %>
+</div>

@@ -1,0 +1,16 @@
+<div class="setting-list">
+	<%if (item.canInvite()) {%>
+	<a class="setting-item" href="#events/invite/<%=item.getId()%>"><%= _t('Invite') %></a>
+	<%}%>
+	<a class="setting-item" rel="delegate" id="<%= item.getDataId('share') %>"><%= _t('Share') %></a>
+    <%if (item.canEdit()) {%>
+    <a class="setting-item" href="#events/edit/<%=item.getId()%>">
+    	<%= _t('Edit') %>
+    </a>
+    <%}%>
+    <%if (item.canDelete()) {%>
+    <a class="setting-item" rel="delegate" id="<%= item.getDataId('delete') %>">
+    	<%= _t('Delete') %>
+    </a>
+    <%}%>
+</div>

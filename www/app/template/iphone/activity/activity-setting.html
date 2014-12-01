@@ -1,0 +1,12 @@
+<div class="setting-list">
+	<% if(item.canDelete()){ %>
+	<a class="setting-item" rel="delegate" id="<%= item.getDataId('delete') %>">
+		<%= _t('Delete this post') %>
+	</a>
+	<% } %>
+	<% if (!item.isOwner()) { %>
+	<a class="setting-item" id="<%= item.getDataId('report') %>" rel="delegate">
+		<%= _t('Report this post') %>
+	</a>
+	<% } %>	
+</div>

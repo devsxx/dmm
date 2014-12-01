@@ -1,0 +1,44 @@
+<!-- friend/tpl/friend-item -->
+<div class="clearfix item-wrapper">
+	<div class="item-image">
+		<a href="<%= item.getUrl() %>">
+			<span style="background-image: url('<%= item.getImageSrc() %>');"></span>
+		</a>
+	</div>
+	<div class="item-stats-group">
+		<div class="item-stats">			
+			<i class="icon icon-music-track"></i>
+			<span class="text-info"><%= item.getTrackCount() %></span>
+		</div>
+		<div class="item-stats">			
+			<i class="icon icon-music-listen"></i>
+			<span class="text-info"><%= item.getPlayCount() %></span>
+		</div>
+		<div class="item-stats prevent <%= item.isLiked()?'liked':'' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+			<i class="icon icon-activity-like"></i>
+			<span class="text-info"><%= item.getLikeCount() %></span>
+		</div>
+        <% if(item.canComment()){%>
+		<div class="item-stats prevent" id="<%= item.getDataId('comment') %>" rel="delegate">	
+			<i class="icon icon-activity-comment"></i>
+			<span class="text-info"><%= item.getCommentCount() %></span>
+		</div>
+		<% } %>
+	</div>
+
+	<div class="item-group">
+		<div class="item-headline">
+			<a href="<%= item.getUrl() %>"><%= item.getTitle() %></a>
+		</div>
+		<div class="item-subline">
+			<%= _t('Created ') %> <%= item.get('sFullTimeStamp') %>
+		</div>
+		<div class="item-subline">
+			<%= _t('by') %> <a href="<%= item.getPosterUrl() %>"><%= item.getPosterTitle() %></a>
+		</div>
+	</div>
+	<%if (item.getTrackCount() > 0) {%>
+	<div class="item-music-list-arrow"></div>
+	<%}%>
+</div>
+<div class="pvm"></div>

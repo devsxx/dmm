@@ -1,0 +1,74 @@
+<!-- user/tpl/signup/step01 -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top" id="cancel_btn">
+			<%= _t('Cancel') %>
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top disabled" id="btn-next">
+			<%= _t('Next') %>
+		</div>
+	</div>
+	<div class="header-center">
+		<div class="title"><%= _t('Create Account') %></div>
+	</div>
+</div>
+
+<div class="content with-header swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="form-general" id="signup-form">
+				<div class="form-title">
+					<%= _t('Personal information') %>
+				</div>
+				<div class="form-group">
+					<input type="text" class="control-full" id="signup-fullname" name="fullname" placeholder="<%= _t('Fullname') %>" value="<%= data.sFullName %>"  />
+				</div>
+
+				<div class="form-group">
+					<input type="email" class="control-full" id="signup-email" name="email" placeholder="<%= _t('Email') %>" value="<%= data.sEmail %>"  />
+				</div>
+
+				<div class="form-group">
+					<input type="password" class="control-full" id="signup-password" name="password" placeholder="<%= _t('Password') %>" value="<%= data.sPassword %>"  />
+				</div>
+
+				<div class="form-group">
+					<input type="password" class="control-full" id="signup-confirm" name="password_confirm" placeholder="<%= _t('Confirm password') %>" value="<%= data.sPassword %>" />
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="control-full" id="signup-birthday" value="<%= data.sBirthday %>" placeholder="<%= _t('Birthday') %>" readonly />
+				</div>
+
+				<div class="form-group">
+					<select id="signup-gender" class="control-full" name="gender" value="<%= data.iGender %>">
+						<option value=""><%= _t('Gender') %></option>
+                        <option value="1" <% if (parseInt(data.iGender, 10) === 1) print('selected="selected"') %> ><%= _t('Male') %></option>
+						<option value="2" <% if (parseInt(data.iGender, 10) === 2) print('selected="selected"') %> ><%= _t('Female') %></option>
+					</select>
+				</div>
+
+                <div id="signup_subscription_group" class="hide">
+                    <div class="form-title">
+                        <%= _t('Membership') %>
+                    </div>
+                    <div class="form-group clearfix">
+                        <select id="signup_subscription_package" class="control-full" name="subscription" value="selected here subscription">
+                        </select>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <a href="#subscriptions" id="view-subscription-link"> <%= _t('Learn more about our memberships') %> </a>
+                    </div>
+                </div>
+
+				<div class="form-group sigup_agree_term">
+                    <input id="term-condition-checkbox" type="checkbox" <% if(data.bIsAgreeTerms) print('checked="checked"') %> />
+                    <label for="term-condition-checkbox"><%= _t('Read and agree with') %> <a href="javascript:void(0)" id="term-condition-link"> <%= _t('Term & Service') %> </a></label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

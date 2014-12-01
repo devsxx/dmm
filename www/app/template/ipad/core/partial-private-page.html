@@ -1,0 +1,22 @@
+<!-- core/tpl/private-page.html -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top btn-back" rel="back">
+		</div>
+	</div>
+	<div class="header-center">
+		<div class="title" id="page_title">
+			<%= _t('Private Page') %>
+		</div>
+	</div>
+</div>
+
+<div class="content content-background with-header swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="permission-deny">
+				<%= _t('You do not have permission to view this private page.') %>
+			</div>
+		</div>
+	</div>
+</div>

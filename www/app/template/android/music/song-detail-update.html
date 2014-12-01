@@ -1,0 +1,62 @@
+<div class="swiper-list padding-base">
+	<div class="music-song-detail-info">
+	    <div class="item-headline"><%= _t('uploaded_by') %> <a href="<%= item.getPosterUrl() %>"><%= item.getPosterTitle() %></a></div>
+	    <div class="item-subline">
+	        <div class="item-stats next">
+	            <!--<i class="icon-calendar"></i>&nbsp;<=sFullTimeStamp%>-->
+				<span class="text-info"><%= item.getPlayCount() %></span>
+				<i class="icon icon-music-listen"></i>
+	        </div>
+	        <% if (item.getGenre()) { %>
+	        <div class="item-stats next">
+				<i class="icon icon-music-genre"></i>
+				<span class="text-info"><%= item.getGenre() %></span>
+	        </div>
+	        <% } %>
+	    </div>
+	</div>
+
+	<div class="music-song-detail-description">
+        <%= item.getDescription() %>
+	</div>
+	
+	<!-- music player -->
+	<div class="musicContent miniplayer-content">
+		<div class="music-player music-cover-image">
+	    	<div class="music-player-image" style="background-image:url(<%= item.getAlbumImageSrc() %>)"></div>
+	    </div>
+	    <div class="younet_html5_player mobile">		
+	        <div class="title-info" id="id_player">	        	
+	            <!--<p class="song-title-head"><=sTitle%></p>-->
+	            <!--audio src="http://product-dev.younetco.com/mobile/se460/public/music_song/23/0c/0c17_6c20.mp4?c=d518" width="100%" autoplay="true"></audio-->
+	        </div>
+	        <div id="listsong">
+	            <ul class="mejs-list scroll-pane song-list">
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+</div>
+<div id="music-action-bar">
+	<div class="actions-justify gray">
+	<div class="action-item <%= item.isRated()?'rated':'' %>" id="<%= item.getDataId('rate') %>" rel="delegate">
+		<span class="text-info"><%= item.getRateValue() %></span>
+		<i class="icon icon-activity-rate"></i>
+	</div>
+	<div class="action-item <%= item.isLiked()?' liked':'' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+		<span class="text-info"><%= item.getLikeCount() %></span>
+		<i class="icon icon-activity-like"></i>
+	</div>
+	<% if(item.canComment()){%>
+	<div class="action-item" id="<%= item.getDataId('comment') %>" rel="delegate" data-display="focus">
+		<span class="text-anchor"><%= item.getCommentCount() %></span>
+		<i class="icon icon-activity-comment"></i>
+	</div>
+	<%} %>
+	<% if(item.canShare()) { %>
+	<div class="action-item" id="<%= item.getDataId('share') %>" rel="delegate">
+		<i class="icon icon-activity-share"></i>
+	</div>
+	<%} %>
+</div>
+</div>

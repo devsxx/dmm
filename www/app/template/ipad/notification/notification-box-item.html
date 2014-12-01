@@ -1,0 +1,15 @@
+<!-- video/tpl/video-item -->
+<a href="<%= item.getItemUrl() %>">
+	<div class="clearfix item-wrapper">
+		<div class="item-image">
+			<img src="<%= item.getPosterImageSrc() %>" />
+		</div>
+		<div class="item-headline">
+			<%= item.getHeadline() %>
+		</div>
+		<div class="item-subline">
+			<i class="icon icon-notification-type <%= item.getTypeId() %>"></i>
+			<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+		</div>
+	</div>
+</a>

@@ -1,0 +1,11 @@
+<div class="item-wrapper">
+	<a href="<%= item.getUrl() %>" class="item-image" style="background-image: url(<%= item.getImgSrc() %>)">
+	</a>
+    <%if (item.hasAlbum()) {%>
+    <div class="item-footer-my">
+        <div class="item-parent">
+            <span><%=_t('in')%> </span><a href="<%=item.getAlbumUrl()%>"><%=item.getAlbumTitle()%></a>
+        </div>
+    </div>
+    <%}%>
+</div>

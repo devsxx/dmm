@@ -1,0 +1,21 @@
+<!-- forum/tpl/forum-announcement-item -->
+<div class="clearfix item-wrapper">
+	<div class="item-image item-announcement-icon">
+	</div>
+	<div class="item-forum-content">
+		<div class="item-title">
+			<a href="<%=item.getUrl()%>"><%=item.getTitle()%></a>
+		</div>
+		<div class="item-description">
+			<span><%=_t('Last post by')%></span> <a href="<%=item.getPosterUrl()%>"><%=item.getPosterTitle()%></a>
+		</div>
+		<div class="item-stats">
+			<span><i class="icon icon-comments"></i> <%=item.getTotalPost()%></span>
+			<span><i class="icon icon-eye-open"></i> <%=item.getTotalView()%></span>
+			<span>
+				<i class="icon icon-time"></i>
+				<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+			</span>
+		</div>
+	</div>
+</div>

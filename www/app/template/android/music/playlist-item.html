@@ -1,0 +1,35 @@
+<!-- friend/tpl/friend-item -->
+<div class="clearfix item-wrapper">
+	<div class="item-image">
+		<a href="<%= item.getUrl() %>">
+			<span style="background-image: url('<%= item.getImageSrc() %>');"></span>
+		</a>
+	</div>
+	<div class="item-headline">
+		<a href="<%= item.getUrl() %>"><%= item.getTitle() %></a>
+	</div>
+	<div class="item-subline">
+		  <a href="<%= item.getPosterUrl() %>"><%= item.getPosterTitle() %></a>  <%= _t(' | ') %>	<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %><%= _t('ago') %><%= _t('created1') %></span>	
+	</div>
+	<div class="item-stats-group prevent">
+		<div class="separator"></div>
+		<div class="item-stats <%= item.isLiked()?'liked':'' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+			<span class="text-info"><%= item.getLikeCount() %></span>
+			<i class="icon icon-activity-like"></i>
+		</div>
+        <% if(item.canComment()){%>
+		<div class="item-stats" id="<%= item.getDataId('comment') %>" rel="delegate">
+			<span class="text-info"><%= item.getCommentCount() %></span>
+			<i class="icon icon-activity-comment"></i>
+		</div>
+		<% } %>
+		<div class="item-stats">
+			<span class="text-info"><%= item.getTrackCount() %></span>
+			<i class="icon icon-music-track"></i>
+		</div>
+		<div class="item-stats">
+			<span class="text-info"><%= item.getPlayCount() %></span>
+			<i class="icon icon-music-listen"></i>
+		</div>
+	</div>
+</div>

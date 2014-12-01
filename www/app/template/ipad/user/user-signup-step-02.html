@@ -1,0 +1,103 @@
+<!-- user/tpl/signup/step02 -->
+<div class="header">
+	<div class="header-left">
+		<div class="btn-top" id="cancel_btn">
+			<%= _t('Cancel') %>
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="btn-top disabled" id="btn-next">
+			<%= _t('Next') %>
+		</div>
+	</div>
+	<div class="header-center">
+		<div class="title">
+			<%= _t('General Information') %>
+		</div>
+	</div>
+</div>
+
+<div class="content with-header swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="form-general" id="signup-form">
+				<!-- form content -->
+				<div class="form-title-h3">
+					<%= _t('Personal information') %>
+				</div>
+
+				<div class="form-title">
+					<%= _t('First Name') %>
+				</div>	
+				<div class="form-group">
+					<input type="text" class="control-full" id="signup-firstname" name="firstname" placeholder="<%= _t('First Name') %>" value="<%= data.sFirstName %>"/>
+				</div>
+
+				<div class="form-title">
+					<%= _t('Last Name') %>
+				</div>	
+				<div class="form-group">
+					<input type="text"  class="control-full"id="signup-lastname" name="lastname" placeholder="<%= _t('Last Name') %>" value="<%= data.sLastName %>"/>
+				</div>
+
+				<div class="form-title">
+					<%= _t('Gender') %>
+				</div>
+				<div class="form-group">
+					<select id="signup-gender" class="control-full" name="gender" value="<%= data.iGender %>">
+                        <option value="1" <% if (parseInt(data.iGender, 10) === 1) print('selected="selected"') %> ><%= _t('Male') %></option>
+						<option value="2" <% if (parseInt(data.iGender, 10) === 2) print('selected="selected"') %> ><%= _t('Female') %></option>
+					</select>
+				</div>
+
+				<div class="form-title">
+					<%= _t('Birthday') %>
+				</div>
+				<div class="form-group group-span-inline clearfix" id="form_input_birthday">
+					<span id="label_birthday"><%= _t('Birthday') %></span>
+					<input class="control-full" type="date" id="signup-birthday" value="<%= data.sBirthday %>"/>
+				</div>
+
+				<div class="form-title-h3">
+					<%= _t('Contact information') %>
+				</div>
+
+				<div class="form-title">
+					<%= _t('Website') %>
+				</div>				
+				<div class="form-group">
+					<input type="text" class="control-full" id="signup-website" name="website" placeholder="Website" value="<%= data.sWebsite %>"/>
+				</div>
+
+				<div class="form-title">
+					<%= _t('Facebook') %>
+				</div>
+				<div class="form-group">
+					<input type="text" class="control-full" id="signup-facebook" name="facebook" placeholder="Facebook" value="<%= data.sFacebook %>"/>
+				</div>
+
+				<div class="form-title">
+					<%= _t('Twitter') %>
+				</div>
+				<div class="form-group">
+					<input type="text" class="control-full" id="signup-twitter" name="twitter" placeholder="Twitter" value="<%= data.sTwitter %>"/>
+				</div>
+
+				<div class="form-title">
+					<%= _t('AIM') %>
+				</div>
+				<div class="form-group">
+					<input type="text" class="control-full" id="signup-aim" name="aim" placeholder="AIM" value="<%= data.sAim %>"/>
+				</div>
+				
+				<div class="form-title-h3">
+					<%= _t('About me') %>
+				</div>
+				
+				<div class="form-group">
+					<textarea name="aboutme" id="signup-about" class="control-full textarea" placeholder="<%= _t('About me') %>"><%= data.sAbout %></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+<div class="page-add-form">
+    <div class="form-general">
+        <!--type-->
+        <div class="form-title">
+            <%= _t('category') %>
+        </div>
+        <div class="form-group">
+            <select class="control-full" id="page_form_type">
+                <%_.each(category_options, function (option) {%>
+                <option value="<%=option.type_id%>"><%=option.name%></option>
+                <%});%>
+            </select>
+        </div>
+        <div class="form-group">
+             <select class="control-full" id="page_form_category">
+                <option value=""><%= _t('select_a_category')%></option>
+                <%_.each(category_options[0].sub_categories, function (subCategory) {%>
+                <option value="<%=subCategory.category_id%>"><%=subCategory.name%></option>
+                <%});%>
+            </select>
+        </div>
+        <!--name-->
+        <div class="form-title">
+            <%= _t('name') %>
+        </div>
+        <div class="form-group">
+            <input type="text" class="control-full" id="page_form_title" placeholder="<%= _t('name') %>"/>
+        </div>
+
+        <div class="form-title">
+            <%= _t('information') %>
+        </div>
+        <div class="form-group">
+            <textarea class="control-full textarea" id="page_form_info" placeholder="<%= _t('information') %>"></textarea>
+        </div>
+    </div>
+</div>

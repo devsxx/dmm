@@ -1,0 +1,12 @@
+<div class="clearfix item-wrapper">
+    <div class="item-image">
+        <a href="<%= item.getUrl() %>">
+            <img src="<%= item.getImgSrc() %>">
+        </a>
+    </div>
+    <div class="item-content">
+    	<a class="item-headline" href="<%= item.getUrl() %>"><%= item.getPosterTitle() %></a>
+	    <span><%=item.getPercentage()%> %</span>
+	    <a id="show_result_btn" class="btn btn-primary btn-long" href="#quiz/<%=item.getQuizId()%>/result/<%=item.getId()%>"><%= _t('View Results') %></a>
+    </div>    
+</div>

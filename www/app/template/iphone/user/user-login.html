@@ -1,0 +1,33 @@
+<div class="content swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" data-url="1">
+			<div class="login-logo"></div>
+
+			<div class="login-form" id="login-form">
+				<div class="form-group form-input-control">
+					<input class="control-full" type="email" id="email" name="email" placeholder="<%= _t('Email Address') %>" value=""/>
+					<input class="control-full" type="password" id="password" name="password" placeholder="<%= _t('Password') %>" value=""/>
+				</div>
+				<div class="form-group">
+					<button type="button" id="btn-login" class="btn btn-success btn-large-fluid"><%= _t('Sign In') %></button>
+				</div>
+				<div class="form-group form-group-flex">
+					<div id="login_by_facebook_btn" class="btn btn-facebook btn-small-fluid" >Facebook</div>
+		    		<div id="login_by_twitter_btn" class="btn btn-twitter btn-small-fluid">Twitter</div>
+				</div>
+				<div class="form-group form-group-border-signup">
+					<a href="#signup" class="btn btn-danger btn-large-fluid" id="btn-signup"><%= _t('Sign Up') %></a>
+				</div>
+			</div>
+
+			<div class="signing-in">
+				<div class="loading-image"></div>
+				<div class="loading-content"><%= _t('Signing In ...') %></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer footer-fixed">
+	<a href="#forgot-password" id="forgot-password"><%= _t('Forgot password?') %></a>	
+</div>

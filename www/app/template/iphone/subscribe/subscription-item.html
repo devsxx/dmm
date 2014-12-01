@@ -1,0 +1,18 @@
+<div class="clearfix item-wrapper">
+	<div class="item-image">
+        <img src="<%=item.getPackageImageSrc()%>" />
+    </div>
+    <div class="item-content">
+       <div class="item-headline">
+			<%=item.getTitle()%>
+		</div>
+        <div class="item-stats">
+           <span><%= item.getCurrencySymbol() %><%= item.getDefaultCost() %></span> one time
+            <% if (item.getDefaultRecurringCost()) {%> and then <span><%= item.getCurrencySymbol() %><%= item.getDefaultRecurringCost() %></span> <%= item.getRecurringPeriod() %>
+            <%}%>
+        </div>
+    </div>
+    <div class="item-description">
+        <%= utils.str.shorten(item.getDescription(), 150, true) %>
+    </div>
+</div>

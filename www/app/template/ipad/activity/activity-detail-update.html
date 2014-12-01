@@ -1,0 +1,57 @@
+<div class="item-wrapper">
+	<div class="item-image">
+		<img src="<%= item.getPosterImageSrc() %>" />
+	</div>
+	<div class="item-setting" clickable="true" id="<%= item.getDataId('setting') %>" rel="delegate">
+		<i class="icon icon-setting"></i>
+	</div>
+	<div class="item-headline">
+		<% if (item.getActionType()=='post' || /_comment$/.test(item.getActionType())) { %>
+			<%= item.getHeadline() %>
+			<span class="feed-icon-privacy-status icon-privacy-everyone gray"></span>
+		<% } else { %>
+			<%=item.getPosterLink()%>
+            <span class="feed-icon-privacy-status <%= item.getPrivacyClass() %> gray"></span>
+			<!-- <span class="feed-icon-privacy-status icon-privacy-friends gray"></span>
+			<span class="feed-icon-privacy-status icon-privacy-friends-of-friends active"></span>
+			<span class="feed-icon-privacy-status icon-privacy-only-me"></span>
+			<span class="feed-icon-privacy-status icon-privacy-custom gray"></span> -->
+			<% if(item.getHeadline()) { %>
+				<p><%= item.getHeadline() %></p> 
+			<% } %>	
+		<% } %>
+	</div>
+	<div class="item-subline">
+		<i class="icon icon-time"></i>
+		<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>
+	</div>
+	<% if(item.hasStory()){ %>
+	<div class="clearfix item-story">
+		<%= utils.str.shorten(item.getStory(), 200, true) %>
+	</div>
+	<% } %>
+	<% if(item.hasAttachment()){ %>
+	<div class="clear item-attachment">
+		
+	</div>
+	<% } %>
+	<div class="pvm"></div>
+	<div class="actions-justify gray">
+		<div class="action-item <%= item.isLiked()?' liked':'' %>" id="<%= item.getDataId('like') %>" rel="delegate">
+			<i class="icon icon-activity-like"></i>
+			<span class="text-label" data-suffix="true"><%= item.getLikeCountLabel() %></span>	
+		</div>
+		<% if(item.canComment()){%>
+		<div class="action-item js-comment-btn" id="<%= item.getDataId('comment') %>" rel="delegate" data-display="focus">			
+			<i class="icon icon-activity-comment"></i>
+			<span class="text-label" data-suffix="true"><%= item.getCommentCountLabel() %></span>
+		</div>
+		<%} %>
+		<% if(item.canShare()) { %>
+		<div class="action-item" id="<%= item.getDataId('share') %>" data-id="<%= item.getDataId() %>" rel="delegate">
+			<i class="icon icon-activity-share"></i>
+			<span class="text-label" data-suffix="true"><%= _t('Share') %></span>
+		</div>
+		<%} %>
+	</div>
+</div>

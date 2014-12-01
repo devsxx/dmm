@@ -1,0 +1,47 @@
+<div class="form-general">
+	<div class="form-title">
+		<%= _t('album_name') %>
+	</div>
+	<div class="form-group">
+	    <input class="control-full" type="text" name="sTitle" id="sTitle" value="<%= data.sTitle %>" placeholder="<%= _t('album_name')%>"  />
+	</div>
+
+	<div class="form-title">
+		<%= _t('description') %>
+	</div>
+	<div class="form-group">
+	    <input class="control-full" type="text" name="sDescription" id="sDescription" value="<%= data.sDescription %>" placeholder="<%= _t('description') %>"  />
+	</div>
+
+	<%if (context.typeForm != 'create' || context.sModule != 'pages') {%>
+	<div class="form-title">
+		<%= _t('album_priviacy') %>
+	</div>
+	<div class="form-group">
+	    <select class="control-full" name="iPrivacy" id="iPrivacy">
+	        <%_.each(data.view_options, function (option) {%>
+                <option value="<%=option.sValue%>" <% if(option.sValue == data.sViewPrivacy) print('selected="selected"') %> >
+                    <%=option.sPhrase%>
+                </option>
+			<%}, this);%>
+	    </select>
+	</div>
+
+	<div class="form-title">
+		<%= _t('comment_privacy') %>
+	</div>
+	<div class="form-group">
+		<select class="control-full" name="iPrivacyComment" id="iPrivacyComment">
+	        <%_.each(data.comment_options, function (option) {%>
+                <option value="<%=option.sValue%>" <% if(option.sValue == data.sCommentPrivacy) print('selected="selected"') %> >
+                    <%=option.sPhrase%>
+                </option>
+			<%}, this);%>
+	    </select>
+	</div>
+	<%}%>
+	
+	<div id="photo_upload_list" class="photo-upload-list">
+        <div id="photo_add_btn" class="btn-form-photo"></div>
+    </div>
+</div>

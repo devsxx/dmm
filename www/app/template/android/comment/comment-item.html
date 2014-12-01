@@ -1,0 +1,11 @@
+<div class="clearfix item-wrapper">
+	<a class="item-image" href="<%= item.getPosterUrl() %>" style="background-image: url(<%= item.getPosterImageSrc() %>); "></a>
+	<div class="item-headline">
+		<span><span class="icon icon-time"></span><%= item.getLivetime() %></span>
+		<a href="<%= item.getPosterUrl() %>"><%= item.getPosterTitle() %></a>
+	</div>
+	<div class="item-content">
+	 	<%= utils.str.shorten(item.getContent(),100, true) %>
+	</div>
+	<div class="item-subline comment-action-holder"></div>
+</div>

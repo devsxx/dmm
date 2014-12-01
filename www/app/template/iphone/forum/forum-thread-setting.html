@@ -1,0 +1,11 @@
+<div class="setting-list">
+	<%if (item.isOwner()) {%>
+	<a class="setting-item" href="#forum_thread/<%=item.getId()%>/edit"><%=_t('Edit Thread')%></a>
+	<div class="setting-item" id="<%=item.getDataId('delete')%>" rel="delegate"><%=_t('Delete Thread')%></div>
+	<%}%>
+	<%if (item.isSubscribed()) {%>
+	<div class="setting-item" id="<%=item.getDataId('unsubscribe')%>" rel="delegate"><%=_t('Unsubscribe')%></div>
+	<%} else {%>
+	<div class="setting-item" id="<%=item.getDataId('subscribe')%>" rel="delegate"><%=_t('Subscribe')%></div>
+	<%}%>
+</div>

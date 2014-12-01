@@ -1,0 +1,10 @@
+<div class="close_button remove-attachment"></div>
+<div class="wrap">
+	<div class="wrap_img" style="background-image:url(<%=item.getPhotoUrl()%>);"></div>
+    <div class="wrap_content">
+        <div class="link_post_title"><%=item.getTitle()%></div>
+        <div class="link_post_source"><%=item.getUrl()%></div>
+        <div class="link_post_desc"><%=utils.str.shorten(item.getDescription(), 100)%></div>
+    </div>
+    <div class="clear"></div>
+</div>

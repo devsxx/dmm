@@ -1,0 +1,26 @@
+<div class="search-simple">
+	<div id="adv_search_toggle_btn" class="btn-advance-search"></div>
+	<div class="form-search-group">
+		<span id="search_icon" class="icon-search"></span>
+		<input type="text" class="input-search control-full" id="search_keywords" placeholder="<%= _t('search_photos') %>" value="<%=sSearch%>" />
+	</div>
+</div>
+<div id="adv_search_holder" class="search-advanced hide">
+	<div class="form-search-group inline">
+		<div class="form-group">
+			<select class="control-full" id="search_category">
+				<option value="0" selected="true"><%= _t('all_categories') %></option>
+            </select>
+        </div>
+        <div class="form-group">
+			<select class="control-full" id="search_order">
+                <option value="latest"><%=_t('latest')%></option>
+                <option value="most_viewed"><%=_t('most_viewed')%></option>
+                <option value="most_disscussed"><%=_t('most_discussed')%></option>
+            </select>
+        </div>
+	</div>
+	<div class="form-search-submit">
+		<input type="button" class="btn btn-primary btn-small-fluid" id="search_btn" value="<%= _t('search') %>" />
+	</div>
+</div>

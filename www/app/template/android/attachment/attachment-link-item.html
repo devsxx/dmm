@@ -1,0 +1,8 @@
+<div class="link-img">
+    <img src="<%=item.getPhotoUrl()%>">
+</div>
+<div class="link-content">
+    <div class="link_post_title"><%=item.getTitle()%></div>
+    <div class="link_post_source"><%=item.getHostName()%></div>
+    <div class="link_post_desc"><%=utils.helper.shorten(item.getDescription(), 100, "...")%></div>
+</div>

@@ -1,0 +1,14 @@
+<div class="setting-list">
+	<a class="setting-item" href="#listing/<%=item.getId()%>/edit">
+		<%= _t('Edit Listing') %>
+	</a>
+	<a class="setting-item" href="#listing/<%=item.getId()%>/edit/photo">
+		<%= _t('Edit Photos') %>
+	</a>
+	<a class="setting-item" href="#listing/<%=item.getId()%>/invite">
+		<%= _t('Invite') %>
+	</a>
+	<div class="setting-item" id="<%=item.getDataId('delete')%>" rel="delegate">
+		<%= _t('Delete Listing') %>
+	</div>
+</div>

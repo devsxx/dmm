@@ -1,0 +1,477 @@
+.photo-upload-list .btn-form-photo {
+	float: left;
+}
+
+.album-detail-photo-item {
+	float: left;
+	padding: 2px;
+	width: 33.33%;
+
+	.item-image {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+		padding-bottom: 100%;
+		display:block;
+	}
+}
+
+.padding-base.album-detail-info {
+	padding-top: @box-padding-small;
+	margin-top: 0px;
+	border: 1px solid #d1d1d1;
+
+	.photo-list {
+		margin: 0 -@box-padding-small;
+		padding: 0;
+	}
+
+	.album-action-bar {
+		margin-top: @box-padding-small;
+	}
+}
+
+.photo-list {
+	padding: @box-padding-large - @box-padding-base/2;
+}
+.photo-album-list{
+	padding: @box-padding-large - @box-padding-base/2;
+}
+
+.photo-item{
+	float: left;
+	padding: @box-padding-base/2;
+	width: 33.33%;
+	@photo-item-height: 180px;
+	
+	.item-poster-link { 
+		display: block; 
+		.text-overflow();
+		color: @body-background;
+		padding-left: 41px;
+		line-height: 15px;
+		padding-top: 3px;
+		font-size: @font-size-small;
+	}
+	.item-posted-date{
+		color: @body-background;
+		padding-left: 41px;
+		line-height: 14px;
+		font-size: 11px; 
+	}
+	.item-poster-image {
+		background-position: center;
+		background-size: cover;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 34px;
+		height: 34px;
+	}
+	.item-stats{
+		display: inline-block;
+		padding-right: @box-padding-small;
+		line-height: 34px;
+		float:right;
+		&.next{
+			padding-left: @box-padding-small;
+		}
+	}
+	// end of customization
+	.item-wrapper{
+		position: relative;
+		overflow: hidden;
+	}
+	.swiper-container{
+		height: @photo-item-height;
+	}
+	.swiper-wrapper{
+		height: @photo-item-height;
+		overflow: hidden;
+	}
+	.swiper-slide{
+		height: @photo-item-height;
+		float:left;
+	}
+	.item-image{
+		// width: 300px; // do not set to 100% ( issue with slide.) caculate by javascript at injected time.
+		height: @photo-item-height;
+		background-size: cover;
+		background-position: center;
+		display:block;
+		position: relative;
+	}
+	
+	.item-footer-my {
+		color: white;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: @box-padding-base/2 @box-padding-base;
+		background-color: rgba(0,0,0,0.3);
+
+		.item-parent {
+			.text-overflow();
+		}
+			
+		.item-stats,
+		.item-title{
+			display: inline-block;
+		}
+		.next{
+			padding-left: @box-padding-base;
+		}
+	}
+
+	.item-footer{
+		color: white;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		// .gradient-vertical();
+		background-color: rgba(0,0,0,0.3);
+		height: 34px;
+		overflow: hidden;
+	}
+	
+
+	.item-title{
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow-x: hidden;
+	}
+
+	.item-header {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		padding: @box-padding-small;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+
+		background: -moz-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+		background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,1)),color-stop(100%,rgba(0,0,0,0)));
+		background: -webkit-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+		background: -o-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+		background: -ms-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+		background: linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+	}
+	.item-headline{
+		color: @body-background;
+		.text-overflow();
+	}
+}
+
+
+.photo-my-album-item,
+.photo-album-item {
+	width: 50%;
+	float: left;
+	padding: @box-padding-base/2;
+	@photo-album-item-height: 200px;
+	
+	.item-wrapper{
+		position: relative;
+		overflow: hidden;
+	}
+	.swiper-container{
+		height: @photo-album-item-height;
+	}
+	.swiper-wrapper{
+		height: @photo-album-item-height;
+		overflow: hidden;
+	}
+	.swiper-slide{
+		height: @photo-album-item-height;
+		float: left;
+	}
+	.item-image{
+		// width: 300px; // do not set to 100% ( issue with slide.) caculate by javascript at injected time.
+		height: @photo-album-item-height;
+		background-size: cover;
+		background-position: center;
+		display:block;
+		position: relative;
+	}
+
+	.item-footer{
+		color: white;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		// .gradient-vertical();
+		background-color: rgba(0,0,0,0.3);
+		height: 34px;
+		overflow: hidden;
+	}
+	
+
+	.item-title{
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow-x: hidden;
+	}
+
+	.item-header {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		padding: @box-padding-small;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+
+		background: -moz-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+		background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,1)),color-stop(100%,rgba(0,0,0,0)));
+		background: -webkit-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+		background: -o-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+		background: -ms-linear-gradient(top,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+		background: linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+	}
+	.item-headline{
+		color: @body-background;
+		.text-overflow();
+	}
+}
+
+.photo-album-item {
+	.item-poster-link { 
+		display: block; 
+		.text-overflow();
+		color: @body-background;
+		padding-left: 41px;
+		font-size: @font-size-small;
+	}
+
+	.item-posted-date {
+		color: @body-background;
+		padding-left: 41px;
+		line-height: 14px;
+		font-size: 11px; 
+	}
+
+	.item-poster-image {
+		background-position: center;
+		background-size: cover;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 34px;
+		height: 34px;
+	}
+
+	.item-stats {
+		display: inline-block;
+		padding-right: @box-padding-small;
+		line-height: 34px;
+		float:right;
+		&.next{
+			padding-left: @box-padding-small;
+		}
+	}
+}
+
+.photo-my-album-item{
+	.item-stats{
+		display: inline-block;
+		padding-left: @box-padding-small;
+		padding-right: @box-padding-small;
+		line-height: 34px;
+		float:left;
+	}
+	.item-posted-date{
+		color: @body-background;
+		line-height: 34px;
+		float:right;
+		padding-right: @box-padding-small;
+		font-size: @font-size-small;
+	}
+	.item-setting{
+		position: absolute;
+		right: 0;
+		top: 0;
+		.icon-setting{
+  			background-color: white;
+		  	width: 24px;
+		  	height: 24px;
+			background-position: center;
+		}
+	}
+}
+
+.content.content-photo-detail {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	background-color: #000;
+	
+	.swiper-slide {
+		width: 320px;
+		height: 100%;
+		float: left;
+
+		.content-slide {
+			position: relative;
+			width: 100%;
+			height: 100%;
+
+			.photo_display {
+				overflow: hidden;
+
+				.image-content {
+					position: absolute;
+					width: 100%;
+					height: 100%;          
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					display: block;
+				}
+			}
+
+		}
+	}  
+}
+
+.photo-content-outline{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.photo_detail_info {
+	position: absolute;
+	bottom: 36px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+
+	a {
+		color: white;
+	}
+
+	.photo-headline {
+		padding: @box-padding-base;
+		border-bottom: 1px dashed @border-color;		
+		color: darken(@body-background, 10%);
+		.text-overflow();
+
+		span { 
+			color: white; 
+			font-weight: bold;
+		}
+
+		a { 
+			color: @link-color;
+			font-weight: bold;
+		}
+	}
+
+	.photo-status  {
+		padding: @box-padding-base;
+		padding-bottom: 0;
+		font-size: ceil(@font-size-base * 0.9);
+		color: darken(@body-background, 10%);
+
+		a {
+			color: @brand-primary;
+		}
+	}
+
+	.photo-info-author {
+		.photo-time {
+			float: right;
+			color: @body-background;
+			padding: @box-padding-base;
+			line-height: ceil(@avatar-image-size*0.6);
+			font-size: @font-size-small;
+
+			.icon {
+				margin-right: 2px;
+			}
+		}
+
+		.photo-author {
+			padding: @box-padding-base;
+
+			.item-photo-author {
+				width: ceil(@avatar-image-size*0.6);
+				height: ceil(@avatar-image-size*0.6);
+				float: left;
+				display: block;
+				margin-right: @box-padding-small;
+				
+				img { 
+					width: ceil(@avatar-image-size*0.6);
+					height: ceil(@avatar-image-size*0.6);        
+				}
+			}
+
+			a {
+				display: block;
+				line-height: ceil(@avatar-image-size*0.6);
+				.text-overflow();
+			}
+		}
+	}
+}
+
+.photo-detail-action {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+
+	.footer {
+		position: absolute;
+
+		.menu-item {
+			&.liked .text-info {
+				color: #31708f;
+			}
+
+			.text-info,
+			.text-anchor {
+				color: #999;
+			}
+
+		}
+	}
+}
+
+.btn-close-photo-detail {
+	position: absolute;
+	z-index: 99;
+	top: @box-padding-base;
+	right: @box-padding-base;
+
+	background-image: url("@{image-path}/btn-close-photo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30px;
+	width: 32px;
+	height: 32px;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.photo-loading {
+	background-image: url("@{image-path}/photo-loading.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+.album-detail-index .activity-extra {
+	margin: 0 @box-padding-base;
+}
+
+.page-bottom .activity-extra { 
+	border-top: @separator-border-light;
+}

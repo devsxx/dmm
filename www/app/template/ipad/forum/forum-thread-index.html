@@ -1,0 +1,34 @@
+<!-- forum/tpl/forum-thread-index.html-->
+<div class="header">
+    <div href="#" clickable="true" data-click="sidebar:toggle" class="header-left">
+        <i class="icon icon-sidebar"></i>
+    </div>
+	<div class="header-center">
+		<%= utils.helper.updater() %>
+	</div>
+</div>
+
+<div class="content with-header-footer swiper-container" id="content">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="swiper-list vertical-align forum-thread-list-holder" id="forum_thread_list_holder">
+				
+			</div>
+            <%= utils.helper.loadmore() %>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="clearfix menu-justify grid-3 fobos">
+        <a class="menu-item" href="#forums">
+        	<div class=""><%= _t('Forums') %></div>
+        </a>
+        <a class="menu-item <%if (sView == 'new') {%>current<%}%>" href="#forum_threads/new">
+        	<div class="sibling"><%= _t('New Posts') %></div>
+        </a>
+        <div class="menu-item <%if (sView != 'new') {%>current<%}%>" id="footer_more_btn">
+        	<div class="sibling"><%= _t('More') %></div>
+        </div>
+    </div>
+</div>

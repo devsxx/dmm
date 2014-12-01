@@ -1,0 +1,18 @@
+<span>
+	<%=_t('page')%>:
+</span>
+<span id="first_page_btn" class="page-btn <%if (context.currentPage == 1) {%>disabled<%}%>">
+	<i class="icon icon-double-angle-left"></i>
+</span>
+<span id="prev_page_btn" class="page-btn <%if (context.currentPage == 1) {%>disabled<%}%>">
+	<i class="icon icon-angle-left"></i>
+</span>
+<span id="curr_page_num" class="page-btn current">
+	<%=context.currentPage%>
+</span>
+<span id="next_page_btn" class="page-btn <%if (context.currentPage == context.totalPage) {%>disabled<%}%>">
+	<i class="icon icon-angle-right"></i>
+</span>
+<span id="last_page_btn" class="page-btn <%if (context.currentPage == context.totalPage) {%>disabled<%}%>">
+	<i class="icon icon-double-angle-right"></i>
+</span>

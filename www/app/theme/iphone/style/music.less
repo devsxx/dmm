@@ -1,0 +1,329 @@
+@import "../style_base/media-player.less";
+@music-cover-width: 120px;
+@music-image-width: 68px;
+@button-player-width: 38px;
+
+.attachment-music-playlist{
+	margin: 0 @box-padding-base;
+	padding-top: @box-padding-base;
+	border-top: 1px dotted @gray-lighter;
+	.att-col-image{
+		a{
+			display:block;
+		}
+		
+	}
+	.att-col-info{
+		padding-left: @box-padding-base;
+	}
+	.att-item-image{
+		width: 60px;
+	}
+}
+.music-playlist-detail-info,
+.music-song-detail-info {
+	padding: @box-padding-base @box-padding-base;
+	border-bottom: 1px dashed darken(@body-background, 20%);
+	margin-bottom: @box-padding-base;
+
+	.item-headline{
+		text-align: center;
+		.text-overflow();
+	}
+	.item-subline{
+		margin-top: @box-padding-small;
+		text-align: center;
+
+		.item-stats{
+			display: inline-block;
+		}
+		.next{
+			padding-left: @box-padding-base;
+		}
+
+		.text-info,
+		.text-anchor {
+			color: #999;
+			font-size: @font-size-base;
+		}
+		
+		.rated .text-info {
+			color: #fb9a1d;
+		}
+		
+		.liked .text-info {
+			color: #009fda;
+		}
+
+	}
+}
+
+.music-playlist-detail-description {
+	padding: 0 @box-padding-base;
+	margin-bottom: @box-padding-base;
+	font-size: @font-size-small;
+}
+
+.music-player{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	
+	&.no-songs{
+		top: @music-cover-width/2 + @box-padding-small;
+	}
+	
+	.music-player-image{
+		width: @music-cover-width;
+		height: @music-cover-width;
+		margin: 1px auto 0 auto;     
+
+		background-size: cover;
+		background-repeat:no-repeat;
+		background-position:center center;
+		
+		.border-radius(@music-cover-width/2);    
+	}
+
+	&.rotation .music-player-image {
+		-webkit-animation: playing 5s infinite linear;
+	}  
+}
+
+@-webkit-keyframes playing {
+	0%   {-webkit-transform: rotate(0deg)}
+	100% {-webkit-transform: rotate(360deg)}
+}
+
+.music-playlist-item, .music-song-item {
+	padding: @box-padding-base 0;
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	& + div{
+		border-top: @separator-border;
+	}
+	
+	.item-image{
+		float: left;
+		width: @music-image-width;
+		
+		span {
+			width: @music-image-width;
+			height: @music-image-width;
+			background-size: cover;
+			background-position: center;
+			display: block;
+		}  
+	}
+	
+	.item-headline,
+	.item-stats-group,
+	.item-description{
+		padding-left: @music-image-width + @box-padding-base;
+	}
+	
+	.item-subline{
+		font-size: @font-size-small;
+
+		.user-poster {
+			max-width: 120px;      
+			display: inline-block;
+			vertical-align: middle;
+			.text-overflow();
+		}
+	}
+	
+	.item-description{
+		color: @item-description-color;  
+	}
+	
+	.item-subline{
+		color: @item-subline-color;
+		font-size: @font-size-small;
+		padding-left: @box-padding-base;
+		.text-overflow();
+	}
+	
+	.item-stats-group{
+		.separator{
+			margin: 4px 0;
+			border-top: @separator-border-light;  
+		}
+		
+		.item-stats{
+			display:inline-block;
+			margin-right: ceil(@box-padding-base*2) ;
+		}
+	}
+
+	.text-info,
+	.text-anchor {
+		color: #999;
+	}
+	
+	.rated .text-info {
+		color: #fb9a1d;
+	}
+	
+	.liked .text-info {
+		color: #009fda;
+	}
+}
+
+.miniplayer-content,
+.younet_html5_player {
+	min-height: @music-cover-width+(2*@box-padding-base);
+	position: relative;
+
+	.title-info {
+		padding: 0 @box-padding-base;
+	}
+}
+
+.mejs-container {
+	background: transparent;
+	min-height: @music-cover-width + (4*@box-padding-base);
+	padding: 0 @box-padding-small;
+	max-width: 100%;
+
+	.mejs-controls {
+		background: transparent;
+
+		.clear {
+			width: 0px;
+			height: 0px;
+		}
+
+		div.mejs-button {
+			position: absolute;
+			bottom: (@music-cover-width/2) + 30 - (@button-player-width/2) + 1;
+			left: 50%;
+			width: @button-player-width;
+			height: @button-player-width;
+			margin-left: -(@button-player-width/2);
+			z-index: @zindex-popover;
+
+			&.disabled {
+				opacity: 0.2;
+			}
+
+			&.mejs-prev-button {
+				margin-left: -@music-cover-width;
+
+				button {
+					border: 1px solid #58595b;
+					.border-radius(@button-player-width/2);
+					background-image: url("@{image-path}/player_prev_2.png");  
+				}
+			}
+
+			&.mejs-next-button {
+				margin-left: @music-cover-width - @button-player-width;
+
+				button {
+					border: 1px solid #58595b;
+					.border-radius(@button-player-width/2);
+					background-image: url("@{image-path}/player_next_2.png");  
+				}
+			}
+
+			&.mejs-play button {
+				background-image: url("@{image-path}/player_play.png");  
+			}
+
+			&.mejs-pause button {
+				background-image: url("@{image-path}/player_pause.png");  
+			}
+
+			button {
+				width: @button-player-width;
+				height: @button-player-width;
+				margin: 0;
+				background-color: transparent;
+				background-size: @button-player-width;
+				background-position: center;
+				background-repeat: no-repeat;
+				.border-radius(@button-player-width/2);      
+			}
+		}  
+
+		.mejs-time span {
+			color: @text-color;
+		}  
+
+		.mejs-time-rail {
+			span {
+				.border-radius(4px);    
+			}
+
+			.mejs-time-total {
+				background: darken(@body-background, 10%);
+			}
+
+			.mejs-time-loaded {
+				background: darken(@body-background, 20%);
+			}
+
+			.mejs-time-current {
+				background: @brand-primary;
+
+				.mejs-time-current-pointer {
+					width: 18px;
+					height: 18px;
+					background: @brand-primary;
+					border: 2px solid @body-background;
+					right: -8px;
+					top: -4px;
+					.border-radius(10px);    
+				}
+			}
+		}
+	}
+}
+
+.mejs-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: @brand-primary;
+	color: darken(@body-background, 10%);
+
+	li {    
+		padding: @box-padding-large @box-padding-base;
+
+		&.current {
+			color: @body-background;
+			font-weight: bold;
+		}
+		.play-icon,
+		.link {
+			display: none;
+		}
+
+		.song-order {
+			float: left;
+			width: 20px;
+			text-align: center;
+		}
+
+		.song-title {
+			.text-overflow();
+			display: block;
+		}
+	}
+
+	& > * + * {
+		border-top: 1px solid lighten(@brand-primary, 10%);
+	}
+}
+
+#music-action-bar {
+	margin: 0 @box-padding-small;
+	background-color: @body-background;
+	border-left: @separator-border;
+	border-right: @separator-border;
+	border-bottom: @separator-border;
+}
