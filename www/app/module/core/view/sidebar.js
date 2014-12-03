@@ -19,7 +19,7 @@ define([
 		className :'sidebar-content swiper-container',
 		events: {
 			// 'click #link_logout': 'logout',
-			'click .item': 'navigate',
+		//	'click .item': 'navigate',
 			'click': 'hide'
 		},
 		cached : false,
@@ -32,7 +32,13 @@ define([
 			
 			var self  = this;
 
+			//this is a patch << Nay 
+			$(self.region.wrapper).delegate(".item", "click", function(e){
 
+					self.navigate(e);
+			});
+
+			alert("sidebar initializing...");
 
 
 			this.menu_items.on('change',function(){
@@ -66,6 +72,7 @@ define([
             utils.observer.on('app:run',function(){
             	// Cache Implementation << Nay
 				self.cached = localStorage.getItem('sidebar');
+				alert(self.cached);
             	           if (self.cached) {
 				                self.cached = JSON.parse(self.cached);
 				                self.menu_items.reset();
@@ -118,7 +125,7 @@ define([
 			// silent
 		},
 		navigate: function(evt){
-
+ 				//alert("nav item click!");
             // lost connection
             if (Backbone.history.fragment == 'lost-connection') {
                 return;

@@ -70,12 +70,21 @@ module.exports = function(grunt) {
                     "./app/build/css/android.css": "./app/theme/android/style.less",
                 }
             }
-        }
+        },
+        copy: {
+		  main: {
+		    files: [
+		      // includes files within path and its sub-directories
+		      {expand: true, src: ['www/app/build/**'], dest: '../platforms/android/assets/www/app/build/'},
+		    ],
+		  },
+		}
 	});
 
 	// grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.loadNpmTasks('grunt-contrib-copy'); // everytime we compile, we have to copy to platform folders, it sucks and so<< Nay 
 	
 	// grunt.registerTask('build', ['jshint', 'requirejs']);
 	grunt.registerTask('iphone', ['requirejs:iphone', 'less:iphone']);

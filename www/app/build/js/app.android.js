@@ -9886,7 +9886,7 @@ define('core/view/sidebar',[
 		className :'sidebar-content swiper-container',
 		events: {
 			// 'click #link_logout': 'logout',
-			'click .item': 'navigate',
+		//	'click .item': 'navigate',
 			'click': 'hide'
 		},
 		cached : false,
@@ -9899,7 +9899,13 @@ define('core/view/sidebar',[
 			
 			var self  = this;
 
+			//this is a patch << Nay 
+			$(self.region.wrapper).delegate(".item", "click", function(e){
 
+					self.navigate(e);
+			});
+
+			alert("sidebar initializing...");
 
 
 			this.menu_items.on('change',function(){
@@ -9933,6 +9939,7 @@ define('core/view/sidebar',[
             utils.observer.on('app:run',function(){
             	// Cache Implementation << Nay
 				self.cached = localStorage.getItem('sidebar');
+				alert(self.cached);
             	           if (self.cached) {
 				                self.cached = JSON.parse(self.cached);
 				                self.menu_items.reset();
@@ -9985,7 +9992,7 @@ define('core/view/sidebar',[
 			// silent
 		},
 		navigate: function(evt){
-			alert("navigate!");
+ 				//alert("nav item click!");
             // lost connection
             if (Backbone.history.fragment == 'lost-connection') {
                 return;
