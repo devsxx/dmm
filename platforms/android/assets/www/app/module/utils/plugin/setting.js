@@ -12,7 +12,10 @@ define([
             cometchat_enabled: false,
             chat_enabled: false
         },
+        cached: false,
+
         fetchData: function() {
+
             api.get('core/settings', {}, {
                 context: this,
                 async: false
@@ -32,20 +35,27 @@ define([
 
         },
         initialize: function() {
-            var cached = localStorage.getItem('settings');
-            if (cached) {
-                cached = JSON.parse(cached);
-                this.set(cached);
-            }
+            var self = this;
+            observer.on('app:init user:login', function() {
+                        //Caching << Nay                         
+                        self.cached = localStorage.getItem('settings');
+                            if (self.cached) {
+                                self.cached = JSON.parse(self.cached);
+                                self.set(self.cached);
+                            }else {
+                                 self.fetchData();   
+                            }
+
+
+                    });
+
+
         }
     });
 
     // check to reload setting utils.
     var settings = new Settings({});
 
-    observer.on('app:init user:login', function() {
-        settings.fetchData();
-    })
 
     return settings;
 });

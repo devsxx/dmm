@@ -24,7 +24,20 @@ define([
 		inject: function(){
 			
 			$(this.region.main).html(this.$el);
-			
+
+            var viewer = localStorage.getItem("viewer");
+            var sidebar= localStorage.getItem("sidebar");
+             alert(viewer);
+             alert(sidebar);
+            if(viewer.length > 0 && sidebar.length > 0){
+                alert("viewer and sidebar present!");
+                        setTimeout(function(){
+                            window.location.href="#newsfeed";// there may have cached feeds << Nay 
+                        },1000);
+            }else {
+                window.location.href="#login";
+            }
+
 			return this;
 		},
         retry: function() {

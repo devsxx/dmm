@@ -13,135 +13,6 @@ define([ //Friends Invitation << Nay
         User  = require('user/model/user');
 
 
-    var facebookPermissions = ["email","user_friends","user_birthday"]; 
-
-     function getFacebookAccessTokenThenLogin(){
-
-        facebookConnectPlugin.getAccessToken(function(token){
-            facebookToken =  token;         
-            getFbProfileInfo();
-        },function(failed){
-            utils.debug.log('could not get facebook access token '+ failed);
-            loginToFacebook();
-        });
-    }
-    function friendDialog(){
-    alert("friend dialog!");
-    facebookConnectPlugin.showDialog( { method: "apprequests", message: "Hello EveryOne" });
-    //facebookConnectPlugin.invite('Invitation message better be inviting', 'Invitation Title', successCallback, failureCallback);
-    }
-    function loginToFacebook(){
-    
-        alert('login to facebook');
-        facebookConnectPlugin.login(facebookPermissions, getFbProfileInfo, function(msg){
-            alert(msg);
-        friendDialog();
-         utils.modal.alert(msg);                   
-        },function(){
-            alert(JSON.stringify(arguments));
-        });
-    }    
-    
-    function getFbProfileInfo(data){
-//           
-          alert("getFbProfileInfo");
-          if(data && data.hasOwnProperty('authResponse'))
-            facebookToken = data.authResponse.accessToken;
-         
-          utils.debug.log('getting facebook profile info  '+ JSON.stringify(data));
-          
-          facebookConnectPlugin.api('me/?fields=id,email,birthday,first_name,last_name,timezone,languages,name,gender', [],
-        
-            processLoginByFacebook,         
-            function () {
-                utils.debug.log(arguments);
-            });  
-        }
-        
-    function quickLogin(data) {
-            constants.token = data.token;
-
-            core.viewer.set(data);
-
-            localStorage.setItem('token', data.token);
-
-            localStorage.setItem('viewer', JSON.stringify(data));
-            //alert('quickLogin');
-            friendDialog();
-            window.location.href = '#pageviewselect';
-            //window.location.href = '#newsfeed';
-            //window.location.href = constants.fbinvite;
-            //window.location.reload();
-        }
-        
-    function processLoginByFacebook(jsonData) {
-            alert("processLoginByFacebook");
-            utils.debug.log('process login by facebook '+ JSON.stringify(jsonData));
-            
-            var sApi = "user/login";
-            
-            var jData = {
-                "sLoginBy": 'facebook',
-                "sEmail": jsonData.email,
-                "sLoginUID": jsonData.id,
-                'sAccessToken': facebookToken,
-            };
-
-            utils.debug.log(JSON.stringify(jData));
-            // Try to login
-            utils.api.post(sApi, jData).done(function(resData) {
-
-                if (resData == null) {
-                    navigator.notification.alert("Cannot connect to server");
-                    return;
-                }
-
-                if (resData.token != null) {
-
-                    quickLogin(resData);
-
-                } else {
-                    console.log(JSON.stringify(resData));
-                    // Account do not exists, signup new account
-                    utils.modal.toast("This account does not exists, please create a new one.");
-
-                    var user = new User(jsonData);
-                    // console.log(user);
-                    
-                    var sBirthday = jsonData.birthday;
-                    
-                    if(sBirthday){
-                        var ar = sBirthday.split('/');
-                        // fb reurn 'mm/dd/yyyy'
-                        sBirthday = ar[2] + '-' + ar[0] + '-'+ ar[1];
-                    }
-                    
-                    var updateData = {
-                        sFirstName: user.getFirstName(),
-                        sFullName: jsonData.name,
-                        sUserName: user.getUserName(),
-                        sBirthday: sBirthday,
-                        sEmail: user.getEmail(),
-                        sPhone: user.getPhone(),
-                        sLastName: user.getLastName(),
-                        iGender: jsonData.gender == 'male' ? 1 : (jsonData.gender == 'female' ? 0 : 2),
-                        sLoginUID: user.getId(),
-                        sAccessToken: facebookToken,
-                        sSecretToken: '',
-                        sFacebook: '',
-                        sLoginBy: 'facebook'
-                    };                  
-                    
-                    console.log(JSON.stringify(updateData));                  
-                }
-
-            }).fail(function(){
-                utils.modal.alert('can not process login by facebook');
-            });
-
-        }
-        
-
     return Backbone.View.extend({
         initialize: function() {
             
@@ -189,36 +60,64 @@ define([ //Friends Invitation << Nay
             return this;
         },
 
-        FBFriendRequestInit: function(){
-            alert("clicked!");
-        alert(facebookConnectPlugin);
-         facebookConnectPlugin.getLoginStatus(function(response){
-            alert(response.status);
-                switch(response.status){
-                    case 'connected': 
-                        //alert('connected');
-                        utils.debug.log('facebook now connected');
-                        friendDialog();
-                        break;
-                    case 'unknown':
-                    default:
-                        //alert('default');                       
-                        loginToFacebook();                      
-                        utils.debug.log('facebook connect status ' +  response.status);
-                        break;
-                }
-            },function(){
-                alert("getLoginStatus error.");
-                utils.debug.log(JSON.stringify(arguments));
-                getFacebookAccessTokenThenLogin();
-            }); 
+        FBFriendRequestInit: function(evt){
+             var $target = $(evt.currentTarget);
+             if($target.hasClass("processing")){return;}else{
+                $target.addClass("processing");
+             }
+
+            var  fbAppRequestDialog = function (){
+                            var options = { method:"apprequests", message: "Please Check out this app, buddy." };
+                            facebookConnectPlugin.showDialog(options,
+                                function (result) {
+                                    utils.modal.alert("Thank You!");
+                                    $("#friRequest").removeClass("processing");
+
+                                                 },
+                                function (e) {
+                                    utils.modal.alert(JSON.stringify(e));
+                                     $("#friRequest").removeClass("processing");
+                            });
+               };
+
+
+            var fbLoginSuccess = function (userData) {
+
+                    facebookConnectPlugin.getLoginStatus(
+                        function (status) {
+                            fbAppRequestDialog();
+                        }
+                    );
+
+                };
+
+
+            facebookConnectPlugin.getLoginStatus(function (status) {
+
+                            var facebookPermissions = ["public_profile"];
+                            alert(JSON.stringify(status.authResponse));
+                            if(status.authResponse && status.authResponse.userID){
+                                     fbAppRequestDialog();
+                            }else {
+                                  facebookConnectPlugin.login(facebookPermissions,
+                                        fbLoginSuccess,
+                                        function (error) { utils.modal.alert("login error : " + JSON.stringify(error)) }
+                                    );
+                            }
+                            
+
+                        },
+                        function (e){
+
+                        }
+                    );
 
 
 
 
         },
         onCancelClick: function() {
-            utils.modal.confirm(_t('No account will be created if you cancel this screen'), function(selected) {
+            utils.modal.confirm(_t('Are you sure you want to skip this? '), function(selected) {
                 if (selected == 1) {
                     signupData.reset();
                     window.location.href = "#login";

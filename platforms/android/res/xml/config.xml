@@ -62,6 +62,14 @@
     <feature name="PushPlugin">
         <param name="android-package" value="com.plugin.gcm.PushPlugin" />
     </feature>
+    <feature name="FacebookConnectPlugin">
+        <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
+    </feature>
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
     </feature>
@@ -74,21 +82,11 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="15000" />
-    <preference name="Fullscreen" value="false" />
+    <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackgroundColor" value="0xffffff" />
     <preference name="HideKeyboardFormAccessoryBar" value="true" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="KeyboardShrinksView" value="false" />
-    <feature name="FacebookConnectPlugin">
-        <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
-    </feature>
-    <access origin="https://m.facebook.com" />
-    <access origin="https://graph.facebook.com" />
-    <access origin="https://api.facebook.com" />
-    <access origin="https://*.fbcdn.net" />
-    <access origin="https://*.akamaihd.net" />
 </widget>

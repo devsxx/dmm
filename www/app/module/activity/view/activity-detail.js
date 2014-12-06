@@ -7,11 +7,14 @@ define([
 	// loading feed detail
 	
 	return ActivityItemView.extend({
-		events: {},
+		events: {
+			'click .btn-back':'goBack'
+		},
 		template: _.template(detailText),
 		templateUpdate: _.template(updateText),
 		settingView: SettingView,
 		className: 'activity-detail-page',
+
 		render: function(){
 			var self = this;
 			
@@ -31,7 +34,8 @@ define([
 		},
 		inject: function(){
 			
-			this.$holder.html(this.$el);
+			this.$holder.append(this.$el); //Nay 
+			$(".newsfeed-page").hide(); //Nay
 			
 			this.$scroller.ensureVerticalScroll();
 			
@@ -109,6 +113,11 @@ define([
 		},
 		doDeleteSuccess: function(){
 			utils.history.back();
+		},
+		goBack: function(){
+			utils.router.previous();
+			this.$holder.find(".newsfeed-page").show();
+			this.$holder.find(".activity-detail-page").hide().remove();
 		}
 	});
 });

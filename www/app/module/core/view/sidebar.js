@@ -38,8 +38,6 @@ define([
 					self.navigate(e);
 			});
 
-			alert("sidebar initializing...");
-
 
 			this.menu_items.on('change',function(){
 				self.updateView();
@@ -72,7 +70,7 @@ define([
             utils.observer.on('app:run',function(){
             	// Cache Implementation << Nay
 				self.cached = localStorage.getItem('sidebar');
-				alert(self.cached);
+
             	           if (self.cached) {
 				                self.cached = JSON.parse(self.cached);
 				                self.menu_items.reset();

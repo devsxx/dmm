@@ -22,6 +22,9 @@ define([   //Display Signup Form
         goNext: function(evt){
             var $target = $(evt.currentTarget);
 
+             window.location.href='#signup/step04'; //no step 4 -- testing facebook
+             return;
+
             if ($target.hasClass('processing')) {
                 return;
             }

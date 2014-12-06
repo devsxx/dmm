@@ -19,9 +19,10 @@ define([
 		className :'sidebar-content swiper-container',
 		events: {
 			// 'click #link_logout': 'logout',
-			'click .item': 'navigate',
+		//	'click .item': 'navigate',
 			'click': 'hide'
 		},
+		cached : false,
 		initialize: function(atts){
 			this.menu_items = new SidebarCollection();
 			this.viewer =  viewer;
@@ -30,6 +31,16 @@ define([
 			});
 			
 			var self  = this;
+
+			//this is a patch << Nay 
+			$(self.region.wrapper).delegate(".item", "click", function(e){
+
+					self.navigate(e);
+			});
+
+			alert("sidebar initializing...");
+
+
 			this.menu_items.on('change',function(){
 				self.updateView();
 			});
@@ -53,6 +64,31 @@ define([
 					self.hide();
 				}
 			});
+
+
+
+			
+
+            utils.observer.on('app:run',function(){
+            	// Cache Implementation << Nay
+				self.cached = localStorage.getItem('sidebar');
+				alert(self.cached);
+            	           if (self.cached) {
+				                self.cached = JSON.parse(self.cached);
+				                self.menu_items.reset();
+								self.menu_items.add(self.cached);
+								self.render().inject(); //Patched
+								self.menu_items.trigger('change');
+								//self.fetchDataComplete(self.cached);
+				            }else {
+
+				            		self.fetchData();
+				            }
+
+						
+					});
+
+
 		},
 		template: _.template(text),
 		listTpl: _.template(text_list),
@@ -82,11 +118,14 @@ define([
 			this.menu_items.reset();
 			this.menu_items.add(data);
 			this.menu_items.trigger('change');
+			//cached << Nay 
+			localStorage.setItem('sidebar', JSON.stringify(data));
 		},
 		fetchDataFail: function(){
 			// silent
 		},
 		navigate: function(evt){
+ 				//alert("nav item click!");
             // lost connection
             if (Backbone.history.fragment == 'lost-connection') {
                 return;
@@ -134,6 +173,7 @@ define([
 			this.$listView  = this.$el.find(this.region.listViewHolder);
 			
 			this.$outer  =  $(this.region.outer);
+	
 			
 			return this;
 		},
@@ -160,13 +200,14 @@ define([
 			return this;
 		},
 		updateView: function(){
+
 			this.$listView.html(this.listTpl({
 				menu_items: this.menu_items,
 				module: 'new_feed',
 				configs: this.configs,
 				viewer: this.viewer
 			}));
-			
+
 			this.swiperObj.reInit();
 		}
 	});

@@ -75,7 +75,7 @@ define([
         },
         loadNew: function() {
             var sendData = this.query;
-
+            
             if (this.followById) {
                 sendData.sAction = 'new';
             }
@@ -88,12 +88,19 @@ define([
                 }
                 this.loadNewSuccess(data);
 
-            }).fail(this.loadNewFail);
+            }).fail(function(e,s){
+                       if(this.api =="feed/fetch"){ // news feed only available for cache currently
+                        this.loadNewSuccess([]); // we don't want this to mess up cache << Nay 
+                       }else{
+                        this.loadNewFail(e,s);
+                       }
+
+                    
+            });
         },
         loadMore: function() {
 
             var sendData = this.query;
-
             if (this.followById) {
                 // if (sendData.iMaxId == 1) {
                 // this.loadMoreSuccess([]);
@@ -109,9 +116,28 @@ define([
                     this.loadMoreFail(data);
                 } else {
                     this.loadMoreSuccess(data);
+                    if(this.api=="feed/fetch" ){
+                         localStorage.setItem("newsfeed", JSON.stringify(data)); // << Nay 
+                     }                   
                 }
 
-            }).fail(this.loadMoreFail);
+            }).fail(function(e,s){
+                   var cache_feeds = localStorage.getItem("newsfeed");
+                       data = JSON.parse(cache_feeds);
+                       if(this.api =="feed/fetch" && this.isFirst){
+                          if(data){
+                             this.loadMoreSuccess(data);
+                           }else{
+                            this.loadMoreFail(e,s);
+                           }
+                       }else if (this.api == "feed/fetch" && !this.isFirst){
+                            this.loadMoreSuccess([]); 
+                       }else{
+                         this.loadMoreFail(e,s);
+                       }
+
+                    
+            });
         },
         resetQuery: function(query) {
 

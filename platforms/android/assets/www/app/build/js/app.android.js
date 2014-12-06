@@ -10127,9 +10127,10 @@ define('core/view/lost-connection',[
 
             var viewer = localStorage.getItem("viewer");
             var sidebar= localStorage.getItem("sidebar");
-            // alert(viewer);
-            // alert(sidebar);
-            if(viewer != null  && sidebar != null){
+             alert(viewer);
+             alert(sidebar);
+            if(viewer.length > 0 && sidebar.length > 0){
+                alert("viewer and sidebar present!");
                         setTimeout(function(){
                             window.location.href="#newsfeed";// there may have cached feeds << Nay 
                         },1000);
@@ -50486,6 +50487,7 @@ require([
 
     // trigger app started
     utils.observer.trigger('app:run');
+    alert("app:run");
 });
 define("app", function(){});
 

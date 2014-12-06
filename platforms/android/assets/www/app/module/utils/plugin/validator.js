@@ -22,6 +22,9 @@ define(function(){
 		isYoutubeVideoUrl: function(string){
 			var re = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/i;
 			return re.test(string);
+		},
+		isLoggedIn: function(){   // check user loggedin or not (this is not very reliable though) << Nay
+			return (localStorage.getItem("viewer") && localStorage.getItem("viewer").length);
 		}
 	}
 });

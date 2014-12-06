@@ -176,5 +176,5 @@ require([
 			
 	// trigger app started
 	utils.observer.trigger('app:run');
-	alert("app:run");
+
 });

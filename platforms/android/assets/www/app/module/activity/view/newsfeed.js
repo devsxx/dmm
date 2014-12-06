@@ -44,6 +44,7 @@ define([
 				this.$el.find('#newstory_view_holder'),
 			 	this.$scroller
 			 ).render().inject();
+
 			
 			return this;
 		},
