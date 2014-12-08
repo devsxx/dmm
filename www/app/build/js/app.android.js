@@ -17667,6 +17667,7 @@ define('activity/view/activity-detail',[
 
 		render: function(){
 			var self = this;
+
 			
 			this.$holder =  $('#main');
 			
@@ -17687,7 +17688,8 @@ define('activity/view/activity-detail',[
 			this.$holder.prepend(this.$el); //Nay 
 			$(".newsfeed-page").css({"opacity":0}); //Nay
 			
-			this.$scroller.ensureVerticalScroll();
+			this.$scroller.ensureVerticalScroll(); // this one causing issue while appending the page instead of adding it
+
 			
 			utils.api.get('feed/get', {
                 iActionId: this.model.getId(),
