@@ -30,7 +30,7 @@ define([
             if(viewer.length > 0 && sidebar.length > 0){
                         setTimeout(function(){
                             window.location.href="#newsfeed";// there may have cached feeds << Nay 
-                            window.location.reload();
+
                         },1000);
             }else {
                 window.location.href="#login";

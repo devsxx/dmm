@@ -3552,7 +3552,7 @@ select.control-full {
   background-image: url("../../../app/theme/android/images/icon-header-button-back.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 25px;
+  background-size: 20px;
   width: 45px;
 }
 .header .btn-add {
@@ -4755,6 +4755,13 @@ textarea.fluid-no-border {
 }
 .feed-location-name {
   color: #009fda;
+}
+.activity-detail-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  opacity: 0.5;
 }
 .page-notification {
   position: fixed;

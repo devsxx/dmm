@@ -3548,7 +3548,12 @@ select.control-full {
   background-repeat: no-repeat;
 }
 .header .btn-back {
-  display: none;
+  /*	display: none; */
+  background-image: url("../../../app/theme/android/images/icon-header-button-back.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px;
+  width: 45px;
 }
 .header .btn-add {
   background-image: url("../../../app/theme/android/images/icon-header-button-add.png");

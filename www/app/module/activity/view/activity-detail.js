@@ -34,8 +34,8 @@ define([
 		},
 		inject: function(){
 			
-			this.$holder.append(this.$el); //Nay 
-			$(".newsfeed-page").hide(); //Nay
+			this.$holder.prepend(this.$el); //Nay 
+			$(".newsfeed-page").css({"opacity":0}); //Nay
 			
 			this.$scroller.ensureVerticalScroll();
 			
@@ -116,7 +116,7 @@ define([
 		},
 		goBack: function(){
 			utils.router.previous();
-			this.$holder.find(".newsfeed-page").show();
+			this.$holder.find(".newsfeed-page").css({"opacity":1});
 			this.$holder.find(".activity-detail-page").hide().remove();
 		}
 	});

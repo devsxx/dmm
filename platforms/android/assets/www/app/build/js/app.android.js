@@ -9905,8 +9905,6 @@ define('core/view/sidebar',[
 					self.navigate(e);
 			});
 
-			alert("sidebar initializing...");
-
 
 			this.menu_items.on('change',function(){
 				self.updateView();
@@ -9939,7 +9937,7 @@ define('core/view/sidebar',[
             utils.observer.on('app:run',function(){
             	// Cache Implementation << Nay
 				self.cached = localStorage.getItem('sidebar');
-				alert(self.cached);
+
             	           if (self.cached) {
 				                self.cached = JSON.parse(self.cached);
 				                self.menu_items.reset();
@@ -10127,12 +10125,10 @@ define('core/view/lost-connection',[
 
             var viewer = localStorage.getItem("viewer");
             var sidebar= localStorage.getItem("sidebar");
-             alert(viewer);
-             alert(sidebar);
             if(viewer.length > 0 && sidebar.length > 0){
-                alert("viewer and sidebar present!");
                         setTimeout(function(){
                             window.location.href="#newsfeed";// there may have cached feeds << Nay 
+
                         },1000);
             }else {
                 window.location.href="#login";
@@ -17334,7 +17330,7 @@ define('activity/controller/newsfeed',[
 });
 
 
-define('text!activity/tpl/activity-detail.html',[],function () { return '<!-- activity/tpl/activity-detail.html -->\n<div class="header">\n\t<div class="header-left">\n\t\t<div class="btn-top btn-back" rel="back">\n\t\t</div>\n\t</div>\n\t<div class="header-center">\n\t\t<%= utils.helper.updater() %>\n\t</div>\n</div>\n\n<!-- swiper -->\n<div class="content content-activity-detail content-background with-header swiper-container" id="content">\n\t<div class="swiper-wrapper">\n\t\t<div class="swiper-slide">\n\t\t\t<div class="swiper-list vertical">\n\t\t\t\t<div class="pvs"></div>\n\t\t\t\t<div id="activity_detail_view_holder" class="clearfix activity-item">\n\t                <div class="loading-initiator">\n\t                    <!-- Loading ... -->\n\t                </div>\n\t            </div>\n\t\t\t</div>\n            <div id="activity_extra_holder" class="hide">\n                <!-- activity detail -->\n            </div>\n\t\t\t<%= utils.helper.loadmore() %>\t\n\t\t</div>\n\t</div> \n</div>\n';});
+define('text!activity/tpl/activity-detail.html',[],function () { return '<!-- activity/tpl/activity-detail.html -->\n<div class="header">\n\t<div class="header-left">\n\t\t<div class="btn-top btn-back" >\n\t\t</div>\n\t</div>\n\t<div class="header-center">\n\t\t<%= utils.helper.updater() %>\n\t</div>\n</div>\n\n<!-- swiper -->\n<div class="content content-activity-detail content-background with-header swiper-container" id="content">\n\t<div class="swiper-wrapper">\n\t\t<div class="swiper-slide">\n\t\t\t<div class="swiper-list vertical">\n\t\t\t\t<div class="pvs"></div>\n\t\t\t\t<div id="activity_detail_view_holder" class="clearfix activity-item">\n\t                <div class="loading-initiator">\n\t                    <!-- Loading ... -->\n\t                </div>\n\t            </div>\n\t\t\t</div>\n            <div id="activity_extra_holder" class="hide">\n                <!-- activity detail -->\n            </div>\n\t\t\t<%= utils.helper.loadmore() %>\t\n\t\t</div>\n\t</div> \n</div>\n';});
 
 
 define('text!activity/tpl/activity-detail-update.html',[],function () { return '<div class="item-wrapper">\n\t<div class="item-image">\n\t\t<img src="<%= item.getPosterImageSrc() %>" />\n\t</div>\n\t<div class="item-setting" clickable="true" id="<%= item.getDataId(\'setting\') %>" rel="delegate">\n\t\t<i class="icon icon-setting"></i>\n\t</div>\n\t<div class="item-headline">\n\t\t<% if (item.getActionType()==\'post\' || /_comment$/.test(item.getActionType())) { %>\n\t\t\t<%= item.getHeadline() %>\n\t\t\t<span class="feed-icon-privacy-status icon-privacy-everyone gray"></span>\n\t\t<% } else { %>\n\t\t\t<%=item.getPosterLink()%>\n            <span class="feed-icon-privacy-status <%= item.getPrivacyClass() %> gray"></span>\n\t\t\t<!-- <span class="feed-icon-privacy-status icon-privacy-friends gray"></span>\n\t\t\t<span class="feed-icon-privacy-status icon-privacy-friends-of-friends active"></span>\n\t\t\t<span class="feed-icon-privacy-status icon-privacy-only-me"></span>\n\t\t\t<span class="feed-icon-privacy-status icon-privacy-custom gray"></span> -->\n\t\t\t<% if(item.getHeadline()) { %>\n\t\t\t\t<p><%= item.getHeadline() %></p> \n\t\t\t<% } %>\t\n\t\t<% } %>\n\t</div>\n\t<div class="item-subline">\n\t\t<i class="icon icon-time"></i>\n\t\t<span class="livetime" data-livetime="<%= item.getTimestamp() %>"><%= item.getLivetime() %></span>\n\t</div>\n\t<% if(item.hasStory()){ %>\n\t<div class="clear item-story">\n\t\t<%= utils.str.shorten(item.getStory(), 200, true) %>\n\t</div>\n\t<% } %>\n\t<% if(item.hasAttachment()){ %>\n\t<div class="clear item-attachment">\n\t\t\n\t</div>\n\t<% } %>\n\t<div class="pvm"></div>\n\t<div class="actions-justify gray">\n\t\t<div class="action-item <%= item.isLiked()?\' liked\':\'\' %>" id="<%= item.getDataId(\'like\') %>" rel="delegate">\n\t\t\t<span class="text-info"><%= item.getLikeCount() %></span>\n\t\t\t<i class="icon icon-activity-like"></i>\n\t\t</div>\n\t\t<% if(item.canComment()){%>\n\t\t<div class="action-item js-comment-btn" id="<%= item.getDataId(\'comment\') %>" rel="delegate" data-display="focus">\n\t\t\t<span class="text-anchor"><%= item.getCommentCount() %></span>\n\t\t\t<i class="icon icon-activity-comment"></i>\n\t\t</div>\n\t\t<%} %>\n\t\t<% if(item.canShare()) { %>\n\t\t<div class="action-item" id="<%= item.getDataId(\'share\') %>" rel="delegate">\n\t\t\t<i class="icon icon-activity-share"></i>\n\t\t</div>\n\t\t<%} %>\n\t</div>\n</div>\n';});
@@ -17661,11 +17657,14 @@ define('activity/view/activity-detail',[
 	// loading feed detail
 	
 	return ActivityItemView.extend({
-		events: {},
+		events: {
+			'click .btn-back':'goBack'
+		},
 		template: _.template(detailText),
 		templateUpdate: _.template(updateText),
 		settingView: SettingView,
 		className: 'activity-detail-page',
+
 		render: function(){
 			var self = this;
 			
@@ -17685,7 +17684,8 @@ define('activity/view/activity-detail',[
 		},
 		inject: function(){
 			
-			this.$holder.html(this.$el);
+			this.$holder.append(this.$el); //Nay 
+			$(".newsfeed-page").hide(); //Nay
 			
 			this.$scroller.ensureVerticalScroll();
 			
@@ -17763,6 +17763,11 @@ define('activity/view/activity-detail',[
 		},
 		doDeleteSuccess: function(){
 			utils.history.back();
+		},
+		goBack: function(){
+			utils.router.previous();
+			this.$holder.find(".newsfeed-page").show();
+			this.$holder.find(".activity-detail-page").hide().remove();
 		}
 	});
 });
@@ -50487,7 +50492,7 @@ require([
 
     // trigger app started
     utils.observer.trigger('app:run');
-    alert("app:run");
+
 });
 define("app", function(){});
 

@@ -10128,7 +10128,7 @@ define('core/view/lost-connection',[
             if(viewer.length > 0 && sidebar.length > 0){
                         setTimeout(function(){
                             window.location.href="#newsfeed";// there may have cached feeds << Nay 
-                            window.location.reload();
+
                         },1000);
             }else {
                 window.location.href="#login";
@@ -17684,8 +17684,8 @@ define('activity/view/activity-detail',[
 		},
 		inject: function(){
 			
-			this.$holder.append(this.$el); //Nay 
-			$(".newsfeed-page").hide(); //Nay
+			this.$holder.prepend(this.$el); //Nay 
+			$(".newsfeed-page").css({"opacity":0}); //Nay
 			
 			this.$scroller.ensureVerticalScroll();
 			
@@ -17766,7 +17766,7 @@ define('activity/view/activity-detail',[
 		},
 		goBack: function(){
 			utils.router.previous();
-			this.$holder.find(".newsfeed-page").show();
+			this.$holder.find(".newsfeed-page").css({"opacity":1});
 			this.$holder.find(".activity-detail-page").hide().remove();
 		}
 	});
